@@ -1,0 +1,15 @@
+name: WOOLCODE-RTP
+version: '1.0-SNAPSHOT'
+main: pl.olczku.wOOLCODERTP.WOOLCODERTP
+api-version: '1.18'
+commands:
+  rtp:
+    description: Teleportuje gracza w losowe miejsce.
+    usage: /rtp [ustaw]
+permissions:
+  woolcodertp.use:
+    description: Pozwala na używanie komendy /rtp.
+    default: op
+  woolcodertp.ustaw:
+    description: Pozwala na ustawianie przycisków RTP.
+    default: op

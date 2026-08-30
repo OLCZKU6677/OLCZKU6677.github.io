@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="com.obiscr.chatgpt.settings.EasyCodeState">
+    <option name="projectFiles" value="$PROJECT_DIR$/src/main/java/pl/olczku/commands/commands/EcCommand.java;C:/Users/cbl83/IdeaProjects/WOOLCODE-CORE/src/main/java/pl/olczku/commands/commands/FeedCommand.java;C:/Users/cbl83/IdeaProjects/WOOLCODE-CORE/src/main/java/pl/olczku/commands/commands/GmCommand.java;C:/Users/cbl83/IdeaProjects/WOOLCODE-CORE/src/main/java/pl/olczku/commands/commands/HealCommand.java;C:/Users/cbl83/IdeaProjects/WOOLCODE-CORE/src/main/java/pl/olczku/commands/commands/HelpCommand.java;C:/Users/cbl83/IdeaProjects/WOOLCODE-CORE/src/main/java/pl/olczku/commands/commands/OiCommand.java;C:/Users/cbl83/IdeaProjects/WOOLCODE-CORE/src/main/java/pl/olczku/commands/commands/RepairCommand.java;C:/Users/cbl83/IdeaProjects/WOOLCODE-CORE/src/main/java/pl/olczku/commands/CORE_SHIELD.java" />
+  </component>
+</project>

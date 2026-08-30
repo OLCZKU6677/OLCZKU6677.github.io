@@ -1,0 +1,4 @@
+name: WOOLCODE-STATYSTYKI
+version: '1.0-SNAPSHOT'
+main: pl.olczku.wOOLCODESTATYSTYKI.WOOLCODESTATYSTYKI
+api-version: '1.18'

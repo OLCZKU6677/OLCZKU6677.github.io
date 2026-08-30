@@ -1,0 +1,3 @@
+typ: System
+opis: Dedykowany plugin serwerowy zoptymalizowany pod wysokie obciążenie.
+tagi: Java, MySQL, API

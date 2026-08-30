@@ -1,0 +1,9 @@
+api-settings:
+  # Adres URL API bota Discord (Zmień IP/domenę na właściwą maszynę, na której działa bot)
+  api-url: "http://TWOJ_IP_BOTA:3000/update_status"
+
+  # Tajny klucz do walidacji w bocie (musi być taki sam jak mcApiSecret w config.json bota)
+  api-secret: "TwojBardzoTajnyKlucz2025"
+
+  # Jak często (w sekundach) plugin ma wysyłać statystyki do bota
+  update-interval-seconds: 30

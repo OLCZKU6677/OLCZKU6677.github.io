@@ -1,0 +1,73 @@
+
+gui:
+  tytul: "§6System Artefaktów"
+  tekst_posiadany: "&a✓ Posiadasz ten artefakt!"
+  tekst_nie_posiadany: "&c✗ Nie posiadasz tego artefaktu"
+  tekst_wlaczony: " &a(WŁĄCZONY)"
+  tekst_wylaczony: " &c(WYŁĄCZONY)"
+  sloty:
+    szybkosci: 10
+    gornika: 12
+    wojownika: 14
+    rybaka: 16
+    obroncy: 28
+    szczesciarza: 30
+
+# Konfiguracja artefaktów - MOŻESZ ZMIENIAĆ NAZWY, OPISY, EFEKTY I MATERIAŁY
+artefakty:
+  szybkosci:
+    nazwa: "&aArtefakt Szybkości"
+    opis: "Daje +{value}% prędkości poruszania"
+    efekt: 25.0
+    material: FEATHER
+    wiadomosc_otrzymania: "&aOtrzymałeś artefakt: &fArtefakt Szybkości"
+
+  gornika:
+    nazwa: "&6Artefakt Górnika"
+    opis: "Daje +{value}% szybkości kopania"
+    efekt: 25.0
+    material: DIAMOND_PICKAXE
+    wiadomosc_otrzymania: "&aOtrzymałeś artefakt: &fArtefakt Górnika"
+
+  wojownika:
+    nazwa: "&cArtefakt Wojownika"
+    opis: "Zadaje +{value}% obrażeń"
+    efekt: 10.0
+    material: IRON_SWORD
+    wiadomosc_otrzymania: "&aOtrzymałeś artefakt: &fArtefakt Wojownika"
+
+  rybaka:
+    nazwa: "&bArtefakt Rybaka"
+    opis: "Ryby łowią się {value}% szybciej"
+    efekt: 50.0
+    material: FISHING_ROD
+    wiadomosc_otrzymania: "&aOtrzymałeś artefakt: &fArtefakt Rybaka"
+
+  obroncy:
+    nazwa: "&eArtefakt Obrońcy"
+    opis: "Otrzymujesz -{value}% obrażeń"
+    efekt: 15.0
+    material: SHIELD
+    wiadomosc_otrzymania: "&aOtrzymałeś artefakt: &fArtefakt Obrońcy"
+
+  szczesciarza:
+    nazwa: "&dArtefakt Szczęściarza"
+    opis: "{value}% szans na podwójne przedmioty"
+    efekt: 10.0
+    material: RABBIT_FOOT
+    wiadomosc_otrzymania: "&aOtrzymałeś artefakt: &fArtefakt Szczęściarza"
+
+
+nagrody:
+  wiadomosc: "§6§lGratulacje! Gracz {gracz} zdobył wszystkie artefakty!"
+  wiadomosc_gracz: "§6§lGratulacje! Zdobyłeś wszystkie artefakty!"
+
+
+wiadomosci:
+  otrzymanie_artefaktu: "&aOtrzymałeś artefakt: &f{artefakt}"
+  brak_artefaktu: "&cNie posiadasz tego artefaktu!"
+  juz_posiadasz: "&aJuż posiadasz ten artefakt!"
+  artefakt_wlaczony: "&aArtefakt {artefakt} został włączony!"
+  artefakt_wylaczony: "&cArtefakt {artefakt} został wyłączony!"
+
+# Dane graczy (nie edytuj ręcznie)

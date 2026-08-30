@@ -1,0 +1,9 @@
+# Promień teleportacji (domyślnie 5000)
+radius: 5000
+
+# Wiadomości wyświetlane po teleportacji
+messages:
+  # Tytuł wyświetlany po teleportacji
+  title: "&aTeleportacja!"
+  # Podtytuł wyświetlany po teleportacji
+  subtitle: "&7Zostałeś przeteleportowany w losowe miejsce!"

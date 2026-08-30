@@ -1,0 +1,9 @@
+commands:
+  example_command:
+    description: "This is an example command"
+    permission: "example.permission"
+    action: "say This is an example command!"
+  hello:
+    description: "Says hello to the server"
+    permission: "hello.permission"
+    action: "say Hello, everyone!"

@@ -1,0 +1,19 @@
+name: skyluck_cooldown_skrzyn
+version: '1.0-SNAPSHOT'
+main: pl.olczku.skyluck_cooldown_skrzyn.Skyluck_cooldown_skrzyn
+api-version: '1.20'
+author: Olczku
+
+commands:
+  skyluckcooldown:
+    description: Główna komenda pluginu.
+    permission: skyluck.cooldown.reload
+    usage: /<command> reload
+
+permissions:
+  skyluck.cooldown.reload:
+    description: Pozwala na przeładowanie konfiguracji pluginu.
+    default: op
+  skyluck.cooldown.bypass:
+    description: Pozwala na natychmiastowe otwieranie skrzynek.
+    default: false

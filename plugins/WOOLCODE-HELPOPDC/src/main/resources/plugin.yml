@@ -1,0 +1,15 @@
+name: WOOLCODE-HELPOPDC
+version: 1.0
+main: pl.olczku.wOOLCODEHELPOPDC.Main
+author: Olczku | WOOLCODE
+commands:
+  helpop:
+    description: Wysyla wiadomosc do administracji.
+    usage: /helpop <wiadomosc>
+permissions:
+  woolcodehelpop.use:
+    description: Pozwala uzywac komendy /helpop.
+    default: true
+  woolcodehelpop.view:
+    description: Pozwala ogladac wiadomosci helpop na Discordzie.
+    default: op

@@ -1,0 +1,8 @@
+adminPin: "1234"
+messages:
+  loginTitle: "&aWpisz /kodadm <kod>"
+  loginSubtitle: "&eAby się zalogować"
+allowedCommands:
+  - "/help"
+  - "/msg"
+  - "/tell"

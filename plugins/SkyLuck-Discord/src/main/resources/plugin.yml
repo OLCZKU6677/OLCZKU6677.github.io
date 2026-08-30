@@ -1,0 +1,5 @@
+name: SkyLuckDiscord
+version: 1.0
+main: pl.olczku.skyLuckDiscord.SkyLuckDiscord
+author: Olczku
+description: Wysyła statystyki graczy do bota Discord.

@@ -1,0 +1,10 @@
+banned-words:
+  - kurwa
+  - chuj
+  - jebani
+  - debil
+  - pizda
+  - szmata
+  - skurwysyn
+kick-player: false
+warn-message: "&cNie używaj wulgaryzmów!"

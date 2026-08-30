@@ -1,0 +1,14 @@
+name: WOOLCODE-AUTORESTARTZAM.
+version: '1.0-SNAPSHOT'
+main: pl.olczku.wOOLCODEAUTORESTARTZAM.WOOLCODEAUTORESTARTZAM
+api-version: '1.18'
+author: WOOLCODE | OLCZKU
+commands:
+  autorestart:
+    description: Auto restart
+    usage: /<command> [now|cancel|reload|time]
+    aliases: [ar, restart]
+permissions:
+  woolcode.autorestart.admin:
+    description: Auto RESTART
+    default: op

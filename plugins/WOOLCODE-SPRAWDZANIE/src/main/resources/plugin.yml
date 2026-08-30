@@ -1,0 +1,17 @@
+name: WOOLCODESPRAWDZANIE
+version: 1.0
+main: pl.olczku.wOOLCODESPRAWDZANIE.WOOLCODESPRAWDZANIE
+api-version: 1.20
+commands:
+  sprawdz:
+    description: Komenda do sprawdzania graczy.
+  czysty:
+    description: Szybkie oczyszczanie gracza z zarzutów.
+  reload:
+    description: Przeładowanie config.yml i messages.yml.
+  ustaw:
+    description: Ustawia punkt sprawdzania.
+  brakwspolpracy:
+    description: Ban za brak współpracy.
+  cheaty:
+    description: Ban za cheaty.

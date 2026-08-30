@@ -1,0 +1,6 @@
+name: LightGrow
+version: 1.0
+main: pl.olczku.lightgrow.LightGrow
+api-version: 1.21
+description: Crops can be planted and grow in darkness.
+author: Olczku

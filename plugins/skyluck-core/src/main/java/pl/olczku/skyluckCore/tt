@@ -1,0 +1,11 @@
+z tym restartem to ma byc ze bo normalnie jest tak
+
+ze jak restartujesz serwer
+
+to serwer sie stopuje
+
+zapisuje dane
+
+i dopiero po zapisie wyrzuca graczy
+
+i to czesto moze powodowac rozne bledy

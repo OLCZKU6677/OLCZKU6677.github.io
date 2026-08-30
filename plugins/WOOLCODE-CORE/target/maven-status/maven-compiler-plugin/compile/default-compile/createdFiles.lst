@@ -1,0 +1,9 @@
+pl\olczku\commands\commands\GmCommand.class
+pl\olczku\commands\commands\HelpCommand.class
+pl\olczku\commands\commands\RepairCommand.class
+pl\olczku\commands\commands\FeedCommand.class
+pl\olczku\commands\CORE_SHIELD.class
+pl\olczku\commands\commands\EcCommand.class
+pl\olczku\commands\commands\OiCommand.class
+pl\olczku\commands\commands\HealCommand.class
+pl\olczku\commands\commands\ReloadCommand.class

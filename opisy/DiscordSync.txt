@@ -1,0 +1,3 @@
+typ: Bot Discord
+opis: Zaawansowany system weryfikacji i synchronizacji rang oraz kont graczy Minecraft z kontami na serwerze Discord.
+tagi: Python, Discord.py, Minecraft

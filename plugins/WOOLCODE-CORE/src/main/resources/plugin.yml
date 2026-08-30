@@ -1,0 +1,39 @@
+name: CORE_SHIELD
+version: 1.0
+main: pl.olczku.commands.CORE_SHIELD
+
+api-version: 1.18
+author: WOOLCODE
+commands:
+  gm:
+    description: Zmienia tryb gry.
+    usage: /gm <tryb>
+    permission: core.gm
+  heal:
+    description: Leczy gracza.
+    usage: /heal
+    permission: core.heal
+  feed:
+    description: Karmi gracza.
+    usage: /feed
+    permission: core.feed
+  repair:
+    description: Naprawia przedmioty.
+    usage: /repair
+    permission: core.repair
+  pomoc:
+    description: Wyświetla pomoc.
+    usage: /pomoc
+    permission: core.pomoc
+  ec:
+    description: Otwiera enderchest gracza.
+    usage: /ec
+    permission: core.ec
+  oi:
+    description: Otwiera ekwipunek innego gracza.
+    usage: /oi <gracz>
+    permission: core.oi
+  core-reload:
+    description: Przeładowuje konfigurację pluginu.
+    usage: /reload
+    permission: core.reload

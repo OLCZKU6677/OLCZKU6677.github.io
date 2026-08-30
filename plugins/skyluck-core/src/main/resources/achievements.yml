@@ -1,0 +1,205 @@
+
+#
+# Typy eventów dostępne:
+# - block-break: niszczenie bloków
+# - block-place: stawianie bloków
+# - entity-kill: zabijanie istot
+# - player-death: śmierć gracza
+# - join: wejście na serwer
+# - location: osiągnięcie lokacji
+# - item-craft: craftowanie przedmiotów
+# - item-enchant: enchantowanie przedmiotów
+# - player-move: poruszanie się gracza
+# - custom: własne eventy
+
+achievements:
+  first_join:
+    name: "&6&lPierwsze Wejście"
+    type: "join"
+    target: "join"
+    required_amount: 1
+    reward_command: "give %player% diamond 5"
+    completed_by: null
+
+
+  stone_miner:
+    name: "&7&lGórnik Kamienia"
+    type: "block-break"
+    target: "STONE"
+    required_amount: 1000
+    reward_command: "give %player% iron_pickaxe 1"
+    completed_by: null
+
+  coal_miner:
+    name: "&8&lGórnik Węgla"
+    type: "block-break"
+    target: "COAL_ORE"
+    required_amount: 500
+    reward_command: "give %player% coal_block 10"
+    completed_by: null
+
+  iron_miner:
+    name: "&f&lGórnik Żelaza"
+    type: "block-break"
+    target: "IRON_ORE"
+    required_amount: 250
+    reward_command: "give %player% iron_block 5"
+    completed_by: null
+
+  gold_miner:
+    name: "&e&lGórnik Złota"
+    type: "block-break"
+    target: "GOLD_ORE"
+    required_amount: 100
+    reward_command: "give %player% golden_apple 5"
+    completed_by: null
+
+  diamond_miner:
+    name: "&b&lGórnik Diamentów"
+    type: "block-break"
+    target: "DIAMOND_ORE"
+    required_amount: 50
+    reward_command: "give %player% diamond_block 3"
+    completed_by: null
+
+  emerald_miner:
+    name: "&a&lGórnik Emeraldów"
+    type: "block-break"
+    target: "EMERALD_ORE"
+    required_amount: 25
+    reward_command: "give %player% emerald_block 2"
+    completed_by: null
+
+
+  zombie_slayer:
+    name: "&2&lPogromca Zombie"
+    type: "entity-kill"
+    target: "ZOMBIE"
+    required_amount: 100
+    reward_command: "give %player% iron_sword 1"
+    completed_by: null
+
+  skeleton_slayer:
+    name: "&f&lŁowca Szkieletów"
+    type: "entity-kill"
+    target: "SKELETON"
+    required_amount: 100
+    reward_command: "give %player% bow 1"
+    completed_by: null
+
+  creeper_slayer:
+    name: "&a&lEkspert od Creeperów"
+    type: "entity-kill"
+    target: "CREEPER"
+    required_amount: 50
+    reward_command: "give %player% gunpowder 64"
+    completed_by: null
+
+  enderman_slayer:
+    name: "&5&lŁowca Endermanów"
+    type: "entity-kill"
+    target: "ENDERMAN"
+    required_amount: 25
+    reward_command: "give %player% ender_pearl 16"
+    completed_by: null
+
+  dragon_slayer:
+    name: "&5&lPogromca Smoka"
+    type: "entity-kill"
+    target: "ENDER_DRAGON"
+    required_amount: 1
+    reward_command: "give %player% dragon_head 1"
+    completed_by: null
+
+  wither_slayer:
+    name: "&8&lPogromca Withera"
+    type: "entity-kill"
+    target: "WITHER"
+    required_amount: 1
+    reward_command: "give %player% nether_star 1"
+    completed_by: null
+
+
+  nether_explorer:
+    name: "&4&lOdkrywca Netheru"
+    type: "location"
+    target: "NETHER"
+    required_amount: 1
+    reward_command: "give %player% netherite_scrap 4"
+    completed_by: null
+
+  end_explorer:
+    name: "&5&lOdkrywca Endu"
+    type: "location"
+    target: "THE_END"
+    required_amount: 1
+    reward_command: "give %player% chorus_fruit 16"
+    completed_by: null
+
+  sky_explorer:
+    name: "&b&lEksplorator Niebios"
+    type: "location"
+    target: "height_100"
+    required_amount: 1
+    reward_command: "give %player% elytra 1"
+    completed_by: null
+
+  deep_diver:
+    name: "&1&lGłębinowy Nurek"
+    type: "location"
+    target: "depth_-50"
+    required_amount: 1
+    reward_command: "give %player% water_breathing 3600"
+    completed_by: null
+
+
+  master_crafter:
+    name: "&6&lMistrz Craftingu"
+    type: "item-craft"
+    target: "WORKBENCH"
+    required_amount: 50
+    reward_command: "give %player% crafting_table 1"
+    completed_by: null
+
+  enchant_master:
+    name: "&d&lMistrz Zaklęć"
+    type: "item-enchant"
+    target: "ENCHANTING_TABLE"
+    required_amount: 25
+    reward_command: "give %player% experience_bottle 32"
+    completed_by: null
+
+
+  master_builder:
+    name: "&e&lMistrz Budownictwa"
+    type: "block-place"
+    target: "BUILDING_BLOCKS"
+    required_amount: 1000
+    reward_command: "give %player% stone 64"
+    completed_by: null
+
+
+  death_master:
+    name: "&4&lMistrz Śmierci"
+    type: "player-death"
+    target: "death"
+    required_amount: 10
+    reward_command: "give %player% totem_of_undying 1"
+    completed_by: null
+
+  marathon_runner:
+    name: "&a&lMaratoński Biegacz"
+    type: "player-move"
+    target: "distance_10000"
+    required_amount: 1
+    reward_command: "effect give %player% speed 3600 1"
+    completed_by: null
+
+# Ustawienia systemu osiągnięć
+settings:
+  # osiagniacia na czacie True - wlaczone False - wylaczone
+  broadcast_achievements: true
+  give_rewards: true
+  save_player_progress: true
+
+  check_cooldown: 5

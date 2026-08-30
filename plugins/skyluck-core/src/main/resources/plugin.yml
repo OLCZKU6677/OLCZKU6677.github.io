@@ -1,0 +1,74 @@
+name: skyluck-core
+version: '1.0-SNAPSHOT'
+main: pl.olczku.skyluckCore.Przekierowanie.OlczkuDannyPrzekKom
+api-version: '1.20'
+author: Olczku
+depend: [PlaceholderAPI]
+description: Główny plugin dla serwera Skyluck zarządzający dropem i skrzynkami.
+
+commands:
+  osiagniecia:
+    description: Pokazuje listę osiągnięć
+    usage: /osiagniecia
+  artefakty:
+    description: Zarządzanie artefaktami
+    usage: /<command> [daj|lista|reload|pomoc]
+  stattrak:
+    description: Komenda do zarządzania StatTrak
+    usage: /<command> <give|other>
+    permission: skyluck.core.stattrak.admin
+  core:
+    description: Główna komenda administracyjna pluginu.
+    usage: "/core reload"
+    permission: skyluck.core.admin
+    aliases: [slcore, p]
+  drop:
+    description: Dodaje przedmiot trzymany w ręce jako drop do skrzynki.
+    usage: "/drop <szansa>"
+    permission: skyluck.core.drop
+  resetskrzynki:
+    description: Resetuje cooldown na otwieranie skrzynek w danym świecie.
+    usage: "/resetskrzynki"
+    permission: skyluck.core.reset
+  skrzynka:
+    description: Zarządza skrzynkami z poziomami.
+    usage: "/skrzynka <poziom> | /skrzynka dodaj <poziom> <szansa>"
+    aliases: [s, skrzynki]
+  wymiana:
+    description: Otwiera GUI do wymiany skrzynek na wyższy poziom.
+    usage: "/wymiana"
+    aliases: [wymien, upgrade]
+  generator:
+    description: Zarządza generatorami stone.
+    usage: "/generator <daj|reload>"
+    permission: skyluck.core.generator.admin
+    aliases: [gen]
+
+permissions:
+  skyluckcore.achievements:
+    description: Dostęp do komendy osiągnięć
+    default: true
+  skyluck.core.admin:
+    description: Dostęp do komendy /core reload.
+    default: op
+  skyluck.core.drop:
+    description: Dostęp do komendy /drop.
+    default: op
+  skyluck.core.reset:
+    description: Dostęp do komendy /resetskrzynki.
+    default: op
+  skyluck.core.skrzynka.admin:
+    description: Pozwala na dawanie skrzynek komendą /skrzynka <poziom>.
+    default: op
+  skyluck.core.skrzynka.dodaj:
+    description: Pozwala na dodawanie itemów do skrzynek komendą /skrzynka dodaj.
+    default: op
+  skyluck.drop.bonus20:
+    description: Daje 20% większą szansę na drop ze skrzynek otwieranych z opóźnieniem.
+    default: false
+  skyluck.core.generator.admin:
+    description: Dostęp do komendy /generator.
+    default: op
+  skyluckcore.artefakty.admin:
+    description: Uprawnienie do dawania artefaktów
+    default: op

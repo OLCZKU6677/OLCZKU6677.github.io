@@ -1,0 +1,6 @@
+name: WOOLCODE-DCCONSOLE
+version: 1.0
+main: pl.olczku.wOOLCODEDCCONSOLE.WOOLCODEDCCONSOLE
+api-version: 1.13
+authors:
+  - WOOLCODE

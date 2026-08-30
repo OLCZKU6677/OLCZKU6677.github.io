@@ -1,0 +1,47 @@
+reload-interval-minutes: 180
+reload-countdown-seconds: 10
+disable-plugin:
+  enabled: true
+  plugin-name: "CombatLogX"
+  time-before-reload: "5m"
+  message:
+    title: "&c&lANTI-LOGOUT"
+    subtitle: "&7został wyłączony na czas przeładowania!"
+    chat: "&8[&c!&8] &7Plugin Anti-Logout został wyłączony. Możesz się bezpiecznie wylogować."
+announcements:
+  '1h':
+    title: "&c&lPRZEŁADOWANIE"
+    subtitle: "&7Nastąpi za 1 godzinę!"
+    chat: ""
+  '30m':
+    title: "&c&lPRZEŁADOWANIE"
+    subtitle: "&7Nastąpi za 30 minut!"
+    chat: ""
+  '10m':
+    title: "&c&lPRZEŁADOWANIE"
+    subtitle: "&7Nastąpi za 10 minut!"
+    chat: "&8[&c!&8] &cSerwer zostanie przeładowany za 10 minut!"
+  '5m':
+    title: "&c&lPRZEŁADOWANIE"
+    subtitle: "&7Nastąpi za 5 minut!"
+    chat: "&8[&c!&8] &cSerwer zostanie przeładowany za 5 minut!"
+  '1m':
+    title: "&c&lPRZEŁADOWANIE"
+    subtitle: "&7Nastąpi za 1 minutę!"
+    chat: "&8[&c!&8] &cSerwer zostanie przeładowany za 1 minutę!"
+  '30s':
+    title: "&c&lPRZEŁADOWANIE"
+    subtitle: "&7Nastąpi za 30 sekund!"
+    chat: ""
+  '15s':
+    title: "&c&lPRZEŁADOWANIE"
+    subtitle: "&7Nastąpi za 15 sekund!"
+    chat: ""
+reload-countdown:
+  title: "&c&lPRZEŁADOWANIE"
+  subtitle: "&7za &c%time% &7sekund..."
+  chat: ""
+reload-now:
+  title: "&c&lPRZEŁADOWANIE"
+  subtitle: "&7Przeładowywanie..."
+  chat: "&8[&c!&8] &cTrwa przeładowywanie serwera!"

@@ -1,0 +1,6 @@
+kod: "WOOLCODE"
+
+komendy:
+  - "give %player% diamond 5"
+  - "give %player% gold_ingot 10"
+  - "say Gracz %player% wpisał poprawny kod!"

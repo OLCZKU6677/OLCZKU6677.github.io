@@ -1,0 +1,3 @@
+typ: Plugin
+opis: Przykładowy plugin do serwera Minecraft dodający zaawansowaną ekonomię, rynek graczy oraz integrację z bazą danych MySQL.
+tagi: Java, MySQL, Paper

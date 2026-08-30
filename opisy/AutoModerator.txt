@@ -1,0 +1,3 @@
+typ: Plugin
+opis: Inteligentny anty-spam, filtr przekleństw i ochrona czatu w czasie rzeczywistym z panelem administracyjnym.
+tagi: Java, Paper, Spigot

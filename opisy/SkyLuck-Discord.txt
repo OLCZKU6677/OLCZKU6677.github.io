@@ -1,0 +1,3 @@
+typ: Bot Discord
+opis: Zaawansowany bot Discord zintegrowany z infrastrukturą serwerową.
+tagi: Python, Discord.py

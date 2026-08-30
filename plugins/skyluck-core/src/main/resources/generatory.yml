@@ -1,0 +1,23 @@
+
+interval: 20
+blocks:
+  COBBLESTONE: 75.0
+  COAL_ORE: 15.0
+  IRON_ORE: 7.5
+  GOLD_ORE: 2.0
+  DIAMOND_ORE: 0.5
+
+
+crafting_recipe:
+
+  enabled: true
+  # Kształt craftingu w siatce 3x3. Puste miejsca oznacz spacją.
+  shape:
+    - "ABA"
+    - "BCB"
+    - "ABA"
+
+  ingredients:
+    A: "OBSIDIAN"
+    B: "DIAMOND_BLOCK"
+    C: "NETHER_STAR"

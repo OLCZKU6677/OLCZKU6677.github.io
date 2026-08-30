@@ -1,0 +1,4 @@
+name: WOOLCODE-GENERATORS
+version: '1.0-SNAPSHOT'
+main: pl.olczku.wOOLCODEGENERATORS.WOOLCODEGENERATORS
+api-version: '1.18'

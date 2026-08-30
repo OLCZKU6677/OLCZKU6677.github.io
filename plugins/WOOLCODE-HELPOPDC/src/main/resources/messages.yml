@@ -1,0 +1,10 @@
+only-player: "&cTa komenda moze byc uzyta tylko przez gracza!"
+no-permission: "&cNie masz permisji do uzycia tej komendy! (woolcodehelpop.use)"
+usage: "&cUzycie: /helpop <wiadomosc>"
+message-sent: "&a[HELPOP] Twoja wiadomosc zostala wyslana do administracji!"
+error: "&c[HELPOP] Wystapil blad podczas wysylania wiadomosci do administracji!"
+
+embed:
+  title: "Nowy Helpop!"
+  player: "Gracz"
+  message: "Wiadomosc"

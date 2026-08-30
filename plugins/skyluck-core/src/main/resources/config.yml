@@ -1,0 +1,74 @@
+allowed_world: "world"
+opening_delay_seconds: 10
+chest_cooldown_hours: 24
+przekierowania:
+  pomoc: "essentials:help"
+
+
+clear-items:
+  interval: 15 # co ile minut czyścić przedmioty
+  enabled-worlds:
+    - "pltest"
+    - "world_nether"
+    - "world_the_end"
+  message: "&7[&6System&7] &fUsunięto &e{count} &fprzedmiotów z ziemi!"
+  message_5min: "&7[&6System&7] &cPrzedmioty z ziemi zostaną usunięte za 5 minut! &7(%skyluck-czas%)"
+  message_1min: "&7[&6System&7] &cPrzedmioty z ziemi zostaną usunięte za 1 minutę! &7(%skyluck-czas%)"
+  message_30sec: "&7[&6System&7] &cPrzedmioty z ziemi zostaną usunięte za 30 sekund! &7(%skyluck-czas%)"
+  message_10sec: "&7[&6System&7] &cPrzedmioty z ziemi zostaną usunięte za 10 sekund! &7(%skyluck-czas%)"
+
+fly:
+  allowed-worlds:
+    - "world"
+    - "pltest"
+
+
+
+messages:
+  fly_disabled_world: "&cLatanie jest wyłączone na tym świecie!"
+  fly_enabled: "&aLatanie włączone!"
+  fly_disabled: "&cLatanie wyłączone!"
+  fly_enabled_other: "&aLatanie włączone dla gracza {player}!"
+  fly_disabled_other: "&cLatanie wyłączone dla gracza {player}!"
+  gamma_enabled: "&aNight vision włączone! Użyj /gamma ponownie aby wyłączyć."
+  gamma_disabled: "&cNight vision wyłączone."
+  stattrack_given: "{prefix}&aAktywator StatTrak został przekazany graczu &e{player}&a."
+  stattrack_no_item: "{prefix}&cMusisz trzymać przedmiot wspierający StatTrak w ręce!"
+  stattrack_applied: "{prefix}&aStatTrak został nałożony na przedmiot!"
+  prefix: "&8[&6SkyluckCore&8] &r"
+  no_permission: "{prefix}&cNie masz uprawnień do tej komendy."
+  player_only: "{prefix}&cTa komenda jest dostępna tylko dla graczy."
+  reload_done: "{prefix}&aKonfiguracja została przeładowana."
+  number_required: "{prefix}&cMusisz podać poprawną liczbę."
+  core_usage: "{prefix}&7Użycie: &e/core reload"
+  drop_usage: "{prefix}&7Użycie: &e/drop <szansa>"
+  hand_empty: "{prefix}&cMusisz trzymać jakiś przedmiot w ręce."
+  look_at_chest: "{prefix}&cMusisz patrzeć na skrzynkę."
+  wrong_world: "{prefix}&cMożesz to zrobić tylko w świecie &e{world}&c."
+  drop_added: "{prefix}&aDodano drop &e{item} x{amount}&a do skrzynki &e{key}&a z szansą &e{chance}%&a (ID: {id})."
+  reset_done_clear: "{prefix}&aZresetowano cooldowny na otwieranie skrzynek w tym świecie."
+  chest_cooldown: "{prefix}&cMożesz otworzyć tę skrzynkę dopiero za &e{hours}h {minutes}m&c."
+  already_opening: "{prefix}&cJuż otwierasz inną skrzynkę!"
+  chest_missing: "{prefix}&cSkrzynka została zniszczona! Otwieranie anulowane."
+  chest_opened: "{prefix}&aPomyślnie otwarto skrzynkę!"
+  start_opening: "&aOtwieranie skrzynki za: &e{seconds}s..."
+  moved_cancel: "{prefix}&cPoruszyłeś się! Anulowano otwieranie skrzynki."
+  skrzynka_usage: "{prefix}&7Użycie: &e/skrzynka <poziom> &flub &e/skrzynka daj <gracz> <poziom>"
+  invalid_level: "{prefix}&cPodano nieprawidłowy poziom skrzynki."
+  skrzynka_given: "{prefix}&aOtrzymano skrzynkę obrońców poziomu &e{level}&a."
+  skrzynka_config_missing: "{prefix}&cWystąpił błąd! Brak konfiguracji dla skrzynki poziomu &e{level}&c."
+  skrzynka_empty: "{prefix}&cNiestety, tym razem nic nie wyleciało ze skrzynki."
+  skrzynka_opened: "{prefix}&aOtworzono skrzynkę!"
+  player_not_found: "{prefix}&cGracz &e{player} &cnie został znaleziony lub jest offline!"
+  skrzynka_given_to_player: "{prefix}&aPomyślnie dano skrzynkę poziomu &e{level} &agraczowi &e{player}&a!"
+  skrzynka_received: "{prefix}&aOtrzymałeś skrzynkę poziomu &e{level} &aod &e{sender}&a!"
+
+  stattrak:
+    activator:
+      material: NETHER_STAR
+      name: "§6StatTrak Activator"
+      lore:
+        - "§7Użyj na przedmiocie, aby dodać StatTrak"
+        - "§7Działa tylko na wybrane przedmioty."
+
+drops:

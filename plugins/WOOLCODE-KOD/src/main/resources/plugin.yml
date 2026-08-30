@@ -1,0 +1,9 @@
+name: WOOLCODE-KOD
+version: 1.0-SNAPSHOT
+main: pl.olczku.wOOLCODEKOD.WOOLCODEKOD
+commands:
+  kod:
+    description: Komenda do wpisywania kodu.
+    usage: /kod <kod>
+    permission: woolcode.kod
+   

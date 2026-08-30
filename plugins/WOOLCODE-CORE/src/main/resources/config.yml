@@ -1,0 +1,21 @@
+gui:
+  title: "&cPomoc &7(/pomoc)"
+  size: 54
+  items:
+    glowne:
+      material: GRASS_BLOCK
+      display_name: "&cGlowne komendy:"
+      lore:
+        - "&a/kit &7>> &aKliknij, aby utworzyć świat z one blockami"
+      slot: 23
+    background:
+      material: GRAY_STAINED_GLASS_PANE
+      display_name: " "
+      lore: []
+      slot: -1 # -1 oznacza, że ten item będzie wypełniał całe tło
+    nowy_item: # Przykład nowego itemu dodanego przez gracza
+      material: DIAMOND
+      display_name: "&bNowy Item"
+      lore:
+        - "&7To jest nowy item dodany przez gracza!"
+      slot: 10

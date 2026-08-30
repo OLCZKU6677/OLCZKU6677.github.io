@@ -1,0 +1,8 @@
+name: WOOLCODETRADE
+version: 1.0
+main: pl.olczku.wOOLCODETRADE.WOOLCODETRADE
+api-version: 1.16
+commands:
+  wymiana:
+    description: Otwiera GUI do wymiany przedmiotów z innym graczem.
+    usage: /wymiana <gracz>

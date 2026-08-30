@@ -1,0 +1,6 @@
+delay-seconds: 15
+
+messages:
+  opening-subtitle: "&eOtwieranie skrzynki za &c%seconds%&e..."
+  already-opening: "&cJuż próbujesz otworzyć pojemnik!"
+  reload-success: "&aKonfiguracja przeładowana!"

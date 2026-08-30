@@ -1,0 +1,2 @@
+discord:
+  webhook-url: "https://discord.com/api/webhooks/your_webhook_id/your_webhook_token"

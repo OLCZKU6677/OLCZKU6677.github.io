@@ -1,0 +1,3 @@
+typ: Plugin
+opis: Dedykowany plugin serwerowy zoptymalizowany pod wysokie obciążenie.
+tagi: Java, Paper

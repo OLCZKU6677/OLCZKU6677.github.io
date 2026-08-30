@@ -1,0 +1,8 @@
+name: WOOLCODE-KOMENDY
+version: 1.0
+main: pl.olczku.wOOLCODEKOMENDY.WOOLCODEKOMENDY
+api-version: 1.16
+commands:
+  woolcode-commands:
+    description: "Przeładowuje konfigurację komend"
+    usage: /woolcode-commands reload

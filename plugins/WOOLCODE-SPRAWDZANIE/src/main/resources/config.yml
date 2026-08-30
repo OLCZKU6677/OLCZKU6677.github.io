@@ -1,0 +1,4 @@
+check_location: spawn
+ban_duration:
+  brak_wspolpracy: 7
+  cheaty: 30

@@ -1,0 +1,12 @@
+messages:
+  player-not-found: "§cGracz nie jest dostępny!"
+  trade-started: "§aRozpoczęto wymianę z {player}"
+  trade-accepted: "§aZaakceptowano wymianę!"
+  trade-denied: "§cWymiana odrzucona!"
+  countdown: "§eWymiana za {seconds} sekund..."
+  trade-completed: "§aWymiana zakończona pomyślnie!"
+
+gui:
+  title: "§6Wymiana"
+  accept-button: "§aAkceptuj"
+  deny-button: "§cOdrzuć"

@@ -1,0 +1,5 @@
+no_permission: "&cNie masz uprawnień do tej komendy!"
+usage_sprawdz: "&cUżycie: /sprawdz <gracz>"
+player_not_found: "&cGracz nie został znaleziony!"
+player_being_checked: "&aGracz %player% jest sprawdzany przez %admin%."
+ban_message: "&cZostałeś zbanowany przez %admin% na %duration% dni za %reason%."

@@ -1,0 +1,27 @@
+name: WOOLCODE-PIN
+version: 1.0
+main: pl.olczku.wOOLCODEPIN.WOOLCODEPIN
+api-version: 1.16
+description: Plugin do zarządzania kodami PIN w grze Minecraft.
+author: Olczku
+website: dc.woolcode.pl
+commands:
+  kodadm:
+    description: Wpisz kod administracyjny.
+    usage: /kodadm <kod>
+  pinustaw:
+    description: Ustaw nowy kod PIN.
+    usage: /pinustaw <nowy_pin>
+  woolcode-pin:
+    description: Przeładuj konfigurację pluginu.
+    usage: /woolcode-pin reload
+permissions:
+  woolcode.pin.adm:
+    description: Pozwala na dostęp do komendy /kodadm.
+    default: op
+  woolcode.pin.pinustaw:
+    description: Pozwala na ustawienie nowego kodu PIN.
+    default: op
+  woolcode.pin.reload:
+    description: Pozwala na przeładowanie konfiguracji pluginu.
+    default: op
