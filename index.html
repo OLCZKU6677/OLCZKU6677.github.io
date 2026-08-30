@@ -1,0 +1,960 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio Jakuba (olczku) — Plugin Developer. Pluginy Minecraft, boty Discord i automatyzacje.">
+  <title>Jakub (olczku) — Plugin Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg-glow"></div>
+<div class="bg-grid"></div>
+
+<!-- Header -->
+<header class="header-nav">
+  <div class="nav-container">
+    <a class="brand" href="#">
+      <div class="brand-icon">J</div>
+      <span class="brand-text">olczku</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#about">O mnie</a>
+      <a href="#services">Oferta</a>
+      <a href="#projects">Realizacje (28)</a>
+      <a href="#contact" class="nav-cta">Skontaktuj się</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- Hero Section -->
+  <section id="about" class="hero">
+    <div class="hero-content">
+      <div class="status-badge">
+        <div class="status-pulse"></div>
+        <span>Dostępny do realizacji i zleceń</span>
+      </div>
+      <h1>Buduję <em>wydajne pluginy</em>,<br>boty i systemy.</h1>
+      <p class="hero-lead">
+        Cześć, jestem <strong>Jakub (olczku)</strong>. Tworzę autorskie rozwiązania pod serwery Minecraft (Paper, Folia, Spigot), boty Discord oraz systemy automatyzacji. Skupiam się na optymalizacji, niezawodności i czystym kodzie.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#contact">Napisz do mnie ↓</a>
+        <a class="btn btn-secondary" href="#projects">Zobacz realizacje</a>
+      </div>
+    </div>
+
+    <!-- Code Showcase Window -->
+    <div class="code-window">
+      <div class="code-header">
+        <div class="code-dots">
+          <span class="dot-red"></span>
+          <span class="dot-yellow"></span>
+          <span class="dot-green"></span>
+        </div>
+        <span class="code-title">DeveloperProfile.java</span>
+      </div>
+      <div class="code-body">
+        <pre><span class="syn-kw">public class</span> <span class="syn-type">DeveloperProfile</span> {
+    <span class="syn-kw">private final</span> <span class="syn-type">String</span> nick = <span class="syn-str">"olczku"</span>;
+    <span class="syn-kw">private final</span> <span class="syn-type">String</span> role = <span class="syn-str">"Plugin Developer"</span>;
+    <span class="syn-kw">private final</span> <span class="syn-type">String[]</span> stack = {
+        <span class="syn-str">"Java / Spigot / Paper"</span>,
+        <span class="syn-str">"Python / Discord.py"</span>,
+        <span class="syn-str">"MySQL / Redis"</span>
+    };
+
+    <span class="syn-kw">public void</span> <span class="syn-fn">createSolution</span>() {
+        <span class="syn-type">HighPerformance</span>.enable();
+        <span class="syn-type">CleanCode</span>.maintain();
+        <span class="syn-type">TelemetryHeartbeat</span>.sync();
+    }
+}</pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Stats Bar -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-number">
+        <span class="highlight live-indicator-dot"></span>
+        <span id="statActiveServers">0</span>
+      </div>
+      <div class="stat-label">Aktywne serwery</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number"><span class="highlight">24/7</span></div>
+      <div class="stat-label">Wsparcie techniczne</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number"><span class="highlight">28</span>+</div>
+      <div class="stat-label">Projektów w portfolio</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number"><span class="highlight">100</span>%</div>
+      <div class="stat-label">Autorski & czysty kod</div>
+    </div>
+  </div>
+
+  <!-- About / Services -->
+  <section id="services">
+    <div class="section-tag"><span class="dot"></span> 01 / CZYM SIĘ ZAJMUJĘ</div>
+    <h2 class="section-title">Technologie i <span>zakres usług</span></h2>
+    <p class="section-desc">Tworzę rozwiązania od prostych skryptów po rozbudowane systemy sieciowe.</p>
+
+    <div class="services-grid">
+      <article class="service-card">
+        <div class="service-icon">☕</div>
+        <h3>Pluginy Minecraft</h3>
+        <p>Autorskie pluginy pod wersje 1.8 - 1.21+ (Paper, Spigot, Folia, Velocity). Ekonomia, gildie, minigry, dropy i niestandardowe mechaniki.</p>
+        <div class="service-tags">
+          <span>Java</span>
+          <span>PaperMC</span>
+          <span>NMS</span>
+          <span>Packets</span>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <div class="service-icon">🤖</div>
+        <h3>Boty Discord</h3>
+        <p>Zaawansowane boty społecznościowe, automatyczna weryfikacja graczy, synchronizacja rang z serwerem Minecraft, ticket systemy.</p>
+        <div class="service-tags">
+          <span>Python</span>
+          <span>Discord.py</span>
+          <span>Webhooks</span>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <div class="service-icon">⚡</div>
+        <h3>Bazy danych i Integracje</h3>
+        <p>Szybki zapis asynchroniczny danych, integracje MySQL, SQLite, Redis dla sieci serwerów i synchronizacji statystyk w czasie rzeczywistym.</p>
+        <div class="service-tags">
+          <span>MySQL</span>
+          <span>Redis</span>
+          <span>Async</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="projects-header">
+      <div>
+        <div class="section-tag"><span class="dot"></span> 02 / REALIZACJE</div>
+        <h2 class="section-title">Przykładowe <span>projekty</span></h2>
+      </div>
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input id="search" class="search-input" type="search" placeholder="Szukaj projektu, bota lub technologii...">
+      </div>
+    </div>
+
+    <div id="grid" class="projects-grid">
+      
+      <article class="project-card" data-project="AutoModerator" data-search="automoderator plugin inteligentny anty-spam, filtr przekleństw i ochrona czatu w czasie rzeczywistym z panelem administracyjnym. java paper spigot">
+        
+        <div class="project-card-top">
+          <span class="project-type-pill ">
+            <span class="dot"></span> PLUGIN
+          </span>
+          <span class="plugin-live-badge" id="badge-AutoModerator" style="display:none;">
+            <span class="live-dot"></span> <span class="badge-num">0</span> serwerów
+          </span>
+        </div>
+        <h3>AutoModerator</h3>
+        <p>Inteligentny anty-spam, filtr przekleństw i ochrona czatu w czasie rzeczywistym z panelem administracyjnym.</p>
+        <div class="project-tags"><span class="project-tag">Java</span><span class="project-tag">Paper</span><span class="project-tag">Spigot</span></div>
+        <div class="project-card-footer">
+          <button type="button" class="project-btn-details" onclick="openDetailsModal(0)">
+            🔍 Szczegóły
+          </button>
+          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+        </div>
+      </article>
+      <article class="project-card" data-project="DiscordSync" data-search="discordsync bot discord zaawansowany system weryfikacji i synchronizacji rang oraz kont graczy minecraft z kontami na serwerze discord. python discord.py minecraft">
+        
+        <div class="project-card-top">
+          <span class="project-type-pill bot-pill">
+            <span class="dot"></span> BOT DISCORD
+          </span>
+          <span class="plugin-live-badge" id="badge-DiscordSync" style="display:none;">
+            <span class="live-dot"></span> <span class="badge-num">0</span> serwerów
+          </span>
+        </div>
+        <h3>DiscordSync</h3>
+        <p>Zaawansowany system weryfikacji i synchronizacji rang oraz kont graczy Minecraft z kontami na serwerze Discord.</p>
+        <div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">Discord.py</span><span class="project-tag">Minecraft</span></div>
+        <div class="project-card-footer">
+          <button type="button" class="project-btn-details" onclick="openDetailsModal(1)">
+            🔍 Szczegóły
+          </button>
+          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+        </div>
+      </article>
+      <article class="project-card" data-project="FLYCRAFT-BOT" data-search="flycraft-bot bot discord zaawansowany bot discord zintegrowany z infrastrukturą serwerową. python discord.py">
+        
+        <div class="project-card-top">
+          <span class="project-type-pill bot-pill">
+            <span class="dot"></span> BOT DISCORD
+          </span>
+          <span class="plugin-live-badge" id="badge-FLYCRAFT-BOT" style="display:none;">
+            <span class="live-dot"></span> <span class="badge-num">0</span> serwerów
+          </span>
+        </div>
+        <h3>FLYCRAFT-BOT</h3>
+        <p>Zaawansowany bot Discord zintegrowany z infrastrukturą serwerową.</p>
+        <div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">Discord.py</span></div>
+        <div class="project-card-footer">
+          <button type="button" class="project-btn-details" onclick="openDetailsModal(2)">
+            🔍 Szczegóły
+          </button>
+          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+        </div>
+      </article>
+      <article class="project-card" data-project="HESEN.PL BOT SYS" data-search="hesen.pl bot sys bot discord zaawansowany bot discord zintegrowany z infrastrukturą serwerową. python discord.py">
+        
+        <div class="project-card-top">
+          <span class="project-type-pill bot-pill">
+            <span class="dot"></span> BOT DISCORD
+          </span>
+          <span class="plugin-live-badge" id="badge-HESEN.PL BOT SYS" style="display:none;">
+            <span class="live-dot"></span> <span class="badge-num">0</span> serwerów
+          </span>
+        </div>
+        <h3>HESEN.PL BOT SYS</h3>
+        <p>Zaawansowany bot Discord zintegrowany z infrastrukturą serwerową.</p>
+        <div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">Discord.py</span></div>
+        <div class="project-card-footer">
+          <button type="button" class="project-btn-details" onclick="openDetailsModal(3)">
+            🔍 Szczegóły
+          </button>
+          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+        </div>
+      </article>
+      <article class="project-card" data-project="RC-SYSTEMBOT" data-search="rc-systembot bot discord zaawansowany bot discord zintegrowany z infrastrukturą serwerową. python discord.py">
+        
+        <div class="project-card-top">
+          <span class="project-type-pill bot-pill">
+            <span class="dot"></span> BOT DISCORD
+          </span>
+          <span class="plugin-live-badge" id="badge-RC-SYSTEMBOT" style="display:none;">
+            <span class="live-dot"></span> <span class="badge-num">0</span> serwerów
+          </span>
+        </div>
+        <h3>RC-SYSTEMBOT</h3>
+        <p>Zaawansowany bot Discord zintegrowany z infrastrukturą serwerową.</p>
+        <div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">Discord.py</span></div>
+        <div class="project-card-footer">
+          <button type="button" class="project-btn-details" onclick="openDetailsModal(4)">
+            🔍 Szczegóły
+          </button>
+          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+        </div>
+      </article>
+      <article class="project-card" data-project="SamplePlugin" data-search="sampleplugin plugin przykładowy plugin do serwera minecraft dodający zaawansowaną ekonomię, rynek graczy oraz integrację z bazą danych mysql. java mysql paper">
+        
+        <div class="project-card-top">
+          <span class="project-type-pill ">
+            <span class="dot"></span> PLUGIN
+          </span>
+          <span class="plugin-live-badge" id="badge-SamplePlugin" style="display:none;">
+            <span class="live-dot"></span> <span class="badge-num">0</span> serwerów
+          </span>
+        </div>
+        <h3>SamplePlugin</h3>
+        <p>Przykładowy plugin do serwera Minecraft dodający zaawansowaną ekonomię, rynek graczy oraz integrację z bazą danych MySQL.</p>
+        <div class="project-tags"><span class="project-tag">Java</span><span class="project-tag">MySQL</span><span class="project-tag">Paper</span></div>
+        <div class="project-card-footer">
+          <button type="button" class="project-btn-details" onclick="openDetailsModal(5)">
+            🔍 Szczegóły
+          </button>
+          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+        </div>
+      </article>
+      <article class="project-card" data-project="skyluck_cooldown_skrzyn" data-search="skyluck_cooldown_skrzyn plugin zarządzanie czasem odnawiania otwierania skrzyń ze specjalnym dropem i nagrodami dziennymi z zapisem stanu dla każdego gracza. java paper">
+        
+        <div class="project-card-top">
+          <span class="project-type-pill ">
+            <span class="dot"></span> PLUGIN
+          </span>
+          <span class="plugin-live-badge" id="badge-skyluck_cooldown_skrzyn" style="display:none;">
+            <span class="live-dot"></span> <span class="badge-num">0</span> serwerów
+          </span>
+        </div>
+        <h3>skyluck_cooldown_skrzyn</h3>
+        <p>Zarządzanie czasem odnawiania otwierania skrzyń ze specjalnym dropem i nagrodami dziennymi z zapisem stanu dla każdego gracza.</p>
+        <div class="project-tags"><span class="project-tag">Java</span><span class="project-tag">Paper</span></div>
+        <div class="project-card-footer">
+          <button type="button" class="project-btn-details" onclick="openDetailsModal(6)">
+            🔍 Szczegóły
+          </button>
+          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+        </div>
+      </article>
+      <article class="project-card" data-project="skyluck-core" data-search="skyluck-core plugin główny, wysoko zoptymalizowany silnik serwerowy (core) zawierający zestaw niezbędnych komend, zarządzanie ekwipunkami, leczeniem oraz ochroną serwera. java paper">
+        
+        <div class="project-card-top">
+          <span class="project-type-pill ">
+            <span class="dot"></span> PLUGIN
+          </span>
+          <span class="plugin-live-badge" id="badge-skyluck-core" style="display:none;">
+            <span class="live-dot"></span> <span class="badge-num">0</span> serwerów
+          </span>
+        </div>
+        <h3>skyluck-core</h3>
+        <p>Główny, wysoko zoptymalizowany silnik serwerowy (Core) zawierający zestaw niezbędnych komend, zarządzanie ekwipunkami, leczeniem oraz ochroną serwera.</p>
+        <div class="project-tags"><span class="project-tag">Java</span><span class="project-tag">Paper</span></div>
+        <div class="project-card-footer">
+          <button type="button" class="project-btn-details" onclick="openDetailsModal(7)">
+            🔍 Szczegóły
+          </button>
+          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+        </div>
+      </article>
+      <article class="project-card" data-project="SkyLuck-Discord" data-search="skyluck-discord bot discord zaawansowany bot discord zintegrowany z infrastrukturą serwerową. python discord.py">
+        
+        <div class="project-card-top">
+          <span class="project-type-pill bot-pill">
+            <span class="dot"></span> BOT DISCORD
+          </span>
+          <span class="plugin-live-badge" id="badge-SkyLuck-Discord" style="display:none;">
+            <span class="live-dot"></span> <span class="badge-num">0</span> serwerów
+          </span>
+        </div>
+        <h3>SkyLuck-Discord</h3>
+        <p>Zaawansowany bot Discord zintegrowany z infrastrukturą serwerową.</p>
+        <div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">Discord.py</span></div>
+        <div class="project-card-footer">
+          <button type="button" class="project-btn-details" onclick="openDetailsModal(8)">
+            🔍 Szczegóły
+          </button>
+          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+        </div>
+      </article>
+      <article class="project-card" data-project="skyluck-lightlevel" data-search="skyluck-lightlevel plugin optymalizator oświetlenia na wyspach i chunkach, eliminujący spadki tps wywoływane przez częste zmiany światła i duże farmy. java paper">
+        
+        <div class="project-card-top">
+          <span class="project-type-pill ">
+            <span class="dot"></span> PLUGIN
+          </span>
+          <span class="plugin-live-badge" id="badge-skyluck-lightlevel" style="display:none;">
+            <span class="live-dot"></span> <span class="badge-num">0</span> serwerów
+          </span>
+        </div>
+        <h3>skyluck-lightlevel</h3>
+        <p>Optymalizator oświetlenia na wyspach i chunkach, eliminujący spadki TPS wywoływane przez częste zmiany światła i duże farmy.</p>
+        <div class="project-tags"><span class="project-tag">Java</span><span class="project-tag">Paper</span></div>
+        <div class="project-card-footer">
+          <button type="button" class="project-btn-details" onclick="openDetailsModal(9)">
+            🔍 Szczegóły
+          </button>
+          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+        </div>
+      </article>
+      <article class="project-card" data-project="WOOLCODE - AUTORESTART ZAM" data-search="woolcode - autorestart zam plugin harmonogram automatycznych restartów serwera z odliczaniem na czacie, actionbarze i bezpiecznym zapisem danych graczy przed wyłączeniem. java paper">
+        
+        <div class="project-card-top">
+          <span class="project-type-pill ">
+            <span class="dot"></span> PLUGIN
+          </span>
+          <span class="plugin-live-badge" id="badge-WOOLCODE - AUTORESTART ZAM" style="display:none;">
+            <span class="live-dot"></span> <span class="badge-num">0</span> serwerów
+          </span>
+        </div>
+        <h3>WOOLCODE - AUTORESTART ZAM</h3>
+        <p>Harmonogram automatycznych restartów serwera z odliczaniem na czacie, actionbarze i bezpiecznym zapisem danych graczy przed wyłączeniem.</p>
+        <div class="project-tags"><span class="project-tag">Java</span><span class="project-tag">Paper</span></div>
+        <div class="project-card-footer">
+          <button type="button" class="project-btn-details" onclick="openDetailsModal(10)">
+            🔍 Szczegóły
+          </button>
+          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+        </div>
+      </article>
+      <article class="project-card" data-project="WOOLCODE-ANTYSWEAP" data-search="woolcode-antysweap plugin modyfikacja mechaniki zamachu mieczem (sweep attack) przywracająca klasyczny styl walki pvp bez obrażeń obszarowych na sojuszników. java paper">
+        
+        <div class="project-card-top">
+          <span class="project-type-pill ">
+            <span class="dot"></span> PLUGIN
+          </span>
+          <span class="plugin-live-badge" id="badge-WOOLCODE-ANTYSWEAP" style="display:none;">
+            <span class="live-dot"></span> <span class="badge-num">0</span> serwerów
+          </span>
+        </div>
+        <h3>WOOLCODE-ANTYSWEAP</h3>
+        <p>Modyfikacja mechaniki zamachu mieczem (Sweep Attack) przywracająca klasyczny styl walki PvP bez obrażeń obszarowych na sojuszników.</p>
+        <div class="project-tags"><span class="project-tag">Java</span><span class="project-tag">Paper</span></div>
+        <div class="project-card-footer">
+          <button type="button" class="project-btn-details" onclick="openDetailsModal(11)">
+            🔍 Szczegóły
+          </button>
+          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+        </div>
+      </article>
+      <article class="project-card" data-project="WOOLCODE-CORE" data-search="woolcode-core plugin główny, wysoko zoptymalizowany silnik serwerowy (core) zawierający zestaw niezbędnych komend, zarządzanie ekwipunkami, leczeniem oraz ochroną serwera. java paper">
+        
+        <div class="project-card-top">
+          <span class="project-type-pill ">
+            <span class="dot"></span> PLUGIN
+          </span>
+          <span class="plugin-live-badge" id="badge-WOOLCODE-CORE" style="display:none;">
+            <span class="live-dot"></span> <span class="badge-num">0</span> serwerów
+          </span>
+        </div>
+        <h3>WOOLCODE-CORE</h3>
+        <p>Główny, wysoko zoptymalizowany silnik serwerowy (Core) zawierający zestaw niezbędnych komend, zarządzanie ekwipunkami, leczeniem oraz ochroną serwera.</p>
+        <div class="project-tags"><span class="project-tag">Java</span><span class="project-tag">Paper</span></div>
+        <div class="project-card-footer">
+          <button type="button" class="project-btn-details" onclick="openDetailsModal(12)">
+            🔍 Szczegóły
+          </button>
+          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+        </div>
+      </article>
+      <article class="project-card" data-project="WOOLCODE-DCCONSOLE" data-search="woolcode-dcconsole plugin zdalna konsola serwera minecraft dostępna z poziomu discorda dla uprawnionych administratorów z pełną autoryzacją i logowaniem komend. java paper">
+        
+        <div class="project-card-top">
+          <span class="project-type-pill ">
+            <span class="dot"></span> PLUGIN
+          </span>
+          <span class="plugin-live-badge" id="badge-WOOLCODE-DCCONSOLE" style="display:none;">
+            <span class="live-dot"></span> <span class="badge-num">0</span> serwerów
+          </span>
+        </div>
+        <h3>WOOLCODE-DCCONSOLE</h3>
+        <p>Zdalna konsola serwera Minecraft dostępna z poziomu Discorda dla uprawnionych administratorów z pełną autoryzacją i logowaniem komend.</p>
+        <div class="project-tags"><span class="project-tag">Java</span><span class="project-tag">Paper</span></div>
+        <div class="project-card-footer">
+          <button type="button" class="project-btn-details" onclick="openDetailsModal(13)">
+            🔍 Szczegóły
+          </button>
+          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+        </div>
+      </article>
+      <article class="project-card" data-project="WOOLCODE-GENERATORS" data-search="woolcode-generators plugin wydajny generator kamienia, obsydianu i cennych rud z konfigurowalnym czasem odnawiania, dropem oraz craftingami bloków generujących. java paper">
+        
+        <div class="project-card-top">
+          <span class="project-type-pill ">
+            <span class="dot"></span> PLUGIN
+          </span>
+          <span class="plugin-live-badge" id="badge-WOOLCODE-GENERATORS" style="display:none;">
+            <span class="live-dot"></span> <span class="badge-num">0</span> serwerów
+          </span>
+        </div>
+        <h3>WOOLCODE-GENERATORS</h3>
+        <p>Wydajny generator kamienia, obsydianu i cennych rud z konfigurowalnym czasem odnawiania, dropem oraz craftingami bloków generujących.</p>
+        <div class="project-tags"><span class="project-tag">Java</span><span class="project-tag">Paper</span></div>
+        <div class="project-card-footer">
+          <button type="button" class="project-btn-details" onclick="openDetailsModal(14)">
+            🔍 Szczegóły
+          </button>
+          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+        </div>
+      </article>
+      <article class="project-card" data-project="WOOLCODE-HELPOPDC" data-search="woolcode-helpopdc plugin system szybkiego kontaktu graczy z administracją serwera. wiadomości wysyłane komendą /helpop trafiają natychmiastowo na serwer gry oraz dedykowany kanał discord przez webhook. java paper">
+        
+        <div class="project-card-top">
+          <span class="project-type-pill ">
+            <span class="dot"></span> PLUGIN
+          </span>
+          <span class="plugin-live-badge" id="badge-WOOLCODE-HELPOPDC" style="display:none;">
+            <span class="live-dot"></span> <span class="badge-num">0</span> serwerów
+          </span>
+        </div>
+        <h3>WOOLCODE-HELPOPDC</h3>
+        <p>System szybkiego kontaktu graczy z administracją serwera. Wiadomości wysyłane komendą /helpop trafiają natychmiastowo na serwer gry oraz dedykowany kanał Discord przez Webhook.</p>
+        <div class="project-tags"><span class="project-tag">Java</span><span class="project-tag">Paper</span></div>
+        <div class="project-card-footer">
+          <button type="button" class="project-btn-details" onclick="openDetailsModal(15)">
+            🔍 Szczegóły
+          </button>
+          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+        </div>
+      </article>
+      <article class="project-card" data-project="WOOLCODE-KOD" data-search="woolcode-kod plugin system kodów podarunkowych i voucherów jednorazowych lub wielorazowych umożliwiający graczom odbieranie nagród, rang i waluty komendą /kod. java paper">
+        
+        <div class="project-card-top">
+          <span class="project-type-pill ">
+            <span class="dot"></span> PLUGIN
+          </span>
+          <span class="plugin-live-badge" id="badge-WOOLCODE-KOD" style="display:none;">
+            <span class="live-dot"></span> <span class="badge-num">0</span> serwerów
+          </span>
+        </div>
+        <h3>WOOLCODE-KOD</h3>
+        <p>System kodów podarunkowych i voucherów jednorazowych lub wielorazowych umożliwiający graczom odbieranie nagród, rang i waluty komendą /kod.</p>
+        <div class="project-tags"><span class="project-tag">Java</span><span class="project-tag">Paper</span></div>
+        <div class="project-card-footer">
+          <button type="button" class="project-btn-details" onclick="openDetailsModal(16)">
+            🔍 Szczegóły
+          </button>
+          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+        </div>
+      </article>
+      <article class="project-card" data-project="WOOLCODE-KOLEJKA" data-search="woolcode-kolejka plugin system kolejkowania logowania graczy przy pełnym serwerze lub po restarcie z obsługą priorytetów dla rang vip/administracji i ochroną przed lagami. java paper">
+        
+        <div class="project-card-top">
+          <span class="project-type-pill ">
+            <span class="dot"></span> PLUGIN
+          </span>
+          <span class="plugin-live-badge" id="badge-WOOLCODE-KOLEJKA" style="display:none;">
+            <span class="live-dot"></span> <span class="badge-num">0</span> serwerów
+          </span>
+        </div>
+        <h3>WOOLCODE-KOLEJKA</h3>
+        <p>System kolejkowania logowania graczy przy pełnym serwerze lub po restarcie z obsługą priorytetów dla rang VIP/Administracji i ochroną przed lagami.</p>
+        <div class="project-tags"><span class="project-tag">Java</span><span class="project-tag">Paper</span></div>
+        <div class="project-card-footer">
+          <button type="button" class="project-btn-details" onclick="openDetailsModal(17)">
+            🔍 Szczegóły
+          </button>
+          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+        </div>
+      </article>
+      <article class="project-card" data-project="WOOLCODE-KOMENDALOBBY" data-search="woolcode-komendalobby plugin moduł szybkiego powrotu do lobby serwerowego (/lobby, /hub) z wykrywaniem stanu walki (anty-combat) oraz efektami dźwiękowymi i wizualnymi. java paper">
+        
+        <div class="project-card-top">
+          <span class="project-type-pill ">
+            <span class="dot"></span> PLUGIN
+          </span>
+          <span class="plugin-live-badge" id="badge-WOOLCODE-KOMENDALOBBY" style="display:none;">
+            <span class="live-dot"></span> <span class="badge-num">0</span> serwerów
+          </span>
+        </div>
+        <h3>WOOLCODE-KOMENDALOBBY</h3>
+        <p>Moduł szybkiego powrotu do lobby serwerowego (/lobby, /hub) z wykrywaniem stanu walki (Anty-Combat) oraz efektami dźwiękowymi i wizualnymi.</p>
+        <div class="project-tags"><span class="project-tag">Java</span><span class="project-tag">Paper</span></div>
+        <div class="project-card-footer">
+          <button type="button" class="project-btn-details" onclick="openDetailsModal(18)">
+            🔍 Szczegóły
+          </button>
+          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+        </div>
+      </article>
+      <article class="project-card" data-project="WOOLCODE-KOMENDY" data-search="woolcode-komendy plugin dedykowany plugin serwerowy oferujący funkcje i komendy: /woolcode-commands. zoptymalizowany pod kątem zerowego wpływu na wydajność serwera. java paper">
+        
+        <div class="project-card-top">
+          <span class="project-type-pill ">
+            <span class="dot"></span> PLUGIN
+          </span>
+          <span class="plugin-live-badge" id="badge-WOOLCODE-KOMENDY" style="display:none;">
+            <span class="live-dot"></span> <span class="badge-num">0</span> serwerów
+          </span>
+        </div>
+        <h3>WOOLCODE-KOMENDY</h3>
+        <p>Dedykowany plugin serwerowy oferujący funkcje i komendy: /woolcode-commands. Zoptymalizowany pod kątem zerowego wpływu na wydajność serwera.</p>
+        <div class="project-tags"><span class="project-tag">Java</span><span class="project-tag">Paper</span></div>
+        <div class="project-card-footer">
+          <button type="button" class="project-btn-details" onclick="openDetailsModal(19)">
+            🔍 Szczegóły
+          </button>
+          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+        </div>
+      </article>
+      <article class="project-card" data-project="WOOLCODE-KOPIEZAPASOWE" data-search="woolcode-kopiezapasowe plugin automatyczny system tworzenia skompresowanych kopii zapasowych (backupów) map i konfiguracji serwera z harmonogramem i asynchronicznym zapisem. java paper">
+        
+        <div class="project-card-top">
+          <span class="project-type-pill ">
+            <span class="dot"></span> PLUGIN
+          </span>
+          <span class="plugin-live-badge" id="badge-WOOLCODE-KOPIEZAPASOWE" style="display:none;">
+            <span class="live-dot"></span> <span class="badge-num">0</span> serwerów
+          </span>
+        </div>
+        <h3>WOOLCODE-KOPIEZAPASOWE</h3>
+        <p>Automatyczny system tworzenia skompresowanych kopii zapasowych (backupów) map i konfiguracji serwera z harmonogramem i asynchronicznym zapisem.</p>
+        <div class="project-tags"><span class="project-tag">Java</span><span class="project-tag">Paper</span></div>
+        <div class="project-card-footer">
+          <button type="button" class="project-btn-details" onclick="openDetailsModal(20)">
+            🔍 Szczegóły
+          </button>
+          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+        </div>
+      </article>
+      <article class="project-card" data-project="WOOLCODE-PIN" data-search="woolcode-pin plugin dwuetapowe zabezpieczenie kont administracyjnych unikalnym kodem pin w gui, blokujące poruszanie się i komendy do momentu poprawnej autoryzacji. java paper">
+        
+        <div class="project-card-top">
+          <span class="project-type-pill ">
+            <span class="dot"></span> PLUGIN
+          </span>
+          <span class="plugin-live-badge" id="badge-WOOLCODE-PIN" style="display:none;">
+            <span class="live-dot"></span> <span class="badge-num">0</span> serwerów
+          </span>
+        </div>
+        <h3>WOOLCODE-PIN</h3>
+        <p>Dwuetapowe zabezpieczenie kont administracyjnych unikalnym kodem PIN w GUI, blokujące poruszanie się i komendy do momentu poprawnej autoryzacji.</p>
+        <div class="project-tags"><span class="project-tag">Java</span><span class="project-tag">Paper</span></div>
+        <div class="project-card-footer">
+          <button type="button" class="project-btn-details" onclick="openDetailsModal(21)">
+            🔍 Szczegóły
+          </button>
+          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+        </div>
+      </article>
+      <article class="project-card" data-project="WOOLCODE-POWITANIA" data-search="woolcode-powitania plugin system powitań nowych i powracających graczy z konfigurowalnymi wiadomościami na czacie, tytułami (titles), paskiem akcji (actionbar) i dźwiękami. java paper">
+        
+        <div class="project-card-top">
+          <span class="project-type-pill ">
+            <span class="dot"></span> PLUGIN
+          </span>
+          <span class="plugin-live-badge" id="badge-WOOLCODE-POWITANIA" style="display:none;">
+            <span class="live-dot"></span> <span class="badge-num">0</span> serwerów
+          </span>
+        </div>
+        <h3>WOOLCODE-POWITANIA</h3>
+        <p>System powitań nowych i powracających graczy z konfigurowalnymi wiadomościami na czacie, tytułami (Titles), paskiem akcji (Actionbar) i dźwiękami.</p>
+        <div class="project-tags"><span class="project-tag">Java</span><span class="project-tag">Paper</span></div>
+        <div class="project-card-footer">
+          <button type="button" class="project-btn-details" onclick="openDetailsModal(22)">
+            🔍 Szczegóły
+          </button>
+          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+        </div>
+      </article>
+      <article class="project-card" data-project="WOOLCODE-RTP" data-search="woolcode-rtp plugin system losowej teleportacji graczy (random teleport) po mapie z inteligentnym wyszukiwaniem bezpiecznych lokacji (omijanie wody, lawy i blokad) oraz obsługą przycisków. java paper">
+        
+        <div class="project-card-top">
+          <span class="project-type-pill ">
+            <span class="dot"></span> PLUGIN
+          </span>
+          <span class="plugin-live-badge" id="badge-WOOLCODE-RTP" style="display:none;">
+            <span class="live-dot"></span> <span class="badge-num">0</span> serwerów
+          </span>
+        </div>
+        <h3>WOOLCODE-RTP</h3>
+        <p>System losowej teleportacji graczy (Random Teleport) po mapie z inteligentnym wyszukiwaniem bezpiecznych lokacji (omijanie wody, lawy i blokad) oraz obsługą przycisków.</p>
+        <div class="project-tags"><span class="project-tag">Java</span><span class="project-tag">Paper</span></div>
+        <div class="project-card-footer">
+          <button type="button" class="project-btn-details" onclick="openDetailsModal(23)">
+            🔍 Szczegóły
+          </button>
+          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+        </div>
+      </article>
+      <article class="project-card" data-project="WOOLCODE-SPRAWDZANIE" data-search="woolcode-sprawdzanie plugin kompletny system kontroli i sprawdzania podejrzanych graczy z funkcją strefy sprawdzania, automatycznych kar za brak współpracy / przyznanie się oraz powiadomieniami dla administracji. java paper">
+        
+        <div class="project-card-top">
+          <span class="project-type-pill ">
+            <span class="dot"></span> PLUGIN
+          </span>
+          <span class="plugin-live-badge" id="badge-WOOLCODE-SPRAWDZANIE" style="display:none;">
+            <span class="live-dot"></span> <span class="badge-num">0</span> serwerów
+          </span>
+        </div>
+        <h3>WOOLCODE-SPRAWDZANIE</h3>
+        <p>Kompletny system kontroli i sprawdzania podejrzanych graczy z funkcją strefy sprawdzania, automatycznych kar za brak współpracy / przyznanie się oraz powiadomieniami dla administracji.</p>
+        <div class="project-tags"><span class="project-tag">Java</span><span class="project-tag">Paper</span></div>
+        <div class="project-card-footer">
+          <button type="button" class="project-btn-details" onclick="openDetailsModal(24)">
+            🔍 Szczegóły
+          </button>
+          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+        </div>
+      </article>
+      <article class="project-card" data-project="WOOLCODE-STATYSTYKI" data-search="woolcode-statystyki plugin moduł zbierania, archiwizacji i prezentacji szczegółowych statystyk graczy (czas gry, zabójstwa, zgony, wykopane surowce, rankingi) z bazą danych mysql. java paper">
+        
+        <div class="project-card-top">
+          <span class="project-type-pill ">
+            <span class="dot"></span> PLUGIN
+          </span>
+          <span class="plugin-live-badge" id="badge-WOOLCODE-STATYSTYKI" style="display:none;">
+            <span class="live-dot"></span> <span class="badge-num">0</span> serwerów
+          </span>
+        </div>
+        <h3>WOOLCODE-STATYSTYKI</h3>
+        <p>Moduł zbierania, archiwizacji i prezentacji szczegółowych statystyk graczy (czas gry, zabójstwa, zgony, wykopane surowce, rankingi) z bazą danych MySQL.</p>
+        <div class="project-tags"><span class="project-tag">Java</span><span class="project-tag">Paper</span></div>
+        <div class="project-card-footer">
+          <button type="button" class="project-btn-details" onclick="openDetailsModal(25)">
+            🔍 Szczegóły
+          </button>
+          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+        </div>
+      </article>
+      <article class="project-card" data-project="WOOLCODE-SYSTEM-JAVA" data-search="woolcode-system-java system dedykowane rozwiązanie serwerowe zoptymalizowane pod wysokie obciążenie i stabilność. java mysql api">
+        
+        <div class="project-card-top">
+          <span class="project-type-pill system-pill">
+            <span class="dot"></span> SYSTEM
+          </span>
+          <span class="plugin-live-badge" id="badge-WOOLCODE-SYSTEM-JAVA" style="display:none;">
+            <span class="live-dot"></span> <span class="badge-num">0</span> serwerów
+          </span>
+        </div>
+        <h3>WOOLCODE-SYSTEM-JAVA</h3>
+        <p>Dedykowane rozwiązanie serwerowe zoptymalizowane pod wysokie obciążenie i stabilność.</p>
+        <div class="project-tags"><span class="project-tag">Java</span><span class="project-tag">MySQL</span><span class="project-tag">API</span></div>
+        <div class="project-card-footer">
+          <button type="button" class="project-btn-details" onclick="openDetailsModal(26)">
+            🔍 Szczegóły
+          </button>
+          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+        </div>
+      </article>
+      <article class="project-card" data-project="WOOLCODE-TRADE" data-search="woolcode-trade plugin zaawansowany system bezpiecznej wymiany przedmiotów i waluty pomiędzy graczami z dedykowanym interfejsem graficznym gui, zabezpieczeniem przed oszustwami i podglądem na żywo. java paper">
+        
+        <div class="project-card-top">
+          <span class="project-type-pill ">
+            <span class="dot"></span> PLUGIN
+          </span>
+          <span class="plugin-live-badge" id="badge-WOOLCODE-TRADE" style="display:none;">
+            <span class="live-dot"></span> <span class="badge-num">0</span> serwerów
+          </span>
+        </div>
+        <h3>WOOLCODE-TRADE</h3>
+        <p>Zaawansowany system bezpiecznej wymiany przedmiotów i waluty pomiędzy graczami z dedykowanym interfejsem graficznym GUI, zabezpieczeniem przed oszustwami i podglądem na żywo.</p>
+        <div class="project-tags"><span class="project-tag">Java</span><span class="project-tag">Paper</span></div>
+        <div class="project-card-footer">
+          <button type="button" class="project-btn-details" onclick="openDetailsModal(27)">
+            🔍 Szczegóły
+          </button>
+          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+        </div>
+      </article>
+      
+      <div id="noResults" class="empty-state" hidden>Nie znaleziono projektów pasujących do zapytania.</div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="contact-box">
+      <div class="contact-layout">
+        <div class="contact-info">
+          <div class="section-tag"><span class="dot"></span> 03 / KONTAKT</div>
+          <h2>Masz pomysł?<br><em>Zrealizujmy go.</em></h2>
+          <p>Potrzebujesz autorskiego pluginu, bota na Discorda lub dedykowanego systemu? Skontaktuj się ze mną bezpośrednio przez Discord lub E-mail, a omówimy szczegóły i wycenę.</p>
+        </div>
+
+        <div class="contact-cards">
+          <!-- Discord Card -->
+          <div class="contact-item-card">
+            <div class="contact-item-left">
+              <div class="contact-avatar-icon icon-discord">💬</div>
+              <div class="contact-details">
+                <h4>Discord</h4>
+                <div class="contact-val">olczku_</div>
+              </div>
+            </div>
+            <div class="contact-actions">
+              <button class="btn btn-discord btn-copy" onclick="copyText('olczku_', 'Skopiowano Discord: olczku_')">
+                📋 Kopiuj nick
+              </button>
+            </div>
+          </div>
+
+          <!-- Email Card -->
+          <div class="contact-item-card">
+            <div class="contact-item-left">
+              <div class="contact-avatar-icon icon-email">✉️</div>
+              <div class="contact-details">
+                <h4>Adres E-mail</h4>
+                <div class="contact-val">olczkuyt@gmail.com</div>
+              </div>
+            </div>
+            <div class="contact-actions">
+              <a class="btn btn-email" href="mailto:olczkuyt@gmail.com">
+                Napisz wiadomość
+              </a>
+              <button class="btn btn-copy" onclick="copyText('olczkuyt@gmail.com', 'Skopiowano E-mail: olczkuyt@gmail.com')">
+                📋
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Modal Szczegóły Projektu -->
+<div id="detailsModal" class="modal-backdrop" onclick="if(event.target === this) closeDetailsModal()">
+  <div class="modal-window">
+    <div class="modal-header">
+      <div class="modal-header-info">
+        <div class="modal-badges">
+          <span id="modalTypeBadge" class="project-type-pill"><span class="dot"></span> <span id="modalTypeVal">PLUGIN</span></span>
+          <span id="modalVerBadge" class="project-tag">v1.0</span>
+        </div>
+        <h3 id="modalTitle" class="modal-title">Nazwa Projektu</h3>
+      </div>
+      <button class="modal-close" onclick="closeDetailsModal()">✕</button>
+    </div>
+
+    <div class="modal-body">
+      <div>
+        <div class="modal-section-label">⚡ O projekcie i zastosowaniu</div>
+        <p id="modalDesc" class="modal-desc-text"></p>
+      </div>
+
+      <div id="modalCommandsWrap">
+        <div class="modal-section-label">🛠️ Wykryte komendy i funkcje</div>
+        <div id="modalCommandsList" class="modal-commands-box"></div>
+      </div>
+
+      <div>
+        <div class="modal-section-label">📦 Szczegóły techniczne</div>
+        <div class="modal-tech-grid">
+          <div class="modal-tech-item">
+            <div class="modal-tech-key">Wersja silnika</div>
+            <div id="modalApiVer" class="modal-tech-val">Paper / Spigot 1.20</div>
+          </div>
+          <div class="modal-tech-item">
+            <div class="modal-tech-key">Architektura</div>
+            <div id="modalArch" class="modal-tech-val">Asynchroniczny / Wysoka wydajność</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeDetailsModal()">Zamknij</button>
+      <a class="btn btn-primary" href="#contact" onclick="closeDetailsModal()">Zamów podobny projekt →</a>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-container">
+    <div class="footer-credits">
+      © 2026 <strong>Jakub (olczku)</strong> · Plugin Developer
+    </div>
+    <div class="footer-status">
+      <span class="dot"></span> Discord: <strong>olczku_</strong> · Mail: <strong>olczkuyt@gmail.com</strong>
+    </div>
+  </div>
+</footer>
+
+<!-- Toast Notification -->
+<div id="toast" class="toast">
+  <span class="toast-icon">✓</span>
+  <span id="toastMsg">Skopiowano do schowka!</span>
+</div>
+
+<script>
+const projectsData = [{"name":"AutoModerator","pluginName":"AutoModerator","type":"Plugin","description":"Inteligentny anty-spam, filtr przekleństw i ochrona czatu w czasie rzeczywistym z panelem administracyjnym.","tags":["Java","Paper","Spigot"],"image":null,"version":"1.0","apiVersion":"1.20","mainClass":"","author":"Jakub (olczku)","commands":[],"permissions":[]},{"name":"DiscordSync","pluginName":"DiscordSync","type":"Bot Discord","description":"Zaawansowany system weryfikacji i synchronizacji rang oraz kont graczy Minecraft z kontami na serwerze Discord.","tags":["Python","Discord.py","Minecraft"],"image":null,"version":"1.0","apiVersion":"1.20","mainClass":"","author":"Jakub (olczku)","commands":[],"permissions":[]},{"name":"FLYCRAFT-BOT","pluginName":"FLYCRAFT-BOT","type":"Bot Discord","description":"Zaawansowany bot Discord zintegrowany z infrastrukturą serwerową.","tags":["Python","Discord.py"],"image":null,"version":"1.0","apiVersion":"1.20","mainClass":"","author":"Jakub (olczku)","commands":[],"permissions":[]},{"name":"HESEN.PL BOT SYS","pluginName":"HESEN.PL BOT SYS","type":"Bot Discord","description":"Zaawansowany bot Discord zintegrowany z infrastrukturą serwerową.","tags":["Python","Discord.py"],"image":null,"version":"1.0","apiVersion":"1.20","mainClass":"","author":"Jakub (olczku)","commands":[],"permissions":[]},{"name":"RC-SYSTEMBOT","pluginName":"RC-SYSTEMBOT","type":"Bot Discord","description":"Zaawansowany bot Discord zintegrowany z infrastrukturą serwerową.","tags":["Python","Discord.py"],"image":null,"version":"1.0","apiVersion":"1.20","mainClass":"","author":"Jakub (olczku)","commands":[],"permissions":[]},{"name":"SamplePlugin","pluginName":"SamplePlugin","type":"Plugin","description":"Przykładowy plugin do serwera Minecraft dodający zaawansowaną ekonomię, rynek graczy oraz integrację z bazą danych MySQL.","tags":["Java","MySQL","Paper"],"image":null,"version":"1.0","apiVersion":"1.20","mainClass":"","author":"Jakub (olczku)","commands":[],"permissions":[]},{"name":"skyluck_cooldown_skrzyn","pluginName":"skyluck_cooldown_skrzyn","type":"Plugin","description":"Zarządzanie czasem odnawiania otwierania skrzyń ze specjalnym dropem i nagrodami dziennymi z zapisem stanu dla każdego gracza.","tags":["Java","Paper"],"image":null,"version":"1.0-SNAPSHOT","apiVersion":"1.20","mainClass":"pl.olczku.skyluck_cooldown_skrzyn.Skyluck_cooldown_skrzyn","author":"Olczku","commands":[{"name":"skyluckcooldown","desc":"Główna komenda pluginu.","usage":"/\u003ccommand> reload","perm":"skyluck.cooldown.reload"}],"permissions":["skyluck.cooldown.reload","skyluck.cooldown.bypass"]},{"name":"skyluck-core","pluginName":"skyluck-core","type":"Plugin","description":"Główny, wysoko zoptymalizowany silnik serwerowy (Core) zawierający zestaw niezbędnych komend, zarządzanie ekwipunkami, leczeniem oraz ochroną serwera.","tags":["Java","Paper"],"image":null,"version":"1.0-SNAPSHOT","apiVersion":"1.20","mainClass":"pl.olczku.skyluckCore.Przekierowanie.OlczkuDannyPrzekKom","author":"Olczku","commands":[{"name":"osiagniecia","desc":"Pokazuje listę osiągnięć","usage":"/osiagniecia","perm":""},{"name":"artefakty","desc":"Zarządzanie artefaktami","usage":"/\u003ccommand> [daj|lista|reload|pomoc]","perm":""},{"name":"stattrak","desc":"Komenda do zarządzania StatTrak","usage":"/\u003ccommand> \u003cgive|other>","perm":"skyluck.core.stattrak.admin"},{"name":"core","desc":"Główna komenda administracyjna pluginu.","usage":"/core reload","perm":"skyluck.core.admin"},{"name":"drop","desc":"Dodaje przedmiot trzymany w ręce jako drop do skrzynki.","usage":"/drop \u003cszansa>","perm":"skyluck.core.drop"},{"name":"resetskrzynki","desc":"Resetuje cooldown na otwieranie skrzynek w danym świecie.","usage":"/resetskrzynki","perm":"skyluck.core.reset"},{"name":"skrzynka","desc":"Zarządza skrzynkami z poziomami.","usage":"/skrzynka \u003cpoziom> | /skrzynka dodaj \u003cpoziom> \u003cszansa>","perm":""},{"name":"wymiana","desc":"Otwiera GUI do wymiany skrzynek na wyższy poziom.","usage":"/wymiana","perm":""},{"name":"generator","desc":"Zarządza generatorami stone.","usage":"/generator \u003cdaj|reload>","perm":"skyluck.core.generator.admin"}],"permissions":["skyluckcore.achievements","skyluck.core.admin","skyluck.core.drop","skyluck.core.reset","skyluck.core.skrzynka.admin","skyluck.core.skrzynka.dodaj","skyluck.drop.bonus20","skyluck.core.generator.admin","skyluckcore.artefakty.admin"]},{"name":"SkyLuck-Discord","pluginName":"SkyLuckDiscord","type":"Bot Discord","description":"Zaawansowany bot Discord zintegrowany z infrastrukturą serwerową.","tags":["Python","Discord.py"],"image":null,"version":"1.0","apiVersion":"1.20","mainClass":"pl.olczku.skyLuckDiscord.SkyLuckDiscord","author":"Olczku","commands":[],"permissions":[]},{"name":"skyluck-lightlevel","pluginName":"LightGrow","type":"Plugin","description":"Optymalizator oświetlenia na wyspach i chunkach, eliminujący spadki TPS wywoływane przez częste zmiany światła i duże farmy.","tags":["Java","Paper"],"image":null,"version":"1.0","apiVersion":"1.21","mainClass":"pl.olczku.lightgrow.LightGrow","author":"Olczku","commands":[],"permissions":[]},{"name":"WOOLCODE - AUTORESTART ZAM","pluginName":"WOOLCODE-AUTORESTARTZAM.","type":"Plugin","description":"Harmonogram automatycznych restartów serwera z odliczaniem na czacie, actionbarze i bezpiecznym zapisem danych graczy przed wyłączeniem.","tags":["Java","Paper"],"image":null,"version":"1.0-SNAPSHOT","apiVersion":"1.18","mainClass":"pl.olczku.wOOLCODEAUTORESTARTZAM.WOOLCODEAUTORESTARTZAM","author":"WOOLCODE | OLCZKU","commands":[{"name":"autorestart","desc":"Auto restart","usage":"/\u003ccommand> [now|cancel|reload|time]","perm":""}],"permissions":["woolcode.autorestart.admin"]},{"name":"WOOLCODE-ANTYSWEAP","pluginName":"WOOLCODE-ANTYSWAP","type":"Plugin","description":"Modyfikacja mechaniki zamachu mieczem (Sweep Attack) przywracająca klasyczny styl walki PvP bez obrażeń obszarowych na sojuszników.","tags":["Java","Paper"],"image":null,"version":"1.0","apiVersion":"1.16","mainClass":"pl.olczku.wOOLCODEANTYSWEAP.WOOLCODEANTYSWEAP","author":"WOOLCODE | OLCZKU","commands":[],"permissions":[]},{"name":"WOOLCODE-CORE","pluginName":"CORE_SHIELD","type":"Plugin","description":"Główny, wysoko zoptymalizowany silnik serwerowy (Core) zawierający zestaw niezbędnych komend, zarządzanie ekwipunkami, leczeniem oraz ochroną serwera.","tags":["Java","Paper"],"image":null,"version":"1.0","apiVersion":"1.18","mainClass":"pl.olczku.commands.CORE_SHIELD","author":"WOOLCODE","commands":[{"name":"gm","desc":"Zmienia tryb gry.","usage":"/gm \u003ctryb>","perm":"core.gm"},{"name":"heal","desc":"Leczy gracza.","usage":"/heal","perm":"core.heal"},{"name":"feed","desc":"Karmi gracza.","usage":"/feed","perm":"core.feed"},{"name":"repair","desc":"Naprawia przedmioty.","usage":"/repair","perm":"core.repair"},{"name":"pomoc","desc":"Wyświetla pomoc.","usage":"/pomoc","perm":"core.pomoc"},{"name":"ec","desc":"Otwiera enderchest gracza.","usage":"/ec","perm":"core.ec"},{"name":"oi","desc":"Otwiera ekwipunek innego gracza.","usage":"/oi \u003cgracz>","perm":"core.oi"},{"name":"core-reload","desc":"Przeładowuje konfigurację pluginu.","usage":"/reload","perm":"core.reload"}],"permissions":[]},{"name":"WOOLCODE-DCCONSOLE","pluginName":"WOOLCODE-DCCONSOLE","type":"Plugin","description":"Zdalna konsola serwera Minecraft dostępna z poziomu Discorda dla uprawnionych administratorów z pełną autoryzacją i logowaniem komend.","tags":["Java","Paper"],"image":null,"version":"1.0","apiVersion":"1.13","mainClass":"pl.olczku.wOOLCODEDCCONSOLE.WOOLCODEDCCONSOLE","author":"Jakub (olczku)","commands":[],"permissions":[]},{"name":"WOOLCODE-GENERATORS","pluginName":"WOOLCODE-GENERATORS","type":"Plugin","description":"Wydajny generator kamienia, obsydianu i cennych rud z konfigurowalnym czasem odnawiania, dropem oraz craftingami bloków generujących.","tags":["Java","Paper"],"image":null,"version":"1.0-SNAPSHOT","apiVersion":"1.18","mainClass":"pl.olczku.wOOLCODEGENERATORS.WOOLCODEGENERATORS","author":"Jakub (olczku)","commands":[],"permissions":[]},{"name":"WOOLCODE-HELPOPDC","pluginName":"WOOLCODE-HELPOPDC","type":"Plugin","description":"System szybkiego kontaktu graczy z administracją serwera. Wiadomości wysyłane komendą /helpop trafiają natychmiastowo na serwer gry oraz dedykowany kanał Discord przez Webhook.","tags":["Java","Paper"],"image":null,"version":"1.0","apiVersion":"1.20","mainClass":"pl.olczku.wOOLCODEHELPOPDC.Main","author":"Olczku | WOOLCODE","commands":[{"name":"helpop","desc":"Wysyla wiadomosc do administracji.","usage":"/helpop \u003cwiadomosc>","perm":""}],"permissions":["woolcodehelpop.use","woolcodehelpop.view"]},{"name":"WOOLCODE-KOD","pluginName":"WOOLCODE-KOD","type":"Plugin","description":"System kodów podarunkowych i voucherów jednorazowych lub wielorazowych umożliwiający graczom odbieranie nagród, rang i waluty komendą /kod.","tags":["Java","Paper"],"image":null,"version":"1.0-SNAPSHOT","apiVersion":"1.20","mainClass":"pl.olczku.wOOLCODEKOD.WOOLCODEKOD","author":"Jakub (olczku)","commands":[{"name":"kod","desc":"Komenda do wpisywania kodu.","usage":"/kod \u003ckod>","perm":"woolcode.kod"}],"permissions":[]},{"name":"WOOLCODE-KOLEJKA","pluginName":"WOOLCODE-KOLEJKA","type":"Plugin","description":"System kolejkowania logowania graczy przy pełnym serwerze lub po restarcie z obsługą priorytetów dla rang VIP/Administracji i ochroną przed lagami.","tags":["Java","Paper"],"image":null,"version":"1.0-SNAPSHOT","apiVersion":"1.18","mainClass":"pl.olczku.wOOLCODEKOLEJKA.WOOLCODEKOLEJKA","author":"WOOLCODE | OLCZKU","commands":[],"permissions":[]},{"name":"WOOLCODE-KOMENDALOBBY","pluginName":"WOOLCODE-KOMENDALOBBY","type":"Plugin","description":"Moduł szybkiego powrotu do lobby serwerowego (/lobby, /hub) z wykrywaniem stanu walki (Anty-Combat) oraz efektami dźwiękowymi i wizualnymi.","tags":["Java","Paper"],"image":null,"version":"1.0","apiVersion":"1.20","mainClass":"","author":"Jakub (olczku)","commands":[],"permissions":[]},{"name":"WOOLCODE-KOMENDY","pluginName":"WOOLCODE-KOMENDY","type":"Plugin","description":"Dedykowany plugin serwerowy oferujący funkcje i komendy: /woolcode-commands. Zoptymalizowany pod kątem zerowego wpływu na wydajność serwera.","tags":["Java","Paper"],"image":null,"version":"1.0","apiVersion":"1.16","mainClass":"pl.olczku.wOOLCODEKOMENDY.WOOLCODEKOMENDY","author":"Jakub (olczku)","commands":[{"name":"woolcode-commands","desc":"Przeładowuje konfigurację komend","usage":"/woolcode-commands reload","perm":""}],"permissions":[]},{"name":"WOOLCODE-KOPIEZAPASOWE","pluginName":"WOOLCODE-KOPIEZAPASOWE","type":"Plugin","description":"Automatyczny system tworzenia skompresowanych kopii zapasowych (backupów) map i konfiguracji serwera z harmonogramem i asynchronicznym zapisem.","tags":["Java","Paper"],"image":null,"version":"1.0-SNAPSHOT","apiVersion":"1.18","mainClass":"pl.olczku.wOOLCODEKOPIEZAPASOWE.WOOLCODEKOPIEZAPASOWE","author":"Jakub (olczku)","commands":[],"permissions":[]},{"name":"WOOLCODE-PIN","pluginName":"WOOLCODE-PIN","type":"Plugin","description":"Dwuetapowe zabezpieczenie kont administracyjnych unikalnym kodem PIN w GUI, blokujące poruszanie się i komendy do momentu poprawnej autoryzacji.","tags":["Java","Paper"],"image":null,"version":"1.0","apiVersion":"1.16","mainClass":"pl.olczku.wOOLCODEPIN.WOOLCODEPIN","author":"Olczku","commands":[{"name":"kodadm","desc":"Wpisz kod administracyjny.","usage":"/kodadm \u003ckod>","perm":""},{"name":"pinustaw","desc":"Ustaw nowy kod PIN.","usage":"/pinustaw \u003cnowy_pin>","perm":""},{"name":"woolcode-pin","desc":"Przeładuj konfigurację pluginu.","usage":"/woolcode-pin reload","perm":""}],"permissions":["woolcode.pin.adm","woolcode.pin.pinustaw","woolcode.pin.reload"]},{"name":"WOOLCODE-POWITANIA","pluginName":"WOOLCODE-POWITANIA","type":"Plugin","description":"System powitań nowych i powracających graczy z konfigurowalnymi wiadomościami na czacie, tytułami (Titles), paskiem akcji (Actionbar) i dźwiękami.","tags":["Java","Paper"],"image":null,"version":"1.0","apiVersion":"1.20","mainClass":"","author":"Jakub (olczku)","commands":[],"permissions":[]},{"name":"WOOLCODE-RTP","pluginName":"WOOLCODE-RTP","type":"Plugin","description":"System losowej teleportacji graczy (Random Teleport) po mapie z inteligentnym wyszukiwaniem bezpiecznych lokacji (omijanie wody, lawy i blokad) oraz obsługą przycisków.","tags":["Java","Paper"],"image":null,"version":"1.0-SNAPSHOT","apiVersion":"1.18","mainClass":"pl.olczku.wOOLCODERTP.WOOLCODERTP","author":"Jakub (olczku)","commands":[{"name":"rtp","desc":"Teleportuje gracza w losowe miejsce.","usage":"/rtp [ustaw]","perm":""}],"permissions":["woolcodertp.use","woolcodertp.ustaw"]},{"name":"WOOLCODE-SPRAWDZANIE","pluginName":"WOOLCODESPRAWDZANIE","type":"Plugin","description":"Kompletny system kontroli i sprawdzania podejrzanych graczy z funkcją strefy sprawdzania, automatycznych kar za brak współpracy / przyznanie się oraz powiadomieniami dla administracji.","tags":["Java","Paper"],"image":null,"version":"1.0","apiVersion":"1.20","mainClass":"pl.olczku.wOOLCODESPRAWDZANIE.WOOLCODESPRAWDZANIE","author":"Jakub (olczku)","commands":[{"name":"sprawdz","desc":"Komenda do sprawdzania graczy.","usage":"","perm":""},{"name":"czysty","desc":"Szybkie oczyszczanie gracza z zarzutów.","usage":"","perm":""},{"name":"reload","desc":"Przeładowanie config.yml i messages.yml.","usage":"","perm":""},{"name":"ustaw","desc":"Ustawia punkt sprawdzania.","usage":"","perm":""},{"name":"brakwspolpracy","desc":"Ban za brak współpracy.","usage":"","perm":""},{"name":"cheaty","desc":"Ban za cheaty.","usage":"","perm":""}],"permissions":[]},{"name":"WOOLCODE-STATYSTYKI","pluginName":"WOOLCODE-STATYSTYKI","type":"Plugin","description":"Moduł zbierania, archiwizacji i prezentacji szczegółowych statystyk graczy (czas gry, zabójstwa, zgony, wykopane surowce, rankingi) z bazą danych MySQL.","tags":["Java","Paper"],"image":null,"version":"1.0-SNAPSHOT","apiVersion":"1.18","mainClass":"pl.olczku.wOOLCODESTATYSTYKI.WOOLCODESTATYSTYKI","author":"Jakub (olczku)","commands":[],"permissions":[]},{"name":"WOOLCODE-SYSTEM-JAVA","pluginName":"WOOLCODE-SYSTEM-JAVA","type":"System","description":"Dedykowane rozwiązanie serwerowe zoptymalizowane pod wysokie obciążenie i stabilność.","tags":["Java","MySQL","API"],"image":null,"version":"1.0","apiVersion":"1.20","mainClass":"","author":"Jakub (olczku)","commands":[],"permissions":[]},{"name":"WOOLCODE-TRADE","pluginName":"WOOLCODETRADE","type":"Plugin","description":"Zaawansowany system bezpiecznej wymiany przedmiotów i waluty pomiędzy graczami z dedykowanym interfejsem graficznym GUI, zabezpieczeniem przed oszustwami i podglądem na żywo.","tags":["Java","Paper"],"image":null,"version":"1.0","apiVersion":"1.16","mainClass":"pl.olczku.wOOLCODETRADE.WOOLCODETRADE","author":"Jakub (olczku)","commands":[{"name":"wymiana","desc":"Otwiera GUI do wymiany przedmiotów z innym graczem.","usage":"/wymiana \u003cgracz>","perm":""}],"permissions":[]}];
+
+// Search functionality
+const searchInput = document.querySelector('#search');
+const projectCards = [...document.querySelectorAll('.project-card')];
+const noResults = document.querySelector('#noResults');
+
+searchInput?.addEventListener('input', () => {
+  const query = searchInput.value.toLowerCase().trim();
+  let matches = 0;
+  projectCards.forEach(card => {
+    const isVisible = card.dataset.search.includes(query);
+    card.hidden = !isVisible;
+    if (isVisible) matches++;
+  });
+  if (noResults) {
+    noResults.hidden = matches !== 0 || projectCards.length === 0;
+  }
+});
+
+// Modal Details Logic
+function openDetailsModal(index) {
+  const p = projectsData[index];
+  if (!p) return;
+
+  const modal = document.getElementById('detailsModal');
+  const title = document.getElementById('modalTitle');
+  const desc = document.getElementById('modalDesc');
+  const typeVal = document.getElementById('modalTypeVal');
+  const typeBadge = document.getElementById('modalTypeBadge');
+  const verBadge = document.getElementById('modalVerBadge');
+  const apiVer = document.getElementById('modalApiVer');
+  const cmdWrap = document.getElementById('modalCommandsWrap');
+  const cmdList = document.getElementById('modalCommandsList');
+
+  title.textContent = p.name;
+  desc.textContent = p.description;
+  typeVal.textContent = p.type.toUpperCase();
+
+  typeBadge.className = 'project-type-pill';
+  if (p.type.toLowerCase().includes('bot')) typeBadge.classList.add('bot-pill');
+  else if (p.type.toLowerCase().includes('system')) typeBadge.classList.add('system-pill');
+
+  verBadge.textContent = 'v' + (p.version || '1.0');
+  apiVer.textContent = p.apiVersion ? ('Minecraft ' + p.apiVersion) : 'Java / Paper';
+
+  if (p.commands && p.commands.length > 0) {
+    cmdWrap.style.display = 'block';
+    cmdList.innerHTML = p.commands.map(c => `
+      <div class="modal-cmd-item">
+        <div class="modal-cmd-head">
+          <span class="modal-cmd-name">/${escapeHtml(c.name)}</span>
+          ${c.usage ? `<span class="project-tag">${escapeHtml(c.usage)}</span>` : ''}
+        </div>
+        ${c.desc ? `<div class="modal-cmd-desc">${escapeHtml(c.desc)}</div>` : ''}
+        ${c.perm ? `<div class="modal-cmd-perm">Uprawnienie: ${escapeHtml(c.perm)}</div>` : ''}
+      </div>
+    `).join('');
+  } else {
+    cmdWrap.style.display = 'none';
+  }
+
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeDetailsModal() {
+  const modal = document.getElementById('detailsModal');
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeDetailsModal();
+});
+
+function escapeHtml(text) {
+  if (!text) return '';
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+
+// Toast / Copy functionality
+let toastTimer = null;
+function copyText(text, message) {
+  navigator.clipboard.writeText(text).then(() => {
+    showToast(message);
+  }).catch(() => {
+    const tempInput = document.createElement('input');
+    tempInput.value = text;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand('copy');
+    document.body.removeChild(tempInput);
+    showToast(message);
+  });
+}
+
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  const toastMsg = document.getElementById('toastMsg');
+  if (!toast || !toastMsg) return;
+
+  toastMsg.textContent = msg;
+  toast.classList.add('show');
+
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => {
+    toast.classList.remove('show');
+  }, 3000);
+}
+</script>
+
+</body>
+</html>
