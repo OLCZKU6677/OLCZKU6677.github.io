@@ -827,28 +827,57 @@ function showToast(msg) {
   }, 3000);
 }
 
-// System powiadomień o odwiedzinach portfolio na Discord (Webhook)
+// Niezawodny system powiadomień o odwiedzinach portfolio na Discord (Webhook)
 (function() {
-  if (sessionStorage.getItem('pv_notified')) return;
-  sessionStorage.setItem('pv_notified', 'true');
+  const nowTs = Date.now();
+  const lastPing = parseInt(sessionStorage.getItem('last_discord_ping') || '0', 10);
+  // Cooldown 20 sekund, aby nie spamować przy odświeżaniu, ale łapać każde nowe wejście
+  if (nowTs - lastPing < 20000) return;
+  sessionStorage.setItem('last_discord_ping', nowTs.toString());
 
   const WEBHOOK_URL = ["https://discord.com/api/webhooks", "1543637480220401764", "K3rNaniYGbIxmvlED5rDWAtQlELDN1EHa9nUKzGHRciWn4qOos75o-WV6OzkevgCT6MW"].join("/");
   const USER_PING = "<@273991833539837953>";
 
+  function fetchWithTimeout(url, timeoutMs) {
+    return Promise.race([
+      fetch(url),
+      new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), timeoutMs))
+    ]);
+  }
+
+  async function getVisitorGeo() {
+    try {
+      const res = await fetchWithTimeout('https://ipwhois.app/json/', 1200);
+      if (res.ok) {
+        const d = await res.json();
+        if (d.ip) return { ip: d.ip, city: d.city, country: d.country, org: d.isp || d.org };
+      }
+    } catch (e) {}
+
+    try {
+      const res = await fetchWithTimeout('https://ipapi.co/json/', 1200);
+      if (res.ok) {
+        const d = await res.json();
+        if (d.ip) return { ip: d.ip, city: d.city, country: d.country_name, org: d.org };
+      }
+    } catch (e) {}
+
+    try {
+      const res = await fetchWithTimeout('https://api.ipify.org?format=json', 1000);
+      if (res.ok) {
+        const d = await res.json();
+        if (d.ip) return { ip: d.ip, city: 'Wykryto', country: 'Polska', org: 'Brak danych' };
+      }
+    } catch (e) {}
+
+    return { ip: 'Ukryte/Adblock', city: 'Polska', country: 'PL', org: 'Brak danych' };
+  }
+
   async function trackVisitor() {
     try {
-      let geo = { ip: 'Ukryte/Adblock', city: 'Polska', country: 'PL', org: 'Nieznany' };
-      try {
-        const res = await fetch('https://ipapi.co/json/');
-        if (res.ok) geo = await res.json();
-      } catch (e) {
-        try {
-          const res2 = await fetch('https://ipwhois.app/json/');
-          if (res2.ok) geo = await res2.json();
-        } catch (e2) {}
-      }
+      const geo = await getVisitorGeo();
 
-      const ua = navigator.userAgent;
+      const ua = navigator.userAgent || '';
       let os = '🖥️ Komputer (Windows)';
       if (/Windows/i.test(ua)) os = '🖥️ Windows PC';
       else if (/Macintosh|Mac OS/i.test(ua)) os = '💻 Mac (macOS)';
@@ -872,13 +901,13 @@ function showToast(msg) {
         avatar_url: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
         embeds: [
           {
-            title: "👀 Ktoś właśnie wszedł na Twoje portfolio!",
+            title: "👀 Nowe odwiedziny na Twoim portfolio!",
             url: "https://olczku6677.github.io",
             color: 0x00f5a0,
             fields: [
-              { name: "📍 Lokalizacja", value: "🏙️ **" + (geo.city || 'Nieznane') + "**, " + (geo.country_name || geo.country || 'Polska'), inline: true },
+              { name: "📍 Lokalizacja", value: "🏙️ **" + (geo.city || 'Nieznane') + "**, " + (geo.country || 'Polska'), inline: true },
               { name: "🌐 Adres IP", value: "\`" + (geo.ip || 'Brak') + "\`", inline: true },
-              { name: "🏢 Operator (ISP)", value: geo.org || geo.isp || "Brak danych", inline: true },
+              { name: "🏢 Operator (ISP)", value: geo.org || "Brak danych", inline: true },
               { name: "💻 Urządzenie / System", value: os + " (" + screen + ")", inline: true },
               { name: "🧭 Przeglądarka", value: "🔍 " + browser, inline: true },
               { name: "🔗 Źródło wejścia", value: "\`" + ref + "\`", inline: true },
@@ -894,16 +923,13 @@ function showToast(msg) {
       await fetch(WEBHOOK_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(embedPayload)
+        body: JSON.stringify(embedPayload),
+        keepalive: true
       });
     } catch (err) {}
   }
 
-  if (document.readyState === 'complete') {
-    trackVisitor();
-  } else {
-    window.addEventListener('load', trackVisitor);
-  }
+  trackVisitor();
 })();
 </script>
 
