@@ -11,7 +11,7 @@ public class Main {
 
     public static void main(String[] args) {
         // WKLEJ TUTAJ SWÓJ NOWY, ZRESETOWANY TOKEN!
-        String token = "MTM4NTY0OTI0MjM0MDg1NTg3OA.Gv5qVl.OHDnCJi3cvMqsNwAppCEQ00A9-5H_V779FO-1s";
+        String token = "OTk5OTk5OTk5OTk5OTk5OTk5.XXXXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXX";
 
         if (token == null || token.equals("WKLEJ_SWÓJ_NOWY_ZRESETOWANY_TOKEN_TUTAJ") || token.isEmpty()) {
             System.err.println("!!! BŁĄD: Token bota nie został ustawiony w kodzie !!!");

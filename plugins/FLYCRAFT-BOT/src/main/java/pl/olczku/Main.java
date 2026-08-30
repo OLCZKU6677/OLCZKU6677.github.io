@@ -13,7 +13,7 @@ public class Main {
     public static void main(String[] args) {
         try {
             // Pamiętaj, aby token był bezpieczny i nie był publicznie dostępny.
-            String token = "MTM4NTY0OTI0MjM0MDg1NTg3OA.Gv5qVl.OHDnCJi3cvMqsNwAppCEQ00A9-5H_V779FO-1s"; // Wstaw tutaj swój prawdziwy token
+            String token = "OTk5OTk5OTk5OTk5OTk5OTk5.XXXXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXX"; // Wstaw tutaj swój prawdziwy token
 
             JDABuilder jdaBuilder = JDABuilder.createDefault(token);
 

@@ -3,7 +3,7 @@ api-settings:
   api-url: "http://TWOJ_IP_BOTA:3000/update_status"
 
   # Tajny klucz do walidacji w bocie (musi być taki sam jak mcApiSecret w config.json bota)
-  api-secret: "TwojBardzoTajnyKlucz2025"
+  api-secret: "TWÓJ_BEZPIECZNY_TOKEN"
 
   # Jak często (w sekundach) plugin ma wysyłać statystyki do bota
   update-interval-seconds: 30

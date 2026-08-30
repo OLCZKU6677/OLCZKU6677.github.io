@@ -165,9 +165,56 @@ function generateSmartDescription($name, $commands, $apiVersion) {
     ];
 }
 
+// Automatyczny filtr usuwający tokeny, hasła i webhoooki z kodów i konfiguracji
+function sanitizeProjectSecrets($folderPath) {
+    if (!is_dir($folderPath)) return;
+
+    $discordTokenPattern = '/([MN][A-Za-z\d]{23,28}\.[\w-]{6}\.[\w-]{27,38}|mfa\.[\w-]{84})/';
+    $webhookPattern = '/https?:\/\/(?:ptb\.|canary\.)?discord(?:app)?\.com\/api\/webhooks\/\d+\/[A-Za-z0-9_\-]+/i';
+    $secretKeyPattern = '/((?:bot_token|token|secret|password|haslo|passwd|client_secret|auth_token|rcon\.password|mysql_password|db_pass)\s*[:=]\s*["\'])([^"\']{4,})(["\'])/i';
+
+    $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($folderPath, RecursiveDirectoryIterator::SKIP_DOTS));
+    foreach ($iterator as $file) {
+        if ($file->isFile()) {
+            $ext = strtolower($file->getExtension());
+            if (in_array($ext, ['java', 'py', 'yml', 'yaml', 'properties', 'json', 'txt', 'xml', 'env', 'cfg', 'conf', 'ini'])) {
+                $filePath = $file->getRealPath();
+                $content = @file_get_contents($filePath);
+                if ($content === false) continue;
+
+                $original = $content;
+
+                // Webhooki
+                $content = preg_replace($webhookPattern, 'https://discord.com/api/webhooks/123456789012345678/TWÓJ_WEBHOOK_TOKEN', $content);
+
+                // Tokeny Discord
+                $content = preg_replace_callback($discordTokenPattern, function($m) {
+                    if (str_contains($m[0], 'XXXXXX') || str_contains($m[0], 'TWÓJ_')) return $m[0];
+                    return 'OTk5OTk5OTk5OTk5OTk5OTk5.XXXXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXX';
+                }, $content);
+
+                // Hasła i klucze
+                $content = preg_replace_callback($secretKeyPattern, function($m) {
+                    $val = $m[2];
+                    if (str_contains($val, 'TWÓJ_') || str_contains($val, 'TWOJE_') || str_contains($val, 'XXXXXX') || in_array(strtolower($val), ['root', 'localhost', '127.0.0.1', 'true', 'false', 'none'])) {
+                        return $m[0];
+                    }
+                    return $m[1] . 'TWÓJ_BEZPIECZNY_TOKEN' . $m[3];
+                }, $content);
+
+                if ($content !== $original) {
+                    @file_put_contents($filePath, $content);
+                }
+            }
+        }
+    }
+}
+
 // Funkcja skanująca pliki projektu (plugin.yml, pom.xml itp.)
 function inspectProjectFiles($projectName, $pluginsDir) {
     $folderPath = $pluginsDir . DIRECTORY_SEPARATOR . $projectName;
+    sanitizeProjectSecrets($folderPath);
+
     $info = [
         'pluginName' => $projectName,
         'version' => '1.0',

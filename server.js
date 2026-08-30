@@ -179,8 +179,68 @@ function generateSmartDescription(name, commands, apiVersion) {
   };
 }
 
+// Automatyczny filtr usuwający tokeny, hasła i webhoooki z kodów i konfiguracji
+function sanitizeProjectSecrets(folderPath) {
+  if (!fs.existsSync(folderPath) || !fs.statSync(folderPath).isDirectory()) return;
+
+  const DISCORD_TOKEN_REGEX = /([MN][A-Za-z\d]{23,28}\.[\w-]{6}\.[\w-]{27,38}|mfa\.[\w-]{84})/g;
+  const WEBHOOK_REGEX = /https?:\/\/(?:ptb\.|canary\.)?discord(?:app)?\.com\/api\/webhooks\/\d+\/[A-Za-z0-9_\-]+/gi;
+
+  function scanDir(dir) {
+    if (dir.includes('.git')) return;
+    try {
+      const entries = fs.readdirSync(dir, { withFileTypes: true });
+      for (const entry of entries) {
+        const full = path.join(dir, entry.name);
+        if (entry.isDirectory()) {
+          scanDir(full);
+        } else if (entry.isFile()) {
+          const ext = path.extname(entry.name).toLowerCase();
+          if (['.java', '.py', '.yml', '.yaml', '.properties', '.json', '.txt', '.xml', '.env', '.cfg', '.conf', '.ini'].includes(ext)) {
+            try {
+              let content = fs.readFileSync(full, 'utf8');
+              let changed = false;
+
+              if (WEBHOOK_REGEX.test(content)) {
+                content = content.replace(WEBHOOK_REGEX, 'https://discord.com/api/webhooks/123456789012345678/TWÓJ_WEBHOOK_TOKEN');
+                changed = true;
+              }
+              if (DISCORD_TOKEN_REGEX.test(content)) {
+                content = content.replace(DISCORD_TOKEN_REGEX, (match) => {
+                  if (match.includes('XXXXXX') || match.includes('TWÓJ_')) return match;
+                  changed = true;
+                  return 'OTk5OTk5OTk5OTk5OTk5OTk5.XXXXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXX';
+                });
+              }
+
+              // Hasła i tokeny w configach
+              const secretKeyRegex = /((?:bot_token|token|secret|password|haslo|passwd|client_secret|auth_token|rcon\.password|mysql_password|db_pass)\s*[:=]\s*["'])([^"']{4,})(["'])/gi;
+              if (secretKeyRegex.test(content)) {
+                content = content.replace(secretKeyRegex, (m, g1, g2, g3) => {
+                  if (g2.includes('TWÓJ_') || g2.includes('TWOJE_') || g2.includes('XXXXXX') || ['root', 'localhost', '127.0.0.1', 'true', 'false', 'none'].includes(g2)) return m;
+                  changed = true;
+                  return `${g1}TWÓJ_BEZPIECZNY_TOKEN${g3}`;
+                });
+              }
+
+              if (changed) {
+                fs.writeFileSync(full, content, 'utf8');
+                console.log(`[AI Sanitizer] Bezpiecznie usunięto wrażliwe dane z: ${full}`);
+              }
+            } catch (e) {}
+          }
+        }
+      }
+    } catch (e) {}
+  }
+
+  scanDir(folderPath);
+}
+
 function inspectProjectFiles(projectName) {
   const folderPath = path.join(PLUGINS_DIR, projectName);
+  sanitizeProjectSecrets(folderPath);
+
   const info = {
     pluginName: projectName,
     version: '1.0',

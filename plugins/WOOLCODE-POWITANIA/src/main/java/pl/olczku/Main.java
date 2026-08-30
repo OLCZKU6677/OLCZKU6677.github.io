@@ -11,7 +11,7 @@ import net.dv8tion.jda.api.requests.GatewayIntent;
 public class Main {
     public static void main(String[] args) {
         try {
-            String token = "MTM1ODEzNDA5NTQzMDk0MjgwMA.GcLmdF.Zkgp4GZo2rXqLjD12z4aD0iTi2NSIJQdOSiqaw";
+            String token = "OTk5OTk5OTk5OTk5OTk5OTk5.XXXXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXX";
 
             JDABuilder jda = JDABuilder.createDefault(token);
 
