@@ -955,16 +955,17 @@ function showToast(msg) {
   }, 3000);
 }
 
-// System powiadomień o odwiedzinach portfolio bezpośrednio na PV Discorda
+// System powiadomień o odwiedzinach portfolio na Discord (Webhook)
 (function() {
   if (sessionStorage.getItem('pv_notified')) return;
   sessionStorage.setItem('pv_notified', 'true');
 
-  const DM_CHANNEL_ID = "1543636495666258173";
-  const _t = ["MTU0MzYyNTMxMzE1Njg2MjA2NA", "G5UMc-", "KqmVMNngqWRMvMDqKXUO86P-frFUg2OSe357Ik"].join(".");
+  const WEBHOOK_URL = window.PORTFOLIO_WEBHOOK || "";
 
   async function trackVisitor() {
     try {
+      if (!WEBHOOK_URL || !WEBHOOK_URL.startsWith('http')) return;
+
       let geo = { ip: 'Ukryte/Adblock', city: 'Polska', country: 'PL', org: 'Nieznany' };
       try {
         const res = await fetch('https://ipapi.co/json/');
@@ -995,6 +996,8 @@ function showToast(msg) {
       const now = new Date().toLocaleString('pl-PL', { timeZone: 'Europe/Warsaw' });
 
       const embedPayload = {
+        username: "Portfolio Tracker",
+        avatar_url: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
         embeds: [
           {
             title: "👀 Ktoś właśnie wszedł na Twoje portfolio!",
@@ -1016,18 +1019,11 @@ function showToast(msg) {
         ]
       };
 
-      const targetUrl = "https://discord.com/api/v10/channels/" + DM_CHANNEL_ID + "/messages";
-
-      try {
-        await fetch(targetUrl, {
-          method: 'POST',
-          headers: {
-            'Authorization': 'Bot ' + _t,
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(embedPayload)
-        });
-      } catch (err) {}
+      await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(embedPayload)
+      });
     } catch (err) {}
   }
 
