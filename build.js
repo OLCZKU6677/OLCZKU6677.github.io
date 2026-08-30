@@ -832,12 +832,11 @@ function showToast(msg) {
   if (sessionStorage.getItem('pv_notified')) return;
   sessionStorage.setItem('pv_notified', 'true');
 
-  const WEBHOOK_URL = window.PORTFOLIO_WEBHOOK || "";
+  const WEBHOOK_URL = ["https://discord.com/api/webhooks", "1543637480220401764", "K3rNaniYGbIxmvlED5rDWAtQlELDN1EHa9nUKzGHRciWn4qOos75o-WV6OzkevgCT6MW"].join("/");
+  const USER_PING = "<@273991833539837953>";
 
   async function trackVisitor() {
     try {
-      if (!WEBHOOK_URL || !WEBHOOK_URL.startsWith('http')) return;
-
       let geo = { ip: 'Ukryte/Adblock', city: 'Polska', country: 'PL', org: 'Nieznany' };
       try {
         const res = await fetch('https://ipapi.co/json/');
@@ -850,7 +849,7 @@ function showToast(msg) {
       }
 
       const ua = navigator.userAgent;
-      let os = 'Komputer (Windows)';
+      let os = '🖥️ Komputer (Windows)';
       if (/Windows/i.test(ua)) os = '🖥️ Windows PC';
       else if (/Macintosh|Mac OS/i.test(ua)) os = '💻 Mac (macOS)';
       else if (/Android/i.test(ua)) os = '📱 Telefon Android';
@@ -868,6 +867,7 @@ function showToast(msg) {
       const now = new Date().toLocaleString('pl-PL', { timeZone: 'Europe/Warsaw' });
 
       const embedPayload = {
+        content: "🔔 " + USER_PING + " Ktoś właśnie wszedł na Twoją stronę portfolio!",
         username: "Portfolio Tracker",
         avatar_url: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
         embeds: [
