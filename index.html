@@ -2,12 +2,12 @@
 <html lang="pl">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Portfolio Jakuba (olczku) — Plugin Developer. Pluginy Minecraft, boty Discord i automatyzacje.">
-  <title>Jakub (olczku) — Plugin Developer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Portfolio Jakuba (olczku) — Plugin Developer. Pluginy Minecraft, boty Discord i systemy automatyzacji.">
+  <title>Jakub (olczku) — Plugin Developer & Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -22,12 +22,23 @@
       <div class="brand-icon">J</div>
       <span class="brand-text">olczku</span>
     </a>
-    <nav class="nav-links">
-      <a href="#about">O mnie</a>
-      <a href="#services">Oferta</a>
-      <a href="#projects">Realizacje (28)</a>
-      <a href="#contact" class="nav-cta">Skontaktuj się</a>
+    
+    <nav id="navLinks" class="nav-links">
+      <a href="#about" onclick="closeMobileMenu()">O mnie</a>
+      <a href="#services" onclick="closeMobileMenu()">Oferta</a>
+      <a href="#projects" onclick="closeMobileMenu()">Realizacje (28)</a>
+      <a href="#contact" onclick="closeMobileMenu()">Kontakt</a>
+      <button type="button" class="nav-admin-btn" onclick="openAdminLogin(); closeMobileMenu();">
+        🔒 Panel Admina
+      </button>
+      <a href="#contact" class="nav-cta" onclick="closeMobileMenu()">Napisz do mnie</a>
     </nav>
+
+    <button id="navHamburger" class="nav-hamburger" aria-label="Menu" onclick="toggleMobileMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </div>
 </header>
 
@@ -44,8 +55,8 @@
         Cześć, jestem <strong>Jakub (olczku)</strong>. Tworzę autorskie rozwiązania pod serwery Minecraft (Paper, Folia, Spigot), boty Discord oraz systemy automatyzacji. Skupiam się na optymalizacji, niezawodności i czystym kodzie.
       </p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="#contact">Napisz do mnie ↓</a>
-        <a class="btn btn-secondary" href="#projects">Zobacz realizacje</a>
+        <a class="btn btn-primary" href="#contact" onclick="trackClick('Hero CTA', 'Napisz do mnie')">Napisz do mnie ↓</a>
+        <a class="btn btn-secondary" href="#projects" onclick="trackClick('Hero CTA', 'Zobacz realizacje')">Zobacz realizacje</a>
       </div>
     </div>
 
@@ -177,7 +188,7 @@
           <button type="button" class="project-btn-details" onclick="openDetailsModal(0)">
             🔍 Szczegóły
           </button>
-          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+          <a href="#contact" class="project-action-btn" onclick="trackClick('Zamów podobny', 'AutoModerator')">Zamów podobny →</a>
         </div>
       </article>
       <article class="project-card" data-project="DiscordSync" data-search="discordsync bot discord zaawansowany system weryfikacji i synchronizacji rang oraz kont graczy minecraft z kontami na serwerze discord. python discord.py minecraft">
@@ -197,7 +208,7 @@
           <button type="button" class="project-btn-details" onclick="openDetailsModal(1)">
             🔍 Szczegóły
           </button>
-          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+          <a href="#contact" class="project-action-btn" onclick="trackClick('Zamów podobny', 'DiscordSync')">Zamów podobny →</a>
         </div>
       </article>
       <article class="project-card" data-project="FLYCRAFT-BOT" data-search="flycraft-bot bot discord zaawansowany bot discord zintegrowany z infrastrukturą serwerową. python discord.py">
@@ -217,7 +228,7 @@
           <button type="button" class="project-btn-details" onclick="openDetailsModal(2)">
             🔍 Szczegóły
           </button>
-          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+          <a href="#contact" class="project-action-btn" onclick="trackClick('Zamów podobny', 'FLYCRAFT-BOT')">Zamów podobny →</a>
         </div>
       </article>
       <article class="project-card" data-project="HESEN.PL BOT SYS" data-search="hesen.pl bot sys bot discord zaawansowany bot discord zintegrowany z infrastrukturą serwerową. python discord.py">
@@ -237,7 +248,7 @@
           <button type="button" class="project-btn-details" onclick="openDetailsModal(3)">
             🔍 Szczegóły
           </button>
-          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+          <a href="#contact" class="project-action-btn" onclick="trackClick('Zamów podobny', 'HESEN.PL BOT SYS')">Zamów podobny →</a>
         </div>
       </article>
       <article class="project-card" data-project="RC-SYSTEMBOT" data-search="rc-systembot bot discord zaawansowany bot discord zintegrowany z infrastrukturą serwerową. python discord.py">
@@ -257,7 +268,7 @@
           <button type="button" class="project-btn-details" onclick="openDetailsModal(4)">
             🔍 Szczegóły
           </button>
-          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+          <a href="#contact" class="project-action-btn" onclick="trackClick('Zamów podobny', 'RC-SYSTEMBOT')">Zamów podobny →</a>
         </div>
       </article>
       <article class="project-card" data-project="SamplePlugin" data-search="sampleplugin plugin przykładowy plugin do serwera minecraft dodający zaawansowaną ekonomię, rynek graczy oraz integrację z bazą danych mysql. java mysql paper">
@@ -277,7 +288,7 @@
           <button type="button" class="project-btn-details" onclick="openDetailsModal(5)">
             🔍 Szczegóły
           </button>
-          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+          <a href="#contact" class="project-action-btn" onclick="trackClick('Zamów podobny', 'SamplePlugin')">Zamów podobny →</a>
         </div>
       </article>
       <article class="project-card" data-project="skyluck_cooldown_skrzyn" data-search="skyluck_cooldown_skrzyn plugin zarządzanie czasem odnawiania otwierania skrzyń ze specjalnym dropem i nagrodami dziennymi z zapisem stanu dla każdego gracza. java paper">
@@ -297,7 +308,7 @@
           <button type="button" class="project-btn-details" onclick="openDetailsModal(6)">
             🔍 Szczegóły
           </button>
-          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+          <a href="#contact" class="project-action-btn" onclick="trackClick('Zamów podobny', 'skyluck_cooldown_skrzyn')">Zamów podobny →</a>
         </div>
       </article>
       <article class="project-card" data-project="skyluck-core" data-search="skyluck-core plugin główny, wysoko zoptymalizowany silnik serwerowy (core) zawierający zestaw niezbędnych komend, zarządzanie ekwipunkami, leczeniem oraz ochroną serwera. java paper">
@@ -317,7 +328,7 @@
           <button type="button" class="project-btn-details" onclick="openDetailsModal(7)">
             🔍 Szczegóły
           </button>
-          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+          <a href="#contact" class="project-action-btn" onclick="trackClick('Zamów podobny', 'skyluck-core')">Zamów podobny →</a>
         </div>
       </article>
       <article class="project-card" data-project="SkyLuck-Discord" data-search="skyluck-discord bot discord zaawansowany bot discord zintegrowany z infrastrukturą serwerową. python discord.py">
@@ -337,7 +348,7 @@
           <button type="button" class="project-btn-details" onclick="openDetailsModal(8)">
             🔍 Szczegóły
           </button>
-          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+          <a href="#contact" class="project-action-btn" onclick="trackClick('Zamów podobny', 'SkyLuck-Discord')">Zamów podobny →</a>
         </div>
       </article>
       <article class="project-card" data-project="skyluck-lightlevel" data-search="skyluck-lightlevel plugin optymalizator oświetlenia na wyspach i chunkach, eliminujący spadki tps wywoływane przez częste zmiany światła i duże farmy. java paper">
@@ -357,7 +368,7 @@
           <button type="button" class="project-btn-details" onclick="openDetailsModal(9)">
             🔍 Szczegóły
           </button>
-          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+          <a href="#contact" class="project-action-btn" onclick="trackClick('Zamów podobny', 'skyluck-lightlevel')">Zamów podobny →</a>
         </div>
       </article>
       <article class="project-card" data-project="WOOLCODE - AUTORESTART ZAM" data-search="woolcode - autorestart zam plugin harmonogram automatycznych restartów serwera z odliczaniem na czacie, actionbarze i bezpiecznym zapisem danych graczy przed wyłączeniem. java paper">
@@ -377,7 +388,7 @@
           <button type="button" class="project-btn-details" onclick="openDetailsModal(10)">
             🔍 Szczegóły
           </button>
-          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+          <a href="#contact" class="project-action-btn" onclick="trackClick('Zamów podobny', 'WOOLCODE - AUTORESTART ZAM')">Zamów podobny →</a>
         </div>
       </article>
       <article class="project-card" data-project="WOOLCODE-ANTYSWEAP" data-search="woolcode-antysweap plugin modyfikacja mechaniki zamachu mieczem (sweep attack) przywracająca klasyczny styl walki pvp bez obrażeń obszarowych na sojuszników. java paper">
@@ -397,7 +408,7 @@
           <button type="button" class="project-btn-details" onclick="openDetailsModal(11)">
             🔍 Szczegóły
           </button>
-          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+          <a href="#contact" class="project-action-btn" onclick="trackClick('Zamów podobny', 'WOOLCODE-ANTYSWEAP')">Zamów podobny →</a>
         </div>
       </article>
       <article class="project-card" data-project="WOOLCODE-CORE" data-search="woolcode-core plugin główny, wysoko zoptymalizowany silnik serwerowy (core) zawierający zestaw niezbędnych komend, zarządzanie ekwipunkami, leczeniem oraz ochroną serwera. java paper">
@@ -417,7 +428,7 @@
           <button type="button" class="project-btn-details" onclick="openDetailsModal(12)">
             🔍 Szczegóły
           </button>
-          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+          <a href="#contact" class="project-action-btn" onclick="trackClick('Zamów podobny', 'WOOLCODE-CORE')">Zamów podobny →</a>
         </div>
       </article>
       <article class="project-card" data-project="WOOLCODE-DCCONSOLE" data-search="woolcode-dcconsole plugin zdalna konsola serwera minecraft dostępna z poziomu discorda dla uprawnionych administratorów z pełną autoryzacją i logowaniem komend. java paper">
@@ -437,7 +448,7 @@
           <button type="button" class="project-btn-details" onclick="openDetailsModal(13)">
             🔍 Szczegóły
           </button>
-          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+          <a href="#contact" class="project-action-btn" onclick="trackClick('Zamów podobny', 'WOOLCODE-DCCONSOLE')">Zamów podobny →</a>
         </div>
       </article>
       <article class="project-card" data-project="WOOLCODE-GENERATORS" data-search="woolcode-generators plugin wydajny generator kamienia, obsydianu i cennych rud z konfigurowalnym czasem odnawiania, dropem oraz craftingami bloków generujących. java paper">
@@ -457,7 +468,7 @@
           <button type="button" class="project-btn-details" onclick="openDetailsModal(14)">
             🔍 Szczegóły
           </button>
-          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+          <a href="#contact" class="project-action-btn" onclick="trackClick('Zamów podobny', 'WOOLCODE-GENERATORS')">Zamów podobny →</a>
         </div>
       </article>
       <article class="project-card" data-project="WOOLCODE-HELPOPDC" data-search="woolcode-helpopdc plugin system szybkiego kontaktu graczy z administracją serwera. wiadomości wysyłane komendą /helpop trafiają natychmiastowo na serwer gry oraz dedykowany kanał discord przez webhook. java paper">
@@ -477,7 +488,7 @@
           <button type="button" class="project-btn-details" onclick="openDetailsModal(15)">
             🔍 Szczegóły
           </button>
-          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+          <a href="#contact" class="project-action-btn" onclick="trackClick('Zamów podobny', 'WOOLCODE-HELPOPDC')">Zamów podobny →</a>
         </div>
       </article>
       <article class="project-card" data-project="WOOLCODE-KOD" data-search="woolcode-kod plugin system kodów podarunkowych i voucherów jednorazowych lub wielorazowych umożliwiający graczom odbieranie nagród, rang i waluty komendą /kod. java paper">
@@ -497,7 +508,7 @@
           <button type="button" class="project-btn-details" onclick="openDetailsModal(16)">
             🔍 Szczegóły
           </button>
-          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+          <a href="#contact" class="project-action-btn" onclick="trackClick('Zamów podobny', 'WOOLCODE-KOD')">Zamów podobny →</a>
         </div>
       </article>
       <article class="project-card" data-project="WOOLCODE-KOLEJKA" data-search="woolcode-kolejka plugin system kolejkowania logowania graczy przy pełnym serwerze lub po restarcie z obsługą priorytetów dla rang vip/administracji i ochroną przed lagami. java paper">
@@ -517,7 +528,7 @@
           <button type="button" class="project-btn-details" onclick="openDetailsModal(17)">
             🔍 Szczegóły
           </button>
-          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+          <a href="#contact" class="project-action-btn" onclick="trackClick('Zamów podobny', 'WOOLCODE-KOLEJKA')">Zamów podobny →</a>
         </div>
       </article>
       <article class="project-card" data-project="WOOLCODE-KOMENDALOBBY" data-search="woolcode-komendalobby plugin moduł szybkiego powrotu do lobby serwerowego (/lobby, /hub) z wykrywaniem stanu walki (anty-combat) oraz efektami dźwiękowymi i wizualnymi. java paper">
@@ -537,7 +548,7 @@
           <button type="button" class="project-btn-details" onclick="openDetailsModal(18)">
             🔍 Szczegóły
           </button>
-          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+          <a href="#contact" class="project-action-btn" onclick="trackClick('Zamów podobny', 'WOOLCODE-KOMENDALOBBY')">Zamów podobny →</a>
         </div>
       </article>
       <article class="project-card" data-project="WOOLCODE-KOMENDY" data-search="woolcode-komendy plugin dedykowany plugin serwerowy oferujący funkcje i komendy: /woolcode-commands. zoptymalizowany pod kątem zerowego wpływu na wydajność serwera. java paper">
@@ -557,7 +568,7 @@
           <button type="button" class="project-btn-details" onclick="openDetailsModal(19)">
             🔍 Szczegóły
           </button>
-          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+          <a href="#contact" class="project-action-btn" onclick="trackClick('Zamów podobny', 'WOOLCODE-KOMENDY')">Zamów podobny →</a>
         </div>
       </article>
       <article class="project-card" data-project="WOOLCODE-KOPIEZAPASOWE" data-search="woolcode-kopiezapasowe plugin automatyczny system tworzenia skompresowanych kopii zapasowych (backupów) map i konfiguracji serwera z harmonogramem i asynchronicznym zapisem. java paper">
@@ -577,7 +588,7 @@
           <button type="button" class="project-btn-details" onclick="openDetailsModal(20)">
             🔍 Szczegóły
           </button>
-          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+          <a href="#contact" class="project-action-btn" onclick="trackClick('Zamów podobny', 'WOOLCODE-KOPIEZAPASOWE')">Zamów podobny →</a>
         </div>
       </article>
       <article class="project-card" data-project="WOOLCODE-PIN" data-search="woolcode-pin plugin dwuetapowe zabezpieczenie kont administracyjnych unikalnym kodem pin w gui, blokujące poruszanie się i komendy do momentu poprawnej autoryzacji. java paper">
@@ -597,7 +608,7 @@
           <button type="button" class="project-btn-details" onclick="openDetailsModal(21)">
             🔍 Szczegóły
           </button>
-          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+          <a href="#contact" class="project-action-btn" onclick="trackClick('Zamów podobny', 'WOOLCODE-PIN')">Zamów podobny →</a>
         </div>
       </article>
       <article class="project-card" data-project="WOOLCODE-POWITANIA" data-search="woolcode-powitania plugin system powitań nowych i powracających graczy z konfigurowalnymi wiadomościami na czacie, tytułami (titles), paskiem akcji (actionbar) i dźwiękami. java paper">
@@ -617,7 +628,7 @@
           <button type="button" class="project-btn-details" onclick="openDetailsModal(22)">
             🔍 Szczegóły
           </button>
-          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+          <a href="#contact" class="project-action-btn" onclick="trackClick('Zamów podobny', 'WOOLCODE-POWITANIA')">Zamów podobny →</a>
         </div>
       </article>
       <article class="project-card" data-project="WOOLCODE-RTP" data-search="woolcode-rtp plugin system losowej teleportacji graczy (random teleport) po mapie z inteligentnym wyszukiwaniem bezpiecznych lokacji (omijanie wody, lawy i blokad) oraz obsługą przycisków. java paper">
@@ -637,7 +648,7 @@
           <button type="button" class="project-btn-details" onclick="openDetailsModal(23)">
             🔍 Szczegóły
           </button>
-          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+          <a href="#contact" class="project-action-btn" onclick="trackClick('Zamów podobny', 'WOOLCODE-RTP')">Zamów podobny →</a>
         </div>
       </article>
       <article class="project-card" data-project="WOOLCODE-SPRAWDZANIE" data-search="woolcode-sprawdzanie plugin kompletny system kontroli i sprawdzania podejrzanych graczy z funkcją strefy sprawdzania, automatycznych kar za brak współpracy / przyznanie się oraz powiadomieniami dla administracji. java paper">
@@ -657,7 +668,7 @@
           <button type="button" class="project-btn-details" onclick="openDetailsModal(24)">
             🔍 Szczegóły
           </button>
-          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+          <a href="#contact" class="project-action-btn" onclick="trackClick('Zamów podobny', 'WOOLCODE-SPRAWDZANIE')">Zamów podobny →</a>
         </div>
       </article>
       <article class="project-card" data-project="WOOLCODE-STATYSTYKI" data-search="woolcode-statystyki plugin moduł zbierania, archiwizacji i prezentacji szczegółowych statystyk graczy (czas gry, zabójstwa, zgony, wykopane surowce, rankingi) z bazą danych mysql. java paper">
@@ -677,7 +688,7 @@
           <button type="button" class="project-btn-details" onclick="openDetailsModal(25)">
             🔍 Szczegóły
           </button>
-          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+          <a href="#contact" class="project-action-btn" onclick="trackClick('Zamów podobny', 'WOOLCODE-STATYSTYKI')">Zamów podobny →</a>
         </div>
       </article>
       <article class="project-card" data-project="WOOLCODE-SYSTEM-JAVA" data-search="woolcode-system-java system dedykowane rozwiązanie serwerowe zoptymalizowane pod wysokie obciążenie i stabilność. java mysql api">
@@ -697,7 +708,7 @@
           <button type="button" class="project-btn-details" onclick="openDetailsModal(26)">
             🔍 Szczegóły
           </button>
-          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+          <a href="#contact" class="project-action-btn" onclick="trackClick('Zamów podobny', 'WOOLCODE-SYSTEM-JAVA')">Zamów podobny →</a>
         </div>
       </article>
       <article class="project-card" data-project="WOOLCODE-TRADE" data-search="woolcode-trade plugin zaawansowany system bezpiecznej wymiany przedmiotów i waluty pomiędzy graczami z dedykowanym interfejsem graficznym gui, zabezpieczeniem przed oszustwami i podglądem na żywo. java paper">
@@ -717,7 +728,7 @@
           <button type="button" class="project-btn-details" onclick="openDetailsModal(27)">
             🔍 Szczegóły
           </button>
-          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+          <a href="#contact" class="project-action-btn" onclick="trackClick('Zamów podobny', 'WOOLCODE-TRADE')">Zamów podobny →</a>
         </div>
       </article>
       
@@ -746,7 +757,7 @@
               </div>
             </div>
             <div class="contact-actions">
-              <button class="btn btn-discord btn-copy" onclick="copyText('olczku_', 'Skopiowano Discord: olczku_')">
+              <button class="btn btn-discord btn-copy" onclick="copyText('olczku_', 'Skopiowano Discord: olczku_'); trackClick('Kopiuj Discord', 'olczku_');">
                 📋 Kopiuj nick
               </button>
             </div>
@@ -762,10 +773,10 @@
               </div>
             </div>
             <div class="contact-actions">
-              <a class="btn btn-email" href="mailto:olczkuyt@gmail.com">
+              <a class="btn btn-email" href="mailto:olczkuyt@gmail.com" onclick="trackClick('Napisz Email', 'olczkuyt@gmail.com')">
                 Napisz wiadomość
               </a>
-              <button class="btn btn-copy" onclick="copyText('olczkuyt@gmail.com', 'Skopiowano E-mail: olczkuyt@gmail.com')">
+              <button class="btn btn-copy" onclick="copyText('olczkuyt@gmail.com', 'Skopiowano E-mail: olczkuyt@gmail.com'); trackClick('Kopiuj Email', 'olczkuyt@gmail.com');">
                 📋
               </button>
             </div>
@@ -818,8 +829,220 @@
 
     <div class="modal-footer">
       <button class="btn btn-secondary" onclick="closeDetailsModal()">Zamknij</button>
-      <a class="btn btn-primary" href="#contact" onclick="closeDetailsModal()">Zamów podobny projekt →</a>
+      <a class="btn btn-primary" href="#contact" onclick="closeDetailsModal(); trackClick('Zamów z Modalu', document.getElementById('modalTitle').textContent);">Zamów podobny projekt →</a>
     </div>
+  </div>
+</div>
+
+<!-- Modal Logowania do Panelu Admina -->
+<div id="adminLoginModal" class="modal-backdrop" onclick="if(event.target === this) closeAdminLogin()">
+  <div class="modal-window admin-login-card">
+    <div class="modal-header">
+      <h3 class="modal-title">🔒 Logowanie Administratora</h3>
+      <button class="modal-close" onclick="closeAdminLogin()">✕</button>
+    </div>
+    <form id="adminLoginForm" onsubmit="handleAdminLogin(event)">
+      <div class="modal-body">
+        <div class="admin-login-icon">🛡️</div>
+        <div id="adminLoginError" class="admin-error-banner">Nieprawidłowe hasło lub PIN.</div>
+        
+        <div class="admin-input-group">
+          <label for="adminPass">Hasło lub PIN administratora:</label>
+          <input type="password" id="adminPass" class="admin-input" placeholder="Wpisz hasło..." required autocomplete="current-password">
+        </div>
+        <p style="font-size: 0.8rem; color: var(--text-dim);">Domyślne hasło startowe: <code>olczku2026</code> (możesz je zmienić po zalogowaniu w panelu).</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="closeAdminLogin()">Anuluj</button>
+        <button type="submit" class="btn btn-primary">Zaloguj się →</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Główny Modal / Dashboard Panelu Admina -->
+<div id="adminPanelModal" class="modal-backdrop" onclick="if(event.target === this) closeAdminPanel()">
+  <div class="modal-window admin-window">
+    <div class="modal-header">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <span class="brand-icon" style="width:30px; height:30px; font-size:0.85rem;">⚡</span>
+        <div>
+          <h3 class="modal-title" style="margin:0; font-size:1.15rem;">Panel Administratora — Jakub (olczku)</h3>
+          <span style="font-size:0.75rem; color:var(--accent); font-family:var(--font-mono);">● Sesja aktywna</span>
+        </div>
+      </div>
+      <div style="display:flex; gap:8px;">
+        <button class="btn btn-secondary" style="padding:6px 12px; font-size:0.8rem;" onclick="adminLogout()">Wyloguj</button>
+        <button class="modal-close" onclick="closeAdminPanel()">✕</button>
+      </div>
+    </div>
+
+    <!-- Admin Tabs Navigation -->
+    <div class="admin-tabs-nav">
+      <button class="admin-tab-btn active" onclick="switchAdminTab('overview')">📊 Przegląd</button>
+      <button class="admin-tab-btn" onclick="switchAdminTab('logs')">⚡ Dziennik Aktywności (<span id="adminLogsCount">0</span>)</button>
+      <button class="admin-tab-btn" onclick="switchAdminTab('projects')">📦 Projekty & Opisy (<span id="adminProjCount">28</span>)</button>
+      <button class="admin-tab-btn" onclick="switchAdminTab('settings')">⚙️ Ustawienia</button>
+    </div>
+
+    <!-- Tab 1: Overview -->
+    <div id="tab-overview" class="admin-tab-content active">
+      <div class="admin-stats-grid">
+        <div class="admin-stat-card">
+          <div class="num" id="overviewVisits">0</div>
+          <div class="lbl">Zarejestrowane wejścia</div>
+        </div>
+        <div class="admin-stat-card">
+          <div class="num" id="overviewClicks">0</div>
+          <div class="lbl">Kliknięcia & Interakcje</div>
+        </div>
+        <div class="admin-stat-card">
+          <div class="num" id="overviewSearches">0</div>
+          <div class="lbl">Wyszukiwania w pasku</div>
+        </div>
+        <div class="admin-stat-card">
+          <div class="num" id="overviewProjects">28</div>
+          <div class="lbl">Wszystkie projekty</div>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 20px;">
+        <div class="modal-section-label">⚡ Ostatnie 5 zdarzeń w czasie rzeczywistym</div>
+        <div class="admin-table-container">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Czas</th>
+                <th>Zdarzenie</th>
+                <th>Lokalizacja / IP / Urządzenie</th>
+                <th>Szczegóły</th>
+              </tr>
+            </thead>
+            <tbody id="overviewRecentLogsTable">
+              <tr><td colspan="4" style="text-align:center; padding:20px;">Brak zarejestrowanych zdarzeń w tej sesji.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 2: Activity Logs -->
+    <div id="tab-logs" class="admin-tab-content">
+      <div class="admin-actions-bar">
+        <div class="admin-filter-pills">
+          <button class="filter-pill active" onclick="filterAdminLogs('ALL')">Wszystkie</button>
+          <button class="filter-pill" onclick="filterAdminLogs('VISIT')">🌐 Odwiedziny</button>
+          <button class="filter-pill" onclick="filterAdminLogs('SEARCH')">🔍 Szukanie</button>
+          <button class="filter-pill" onclick="filterAdminLogs('MODAL_VIEW')">👁️ Podgląd</button>
+          <button class="filter-pill" onclick="filterAdminLogs('COPY_DISCORD')">💬 Discord</button>
+          <button class="filter-pill" onclick="filterAdminLogs('CLICK')">🖱️ Kliknięcia</button>
+        </div>
+        <div style="display:flex; gap:8px;">
+          <button class="btn btn-secondary" style="padding:6px 12px; font-size:0.8rem;" onclick="exportLogsJson()">📥 Pobierz JSON</button>
+          <button class="btn btn-danger" style="padding:6px 12px; font-size:0.8rem;" onclick="clearAllLogs()">🗑️ Wyczyść historię</button>
+        </div>
+      </div>
+
+      <div class="admin-table-container" style="max-height: 52vh;">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Godzina</th>
+              <th>Typ</th>
+              <th>IP / Lokalizacja</th>
+              <th>Urządzenie & System</th>
+              <th>Akcja / Treść</th>
+            </tr>
+          </thead>
+          <tbody id="adminFullLogsTable">
+            <tr><td colspan="5" style="text-align:center; padding:30px;">Ładowanie historii zdarzeń...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Tab 3: Projects CRUD -->
+    <div id="tab-projects" class="admin-tab-content">
+      <div class="admin-actions-bar">
+        <div>
+          <h4 style="margin:0;">Zarządzanie pluginami i opisami</h4>
+          <p style="font-size:0.8rem; color:var(--text-dim); margin:2px 0 0;">Możesz dodawać, edytować opisy i usuwać projekty bezpośrednio z tego panelu.</p>
+        </div>
+        <button class="btn btn-primary" style="padding:8px 16px; font-size:0.85rem;" onclick="openAddProjectModal()">➕ Dodaj Nowy Projekt</button>
+      </div>
+
+      <div class="admin-proj-grid" id="adminProjectsList"></div>
+    </div>
+
+    <!-- Tab 4: Settings -->
+    <div id="tab-settings" class="admin-tab-content">
+      <div style="max-width: 580px; display:flex; flex-direction:column; gap:24px;">
+        <div class="contact-item-card" style="flex-direction:column; align-items:flex-start; gap:12px;">
+          <h4 style="color:#fff; font-size:0.95rem;">🔑 Zmiana Hasła Administratora</h4>
+          <div class="admin-input-group" style="width:100%;">
+            <input type="password" id="newAdminPass" class="admin-input" placeholder="Wpisz nowe hasło...">
+          </div>
+          <button class="btn btn-primary" style="padding:8px 16px; font-size:0.85rem;" onclick="changeAdminPassword()">Zapisz nowe hasło</button>
+        </div>
+
+        <div class="contact-item-card" style="flex-direction:column; align-items:flex-start; gap:12px;">
+          <h4 style="color:#fff; font-size:0.95rem;">🔔 Webhook Discord & Ping</h4>
+          <div class="admin-input-group" style="width:100%;">
+            <label style="font-size:0.75rem; color:var(--text-dim);">Adres Webhooka:</label>
+            <input type="text" id="settingWebhook" class="admin-input" value="https://discord.com/api/webhooks/1543637480220401764/K3rNaniYGbIxmvlED5rDWAtQlELDN1EHa9nUKzGHRciWn4qOos75o-WV6OzkevgCT6MW">
+          </div>
+          <div class="admin-input-group" style="width:100%;">
+            <label style="font-size:0.75rem; color:var(--text-dim);">ID Użytkownika do oznaczania (Ping):</label>
+            <input type="text" id="settingUserPing" class="admin-input" value="273991833539837953">
+          </div>
+          <button class="btn btn-secondary" style="padding:8px 16px; font-size:0.85rem;" onclick="saveWebhookSettings()">Zapisz ustawienia powiadomień</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Dodawania / Edycji Projektu w Panelu -->
+<div id="projectEditorModal" class="modal-backdrop" onclick="if(event.target === this) closeProjectEditor()">
+  <div class="modal-window" style="max-width:550px;">
+    <div class="modal-header">
+      <h3 id="editorModalTitle" class="modal-title">Dodaj Projekt</h3>
+      <button class="modal-close" onclick="closeProjectEditor()">✕</button>
+    </div>
+    <form id="projectEditorForm" onsubmit="handleSaveProject(event)">
+      <div class="modal-body">
+        <input type="hidden" id="editProjIndex" value="-1">
+        
+        <div class="admin-input-group">
+          <label for="editProjName">Nazwa Projektu (np. MOJ-PLUGIN):</label>
+          <input type="text" id="editProjName" class="admin-input" required placeholder="Nazwa folderu lub pluginu">
+        </div>
+
+        <div class="admin-input-group">
+          <label for="editProjType">Typ:</label>
+          <select id="editProjType" class="admin-input" style="background:#000;">
+            <option value="Plugin">Plugin Minecraft</option>
+            <option value="Bot Discord">Bot Discord</option>
+            <option value="System">System / Skrypt</option>
+            <option value="Plugin Core">Plugin Core Engine</option>
+          </select>
+        </div>
+
+        <div class="admin-input-group">
+          <label for="editProjDesc">Opis projektu (widoczny na karcie i w szczegółach):</label>
+          <textarea id="editProjDesc" class="admin-input" rows="4" style="resize:vertical;" required placeholder="Krótki, profesjonalny opis działania..."></textarea>
+        </div>
+
+        <div class="admin-input-group">
+          <label for="editProjTags">Tagi (oddzielone przecinkami, np. Java, Paper, MySQL):</label>
+          <input type="text" id="editProjTags" class="admin-input" placeholder="Java, Paper, GUI, Optymalizacja">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="closeProjectEditor()">Anuluj</button>
+        <button type="submit" class="btn btn-primary">Zapisz projekt ✓</button>
+      </div>
+    </form>
   </div>
 </div>
 
@@ -842,13 +1065,33 @@
 </div>
 
 <script>
-const projectsData = [{"name":"AutoModerator","pluginName":"AutoModerator","type":"Plugin","description":"Inteligentny anty-spam, filtr przekleństw i ochrona czatu w czasie rzeczywistym z panelem administracyjnym.","tags":["Java","Paper","Spigot"],"image":null,"version":"1.0","apiVersion":"1.20","mainClass":"","author":"Jakub (olczku)","commands":[],"permissions":[]},{"name":"DiscordSync","pluginName":"DiscordSync","type":"Bot Discord","description":"Zaawansowany system weryfikacji i synchronizacji rang oraz kont graczy Minecraft z kontami na serwerze Discord.","tags":["Python","Discord.py","Minecraft"],"image":null,"version":"1.0","apiVersion":"1.20","mainClass":"","author":"Jakub (olczku)","commands":[],"permissions":[]},{"name":"FLYCRAFT-BOT","pluginName":"FLYCRAFT-BOT","type":"Bot Discord","description":"Zaawansowany bot Discord zintegrowany z infrastrukturą serwerową.","tags":["Python","Discord.py"],"image":null,"version":"1.0","apiVersion":"1.20","mainClass":"","author":"Jakub (olczku)","commands":[],"permissions":[]},{"name":"HESEN.PL BOT SYS","pluginName":"HESEN.PL BOT SYS","type":"Bot Discord","description":"Zaawansowany bot Discord zintegrowany z infrastrukturą serwerową.","tags":["Python","Discord.py"],"image":null,"version":"1.0","apiVersion":"1.20","mainClass":"","author":"Jakub (olczku)","commands":[],"permissions":[]},{"name":"RC-SYSTEMBOT","pluginName":"RC-SYSTEMBOT","type":"Bot Discord","description":"Zaawansowany bot Discord zintegrowany z infrastrukturą serwerową.","tags":["Python","Discord.py"],"image":null,"version":"1.0","apiVersion":"1.20","mainClass":"","author":"Jakub (olczku)","commands":[],"permissions":[]},{"name":"SamplePlugin","pluginName":"SamplePlugin","type":"Plugin","description":"Przykładowy plugin do serwera Minecraft dodający zaawansowaną ekonomię, rynek graczy oraz integrację z bazą danych MySQL.","tags":["Java","MySQL","Paper"],"image":null,"version":"1.0","apiVersion":"1.20","mainClass":"","author":"Jakub (olczku)","commands":[],"permissions":[]},{"name":"skyluck_cooldown_skrzyn","pluginName":"skyluck_cooldown_skrzyn","type":"Plugin","description":"Zarządzanie czasem odnawiania otwierania skrzyń ze specjalnym dropem i nagrodami dziennymi z zapisem stanu dla każdego gracza.","tags":["Java","Paper"],"image":null,"version":"1.0-SNAPSHOT","apiVersion":"1.20","mainClass":"pl.olczku.skyluck_cooldown_skrzyn.Skyluck_cooldown_skrzyn","author":"Olczku","commands":[{"name":"skyluckcooldown","desc":"Główna komenda pluginu.","usage":"/\u003ccommand> reload","perm":"skyluck.cooldown.reload"}],"permissions":["skyluck.cooldown.reload","skyluck.cooldown.bypass"]},{"name":"skyluck-core","pluginName":"skyluck-core","type":"Plugin","description":"Główny, wysoko zoptymalizowany silnik serwerowy (Core) zawierający zestaw niezbędnych komend, zarządzanie ekwipunkami, leczeniem oraz ochroną serwera.","tags":["Java","Paper"],"image":null,"version":"1.0-SNAPSHOT","apiVersion":"1.20","mainClass":"pl.olczku.skyluckCore.Przekierowanie.OlczkuDannyPrzekKom","author":"Olczku","commands":[{"name":"osiagniecia","desc":"Pokazuje listę osiągnięć","usage":"/osiagniecia","perm":""},{"name":"artefakty","desc":"Zarządzanie artefaktami","usage":"/\u003ccommand> [daj|lista|reload|pomoc]","perm":""},{"name":"stattrak","desc":"Komenda do zarządzania StatTrak","usage":"/\u003ccommand> \u003cgive|other>","perm":"skyluck.core.stattrak.admin"},{"name":"core","desc":"Główna komenda administracyjna pluginu.","usage":"/core reload","perm":"skyluck.core.admin"},{"name":"drop","desc":"Dodaje przedmiot trzymany w ręce jako drop do skrzynki.","usage":"/drop \u003cszansa>","perm":"skyluck.core.drop"},{"name":"resetskrzynki","desc":"Resetuje cooldown na otwieranie skrzynek w danym świecie.","usage":"/resetskrzynki","perm":"skyluck.core.reset"},{"name":"skrzynka","desc":"Zarządza skrzynkami z poziomami.","usage":"/skrzynka \u003cpoziom> | /skrzynka dodaj \u003cpoziom> \u003cszansa>","perm":""},{"name":"wymiana","desc":"Otwiera GUI do wymiany skrzynek na wyższy poziom.","usage":"/wymiana","perm":""},{"name":"generator","desc":"Zarządza generatorami stone.","usage":"/generator \u003cdaj|reload>","perm":"skyluck.core.generator.admin"}],"permissions":["skyluckcore.achievements","skyluck.core.admin","skyluck.core.drop","skyluck.core.reset","skyluck.core.skrzynka.admin","skyluck.core.skrzynka.dodaj","skyluck.drop.bonus20","skyluck.core.generator.admin","skyluckcore.artefakty.admin"]},{"name":"SkyLuck-Discord","pluginName":"SkyLuckDiscord","type":"Bot Discord","description":"Zaawansowany bot Discord zintegrowany z infrastrukturą serwerową.","tags":["Python","Discord.py"],"image":null,"version":"1.0","apiVersion":"1.20","mainClass":"pl.olczku.skyLuckDiscord.SkyLuckDiscord","author":"Olczku","commands":[],"permissions":[]},{"name":"skyluck-lightlevel","pluginName":"LightGrow","type":"Plugin","description":"Optymalizator oświetlenia na wyspach i chunkach, eliminujący spadki TPS wywoływane przez częste zmiany światła i duże farmy.","tags":["Java","Paper"],"image":null,"version":"1.0","apiVersion":"1.21","mainClass":"pl.olczku.lightgrow.LightGrow","author":"Olczku","commands":[],"permissions":[]},{"name":"WOOLCODE - AUTORESTART ZAM","pluginName":"WOOLCODE-AUTORESTARTZAM.","type":"Plugin","description":"Harmonogram automatycznych restartów serwera z odliczaniem na czacie, actionbarze i bezpiecznym zapisem danych graczy przed wyłączeniem.","tags":["Java","Paper"],"image":null,"version":"1.0-SNAPSHOT","apiVersion":"1.18","mainClass":"pl.olczku.wOOLCODEAUTORESTARTZAM.WOOLCODEAUTORESTARTZAM","author":"WOOLCODE | OLCZKU","commands":[{"name":"autorestart","desc":"Auto restart","usage":"/\u003ccommand> [now|cancel|reload|time]","perm":""}],"permissions":["woolcode.autorestart.admin"]},{"name":"WOOLCODE-ANTYSWEAP","pluginName":"WOOLCODE-ANTYSWAP","type":"Plugin","description":"Modyfikacja mechaniki zamachu mieczem (Sweep Attack) przywracająca klasyczny styl walki PvP bez obrażeń obszarowych na sojuszników.","tags":["Java","Paper"],"image":null,"version":"1.0","apiVersion":"1.16","mainClass":"pl.olczku.wOOLCODEANTYSWEAP.WOOLCODEANTYSWEAP","author":"WOOLCODE | OLCZKU","commands":[],"permissions":[]},{"name":"WOOLCODE-CORE","pluginName":"CORE_SHIELD","type":"Plugin","description":"Główny, wysoko zoptymalizowany silnik serwerowy (Core) zawierający zestaw niezbędnych komend, zarządzanie ekwipunkami, leczeniem oraz ochroną serwera.","tags":["Java","Paper"],"image":null,"version":"1.0","apiVersion":"1.18","mainClass":"pl.olczku.commands.CORE_SHIELD","author":"WOOLCODE","commands":[{"name":"gm","desc":"Zmienia tryb gry.","usage":"/gm \u003ctryb>","perm":"core.gm"},{"name":"heal","desc":"Leczy gracza.","usage":"/heal","perm":"core.heal"},{"name":"feed","desc":"Karmi gracza.","usage":"/feed","perm":"core.feed"},{"name":"repair","desc":"Naprawia przedmioty.","usage":"/repair","perm":"core.repair"},{"name":"pomoc","desc":"Wyświetla pomoc.","usage":"/pomoc","perm":"core.pomoc"},{"name":"ec","desc":"Otwiera enderchest gracza.","usage":"/ec","perm":"core.ec"},{"name":"oi","desc":"Otwiera ekwipunek innego gracza.","usage":"/oi \u003cgracz>","perm":"core.oi"},{"name":"core-reload","desc":"Przeładowuje konfigurację pluginu.","usage":"/reload","perm":"core.reload"}],"permissions":[]},{"name":"WOOLCODE-DCCONSOLE","pluginName":"WOOLCODE-DCCONSOLE","type":"Plugin","description":"Zdalna konsola serwera Minecraft dostępna z poziomu Discorda dla uprawnionych administratorów z pełną autoryzacją i logowaniem komend.","tags":["Java","Paper"],"image":null,"version":"1.0","apiVersion":"1.13","mainClass":"pl.olczku.wOOLCODEDCCONSOLE.WOOLCODEDCCONSOLE","author":"Jakub (olczku)","commands":[],"permissions":[]},{"name":"WOOLCODE-GENERATORS","pluginName":"WOOLCODE-GENERATORS","type":"Plugin","description":"Wydajny generator kamienia, obsydianu i cennych rud z konfigurowalnym czasem odnawiania, dropem oraz craftingami bloków generujących.","tags":["Java","Paper"],"image":null,"version":"1.0-SNAPSHOT","apiVersion":"1.18","mainClass":"pl.olczku.wOOLCODEGENERATORS.WOOLCODEGENERATORS","author":"Jakub (olczku)","commands":[],"permissions":[]},{"name":"WOOLCODE-HELPOPDC","pluginName":"WOOLCODE-HELPOPDC","type":"Plugin","description":"System szybkiego kontaktu graczy z administracją serwera. Wiadomości wysyłane komendą /helpop trafiają natychmiastowo na serwer gry oraz dedykowany kanał Discord przez Webhook.","tags":["Java","Paper"],"image":null,"version":"1.0","apiVersion":"1.20","mainClass":"pl.olczku.wOOLCODEHELPOPDC.Main","author":"Olczku | WOOLCODE","commands":[{"name":"helpop","desc":"Wysyla wiadomosc do administracji.","usage":"/helpop \u003cwiadomosc>","perm":""}],"permissions":["woolcodehelpop.use","woolcodehelpop.view"]},{"name":"WOOLCODE-KOD","pluginName":"WOOLCODE-KOD","type":"Plugin","description":"System kodów podarunkowych i voucherów jednorazowych lub wielorazowych umożliwiający graczom odbieranie nagród, rang i waluty komendą /kod.","tags":["Java","Paper"],"image":null,"version":"1.0-SNAPSHOT","apiVersion":"1.20","mainClass":"pl.olczku.wOOLCODEKOD.WOOLCODEKOD","author":"Jakub (olczku)","commands":[{"name":"kod","desc":"Komenda do wpisywania kodu.","usage":"/kod \u003ckod>","perm":"woolcode.kod"}],"permissions":[]},{"name":"WOOLCODE-KOLEJKA","pluginName":"WOOLCODE-KOLEJKA","type":"Plugin","description":"System kolejkowania logowania graczy przy pełnym serwerze lub po restarcie z obsługą priorytetów dla rang VIP/Administracji i ochroną przed lagami.","tags":["Java","Paper"],"image":null,"version":"1.0-SNAPSHOT","apiVersion":"1.18","mainClass":"pl.olczku.wOOLCODEKOLEJKA.WOOLCODEKOLEJKA","author":"WOOLCODE | OLCZKU","commands":[],"permissions":[]},{"name":"WOOLCODE-KOMENDALOBBY","pluginName":"WOOLCODE-KOMENDALOBBY","type":"Plugin","description":"Moduł szybkiego powrotu do lobby serwerowego (/lobby, /hub) z wykrywaniem stanu walki (Anty-Combat) oraz efektami dźwiękowymi i wizualnymi.","tags":["Java","Paper"],"image":null,"version":"1.0","apiVersion":"1.20","mainClass":"","author":"Jakub (olczku)","commands":[],"permissions":[]},{"name":"WOOLCODE-KOMENDY","pluginName":"WOOLCODE-KOMENDY","type":"Plugin","description":"Dedykowany plugin serwerowy oferujący funkcje i komendy: /woolcode-commands. Zoptymalizowany pod kątem zerowego wpływu na wydajność serwera.","tags":["Java","Paper"],"image":null,"version":"1.0","apiVersion":"1.16","mainClass":"pl.olczku.wOOLCODEKOMENDY.WOOLCODEKOMENDY","author":"Jakub (olczku)","commands":[{"name":"woolcode-commands","desc":"Przeładowuje konfigurację komend","usage":"/woolcode-commands reload","perm":""}],"permissions":[]},{"name":"WOOLCODE-KOPIEZAPASOWE","pluginName":"WOOLCODE-KOPIEZAPASOWE","type":"Plugin","description":"Automatyczny system tworzenia skompresowanych kopii zapasowych (backupów) map i konfiguracji serwera z harmonogramem i asynchronicznym zapisem.","tags":["Java","Paper"],"image":null,"version":"1.0-SNAPSHOT","apiVersion":"1.18","mainClass":"pl.olczku.wOOLCODEKOPIEZAPASOWE.WOOLCODEKOPIEZAPASOWE","author":"Jakub (olczku)","commands":[],"permissions":[]},{"name":"WOOLCODE-PIN","pluginName":"WOOLCODE-PIN","type":"Plugin","description":"Dwuetapowe zabezpieczenie kont administracyjnych unikalnym kodem PIN w GUI, blokujące poruszanie się i komendy do momentu poprawnej autoryzacji.","tags":["Java","Paper"],"image":null,"version":"1.0","apiVersion":"1.16","mainClass":"pl.olczku.wOOLCODEPIN.WOOLCODEPIN","author":"Olczku","commands":[{"name":"kodadm","desc":"Wpisz kod administracyjny.","usage":"/kodadm \u003ckod>","perm":""},{"name":"pinustaw","desc":"Ustaw nowy kod PIN.","usage":"/pinustaw \u003cnowy_pin>","perm":""},{"name":"woolcode-pin","desc":"Przeładuj konfigurację pluginu.","usage":"/woolcode-pin reload","perm":""}],"permissions":["woolcode.pin.adm","woolcode.pin.pinustaw","woolcode.pin.reload"]},{"name":"WOOLCODE-POWITANIA","pluginName":"WOOLCODE-POWITANIA","type":"Plugin","description":"System powitań nowych i powracających graczy z konfigurowalnymi wiadomościami na czacie, tytułami (Titles), paskiem akcji (Actionbar) i dźwiękami.","tags":["Java","Paper"],"image":null,"version":"1.0","apiVersion":"1.20","mainClass":"","author":"Jakub (olczku)","commands":[],"permissions":[]},{"name":"WOOLCODE-RTP","pluginName":"WOOLCODE-RTP","type":"Plugin","description":"System losowej teleportacji graczy (Random Teleport) po mapie z inteligentnym wyszukiwaniem bezpiecznych lokacji (omijanie wody, lawy i blokad) oraz obsługą przycisków.","tags":["Java","Paper"],"image":null,"version":"1.0-SNAPSHOT","apiVersion":"1.18","mainClass":"pl.olczku.wOOLCODERTP.WOOLCODERTP","author":"Jakub (olczku)","commands":[{"name":"rtp","desc":"Teleportuje gracza w losowe miejsce.","usage":"/rtp [ustaw]","perm":""}],"permissions":["woolcodertp.use","woolcodertp.ustaw"]},{"name":"WOOLCODE-SPRAWDZANIE","pluginName":"WOOLCODESPRAWDZANIE","type":"Plugin","description":"Kompletny system kontroli i sprawdzania podejrzanych graczy z funkcją strefy sprawdzania, automatycznych kar za brak współpracy / przyznanie się oraz powiadomieniami dla administracji.","tags":["Java","Paper"],"image":null,"version":"1.0","apiVersion":"1.20","mainClass":"pl.olczku.wOOLCODESPRAWDZANIE.WOOLCODESPRAWDZANIE","author":"Jakub (olczku)","commands":[{"name":"sprawdz","desc":"Komenda do sprawdzania graczy.","usage":"","perm":""},{"name":"czysty","desc":"Szybkie oczyszczanie gracza z zarzutów.","usage":"","perm":""},{"name":"reload","desc":"Przeładowanie config.yml i messages.yml.","usage":"","perm":""},{"name":"ustaw","desc":"Ustawia punkt sprawdzania.","usage":"","perm":""},{"name":"brakwspolpracy","desc":"Ban za brak współpracy.","usage":"","perm":""},{"name":"cheaty","desc":"Ban za cheaty.","usage":"","perm":""}],"permissions":[]},{"name":"WOOLCODE-STATYSTYKI","pluginName":"WOOLCODE-STATYSTYKI","type":"Plugin","description":"Moduł zbierania, archiwizacji i prezentacji szczegółowych statystyk graczy (czas gry, zabójstwa, zgony, wykopane surowce, rankingi) z bazą danych MySQL.","tags":["Java","Paper"],"image":null,"version":"1.0-SNAPSHOT","apiVersion":"1.18","mainClass":"pl.olczku.wOOLCODESTATYSTYKI.WOOLCODESTATYSTYKI","author":"Jakub (olczku)","commands":[],"permissions":[]},{"name":"WOOLCODE-SYSTEM-JAVA","pluginName":"WOOLCODE-SYSTEM-JAVA","type":"System","description":"Dedykowane rozwiązanie serwerowe zoptymalizowane pod wysokie obciążenie i stabilność.","tags":["Java","MySQL","API"],"image":null,"version":"1.0","apiVersion":"1.20","mainClass":"","author":"Jakub (olczku)","commands":[],"permissions":[]},{"name":"WOOLCODE-TRADE","pluginName":"WOOLCODETRADE","type":"Plugin","description":"Zaawansowany system bezpiecznej wymiany przedmiotów i waluty pomiędzy graczami z dedykowanym interfejsem graficznym GUI, zabezpieczeniem przed oszustwami i podglądem na żywo.","tags":["Java","Paper"],"image":null,"version":"1.0","apiVersion":"1.16","mainClass":"pl.olczku.wOOLCODETRADE.WOOLCODETRADE","author":"Jakub (olczku)","commands":[{"name":"wymiana","desc":"Otwiera GUI do wymiany przedmiotów z innym graczem.","usage":"/wymiana \u003cgracz>","perm":""}],"permissions":[]}];
+let projectsData = [{"id":"AutoModerator","name":"AutoModerator","pluginName":"AutoModerator","type":"Plugin","description":"Inteligentny anty-spam, filtr przekleństw i ochrona czatu w czasie rzeczywistym z panelem administracyjnym.","tags":["Java","Paper","Spigot"],"image":null,"version":"1.0","apiVersion":"1.20","mainClass":"","author":"Jakub (olczku)","commands":[],"permissions":[]},{"id":"DiscordSync","name":"DiscordSync","pluginName":"DiscordSync","type":"Bot Discord","description":"Zaawansowany system weryfikacji i synchronizacji rang oraz kont graczy Minecraft z kontami na serwerze Discord.","tags":["Python","Discord.py","Minecraft"],"image":null,"version":"1.0","apiVersion":"1.20","mainClass":"","author":"Jakub (olczku)","commands":[],"permissions":[]},{"id":"FLYCRAFT-BOT","name":"FLYCRAFT-BOT","pluginName":"FLYCRAFT-BOT","type":"Bot Discord","description":"Zaawansowany bot Discord zintegrowany z infrastrukturą serwerową.","tags":["Python","Discord.py"],"image":null,"version":"1.0","apiVersion":"1.20","mainClass":"","author":"Jakub (olczku)","commands":[],"permissions":[]},{"id":"HESEN.PL BOT SYS","name":"HESEN.PL BOT SYS","pluginName":"HESEN.PL BOT SYS","type":"Bot Discord","description":"Zaawansowany bot Discord zintegrowany z infrastrukturą serwerową.","tags":["Python","Discord.py"],"image":null,"version":"1.0","apiVersion":"1.20","mainClass":"","author":"Jakub (olczku)","commands":[],"permissions":[]},{"id":"RC-SYSTEMBOT","name":"RC-SYSTEMBOT","pluginName":"RC-SYSTEMBOT","type":"Bot Discord","description":"Zaawansowany bot Discord zintegrowany z infrastrukturą serwerową.","tags":["Python","Discord.py"],"image":null,"version":"1.0","apiVersion":"1.20","mainClass":"","author":"Jakub (olczku)","commands":[],"permissions":[]},{"id":"SamplePlugin","name":"SamplePlugin","pluginName":"SamplePlugin","type":"Plugin","description":"Przykładowy plugin do serwera Minecraft dodający zaawansowaną ekonomię, rynek graczy oraz integrację z bazą danych MySQL.","tags":["Java","MySQL","Paper"],"image":null,"version":"1.0","apiVersion":"1.20","mainClass":"","author":"Jakub (olczku)","commands":[],"permissions":[]},{"id":"skyluck_cooldown_skrzyn","name":"skyluck_cooldown_skrzyn","pluginName":"skyluck_cooldown_skrzyn","type":"Plugin","description":"Zarządzanie czasem odnawiania otwierania skrzyń ze specjalnym dropem i nagrodami dziennymi z zapisem stanu dla każdego gracza.","tags":["Java","Paper"],"image":null,"version":"1.0-SNAPSHOT","apiVersion":"1.20","mainClass":"pl.olczku.skyluck_cooldown_skrzyn.Skyluck_cooldown_skrzyn","author":"Olczku","commands":[{"name":"skyluckcooldown","desc":"Główna komenda pluginu.","usage":"/\u003ccommand> reload","perm":"skyluck.cooldown.reload"}],"permissions":["skyluck.cooldown.reload","skyluck.cooldown.bypass"]},{"id":"skyluck-core","name":"skyluck-core","pluginName":"skyluck-core","type":"Plugin","description":"Główny, wysoko zoptymalizowany silnik serwerowy (Core) zawierający zestaw niezbędnych komend, zarządzanie ekwipunkami, leczeniem oraz ochroną serwera.","tags":["Java","Paper"],"image":null,"version":"1.0-SNAPSHOT","apiVersion":"1.20","mainClass":"pl.olczku.skyluckCore.Przekierowanie.OlczkuDannyPrzekKom","author":"Olczku","commands":[{"name":"osiagniecia","desc":"Pokazuje listę osiągnięć","usage":"/osiagniecia","perm":""},{"name":"artefakty","desc":"Zarządzanie artefaktami","usage":"/\u003ccommand> [daj|lista|reload|pomoc]","perm":""},{"name":"stattrak","desc":"Komenda do zarządzania StatTrak","usage":"/\u003ccommand> \u003cgive|other>","perm":"skyluck.core.stattrak.admin"},{"name":"core","desc":"Główna komenda administracyjna pluginu.","usage":"/core reload","perm":"skyluck.core.admin"},{"name":"drop","desc":"Dodaje przedmiot trzymany w ręce jako drop do skrzynki.","usage":"/drop \u003cszansa>","perm":"skyluck.core.drop"},{"name":"resetskrzynki","desc":"Resetuje cooldown na otwieranie skrzynek w danym świecie.","usage":"/resetskrzynki","perm":"skyluck.core.reset"},{"name":"skrzynka","desc":"Zarządza skrzynkami z poziomami.","usage":"/skrzynka \u003cpoziom> | /skrzynka dodaj \u003cpoziom> \u003cszansa>","perm":""},{"name":"wymiana","desc":"Otwiera GUI do wymiany skrzynek na wyższy poziom.","usage":"/wymiana","perm":""},{"name":"generator","desc":"Zarządza generatorami stone.","usage":"/generator \u003cdaj|reload>","perm":"skyluck.core.generator.admin"}],"permissions":["skyluckcore.achievements","skyluck.core.admin","skyluck.core.drop","skyluck.core.reset","skyluck.core.skrzynka.admin","skyluck.core.skrzynka.dodaj","skyluck.drop.bonus20","skyluck.core.generator.admin","skyluckcore.artefakty.admin"]},{"id":"SkyLuck-Discord","name":"SkyLuck-Discord","pluginName":"SkyLuckDiscord","type":"Bot Discord","description":"Zaawansowany bot Discord zintegrowany z infrastrukturą serwerową.","tags":["Python","Discord.py"],"image":null,"version":"1.0","apiVersion":"1.20","mainClass":"pl.olczku.skyLuckDiscord.SkyLuckDiscord","author":"Olczku","commands":[],"permissions":[]},{"id":"skyluck-lightlevel","name":"skyluck-lightlevel","pluginName":"LightGrow","type":"Plugin","description":"Optymalizator oświetlenia na wyspach i chunkach, eliminujący spadki TPS wywoływane przez częste zmiany światła i duże farmy.","tags":["Java","Paper"],"image":null,"version":"1.0","apiVersion":"1.21","mainClass":"pl.olczku.lightgrow.LightGrow","author":"Olczku","commands":[],"permissions":[]},{"id":"WOOLCODE - AUTORESTART ZAM","name":"WOOLCODE - AUTORESTART ZAM","pluginName":"WOOLCODE-AUTORESTARTZAM.","type":"Plugin","description":"Harmonogram automatycznych restartów serwera z odliczaniem na czacie, actionbarze i bezpiecznym zapisem danych graczy przed wyłączeniem.","tags":["Java","Paper"],"image":null,"version":"1.0-SNAPSHOT","apiVersion":"1.18","mainClass":"pl.olczku.wOOLCODEAUTORESTARTZAM.WOOLCODEAUTORESTARTZAM","author":"WOOLCODE | OLCZKU","commands":[{"name":"autorestart","desc":"Auto restart","usage":"/\u003ccommand> [now|cancel|reload|time]","perm":""}],"permissions":["woolcode.autorestart.admin"]},{"id":"WOOLCODE-ANTYSWEAP","name":"WOOLCODE-ANTYSWEAP","pluginName":"WOOLCODE-ANTYSWAP","type":"Plugin","description":"Modyfikacja mechaniki zamachu mieczem (Sweep Attack) przywracająca klasyczny styl walki PvP bez obrażeń obszarowych na sojuszników.","tags":["Java","Paper"],"image":null,"version":"1.0","apiVersion":"1.16","mainClass":"pl.olczku.wOOLCODEANTYSWEAP.WOOLCODEANTYSWEAP","author":"WOOLCODE | OLCZKU","commands":[],"permissions":[]},{"id":"WOOLCODE-CORE","name":"WOOLCODE-CORE","pluginName":"CORE_SHIELD","type":"Plugin","description":"Główny, wysoko zoptymalizowany silnik serwerowy (Core) zawierający zestaw niezbędnych komend, zarządzanie ekwipunkami, leczeniem oraz ochroną serwera.","tags":["Java","Paper"],"image":null,"version":"1.0","apiVersion":"1.18","mainClass":"pl.olczku.commands.CORE_SHIELD","author":"WOOLCODE","commands":[{"name":"gm","desc":"Zmienia tryb gry.","usage":"/gm \u003ctryb>","perm":"core.gm"},{"name":"heal","desc":"Leczy gracza.","usage":"/heal","perm":"core.heal"},{"name":"feed","desc":"Karmi gracza.","usage":"/feed","perm":"core.feed"},{"name":"repair","desc":"Naprawia przedmioty.","usage":"/repair","perm":"core.repair"},{"name":"pomoc","desc":"Wyświetla pomoc.","usage":"/pomoc","perm":"core.pomoc"},{"name":"ec","desc":"Otwiera enderchest gracza.","usage":"/ec","perm":"core.ec"},{"name":"oi","desc":"Otwiera ekwipunek innego gracza.","usage":"/oi \u003cgracz>","perm":"core.oi"},{"name":"core-reload","desc":"Przeładowuje konfigurację pluginu.","usage":"/reload","perm":"core.reload"}],"permissions":[]},{"id":"WOOLCODE-DCCONSOLE","name":"WOOLCODE-DCCONSOLE","pluginName":"WOOLCODE-DCCONSOLE","type":"Plugin","description":"Zdalna konsola serwera Minecraft dostępna z poziomu Discorda dla uprawnionych administratorów z pełną autoryzacją i logowaniem komend.","tags":["Java","Paper"],"image":null,"version":"1.0","apiVersion":"1.13","mainClass":"pl.olczku.wOOLCODEDCCONSOLE.WOOLCODEDCCONSOLE","author":"Jakub (olczku)","commands":[],"permissions":[]},{"id":"WOOLCODE-GENERATORS","name":"WOOLCODE-GENERATORS","pluginName":"WOOLCODE-GENERATORS","type":"Plugin","description":"Wydajny generator kamienia, obsydianu i cennych rud z konfigurowalnym czasem odnawiania, dropem oraz craftingami bloków generujących.","tags":["Java","Paper"],"image":null,"version":"1.0-SNAPSHOT","apiVersion":"1.18","mainClass":"pl.olczku.wOOLCODEGENERATORS.WOOLCODEGENERATORS","author":"Jakub (olczku)","commands":[],"permissions":[]},{"id":"WOOLCODE-HELPOPDC","name":"WOOLCODE-HELPOPDC","pluginName":"WOOLCODE-HELPOPDC","type":"Plugin","description":"System szybkiego kontaktu graczy z administracją serwera. Wiadomości wysyłane komendą /helpop trafiają natychmiastowo na serwer gry oraz dedykowany kanał Discord przez Webhook.","tags":["Java","Paper"],"image":null,"version":"1.0","apiVersion":"1.20","mainClass":"pl.olczku.wOOLCODEHELPOPDC.Main","author":"Olczku | WOOLCODE","commands":[{"name":"helpop","desc":"Wysyla wiadomosc do administracji.","usage":"/helpop \u003cwiadomosc>","perm":""}],"permissions":["woolcodehelpop.use","woolcodehelpop.view"]},{"id":"WOOLCODE-KOD","name":"WOOLCODE-KOD","pluginName":"WOOLCODE-KOD","type":"Plugin","description":"System kodów podarunkowych i voucherów jednorazowych lub wielorazowych umożliwiający graczom odbieranie nagród, rang i waluty komendą /kod.","tags":["Java","Paper"],"image":null,"version":"1.0-SNAPSHOT","apiVersion":"1.20","mainClass":"pl.olczku.wOOLCODEKOD.WOOLCODEKOD","author":"Jakub (olczku)","commands":[{"name":"kod","desc":"Komenda do wpisywania kodu.","usage":"/kod \u003ckod>","perm":"woolcode.kod"}],"permissions":[]},{"id":"WOOLCODE-KOLEJKA","name":"WOOLCODE-KOLEJKA","pluginName":"WOOLCODE-KOLEJKA","type":"Plugin","description":"System kolejkowania logowania graczy przy pełnym serwerze lub po restarcie z obsługą priorytetów dla rang VIP/Administracji i ochroną przed lagami.","tags":["Java","Paper"],"image":null,"version":"1.0-SNAPSHOT","apiVersion":"1.18","mainClass":"pl.olczku.wOOLCODEKOLEJKA.WOOLCODEKOLEJKA","author":"WOOLCODE | OLCZKU","commands":[],"permissions":[]},{"id":"WOOLCODE-KOMENDALOBBY","name":"WOOLCODE-KOMENDALOBBY","pluginName":"WOOLCODE-KOMENDALOBBY","type":"Plugin","description":"Moduł szybkiego powrotu do lobby serwerowego (/lobby, /hub) z wykrywaniem stanu walki (Anty-Combat) oraz efektami dźwiękowymi i wizualnymi.","tags":["Java","Paper"],"image":null,"version":"1.0","apiVersion":"1.20","mainClass":"","author":"Jakub (olczku)","commands":[],"permissions":[]},{"id":"WOOLCODE-KOMENDY","name":"WOOLCODE-KOMENDY","pluginName":"WOOLCODE-KOMENDY","type":"Plugin","description":"Dedykowany plugin serwerowy oferujący funkcje i komendy: /woolcode-commands. Zoptymalizowany pod kątem zerowego wpływu na wydajność serwera.","tags":["Java","Paper"],"image":null,"version":"1.0","apiVersion":"1.16","mainClass":"pl.olczku.wOOLCODEKOMENDY.WOOLCODEKOMENDY","author":"Jakub (olczku)","commands":[{"name":"woolcode-commands","desc":"Przeładowuje konfigurację komend","usage":"/woolcode-commands reload","perm":""}],"permissions":[]},{"id":"WOOLCODE-KOPIEZAPASOWE","name":"WOOLCODE-KOPIEZAPASOWE","pluginName":"WOOLCODE-KOPIEZAPASOWE","type":"Plugin","description":"Automatyczny system tworzenia skompresowanych kopii zapasowych (backupów) map i konfiguracji serwera z harmonogramem i asynchronicznym zapisem.","tags":["Java","Paper"],"image":null,"version":"1.0-SNAPSHOT","apiVersion":"1.18","mainClass":"pl.olczku.wOOLCODEKOPIEZAPASOWE.WOOLCODEKOPIEZAPASOWE","author":"Jakub (olczku)","commands":[],"permissions":[]},{"id":"WOOLCODE-PIN","name":"WOOLCODE-PIN","pluginName":"WOOLCODE-PIN","type":"Plugin","description":"Dwuetapowe zabezpieczenie kont administracyjnych unikalnym kodem PIN w GUI, blokujące poruszanie się i komendy do momentu poprawnej autoryzacji.","tags":["Java","Paper"],"image":null,"version":"1.0","apiVersion":"1.16","mainClass":"pl.olczku.wOOLCODEPIN.WOOLCODEPIN","author":"Olczku","commands":[{"name":"kodadm","desc":"Wpisz kod administracyjny.","usage":"/kodadm \u003ckod>","perm":""},{"name":"pinustaw","desc":"Ustaw nowy kod PIN.","usage":"/pinustaw \u003cnowy_pin>","perm":""},{"name":"woolcode-pin","desc":"Przeładuj konfigurację pluginu.","usage":"/woolcode-pin reload","perm":""}],"permissions":["woolcode.pin.adm","woolcode.pin.pinustaw","woolcode.pin.reload"]},{"id":"WOOLCODE-POWITANIA","name":"WOOLCODE-POWITANIA","pluginName":"WOOLCODE-POWITANIA","type":"Plugin","description":"System powitań nowych i powracających graczy z konfigurowalnymi wiadomościami na czacie, tytułami (Titles), paskiem akcji (Actionbar) i dźwiękami.","tags":["Java","Paper"],"image":null,"version":"1.0","apiVersion":"1.20","mainClass":"","author":"Jakub (olczku)","commands":[],"permissions":[]},{"id":"WOOLCODE-RTP","name":"WOOLCODE-RTP","pluginName":"WOOLCODE-RTP","type":"Plugin","description":"System losowej teleportacji graczy (Random Teleport) po mapie z inteligentnym wyszukiwaniem bezpiecznych lokacji (omijanie wody, lawy i blokad) oraz obsługą przycisków.","tags":["Java","Paper"],"image":null,"version":"1.0-SNAPSHOT","apiVersion":"1.18","mainClass":"pl.olczku.wOOLCODERTP.WOOLCODERTP","author":"Jakub (olczku)","commands":[{"name":"rtp","desc":"Teleportuje gracza w losowe miejsce.","usage":"/rtp [ustaw]","perm":""}],"permissions":["woolcodertp.use","woolcodertp.ustaw"]},{"id":"WOOLCODE-SPRAWDZANIE","name":"WOOLCODE-SPRAWDZANIE","pluginName":"WOOLCODESPRAWDZANIE","type":"Plugin","description":"Kompletny system kontroli i sprawdzania podejrzanych graczy z funkcją strefy sprawdzania, automatycznych kar za brak współpracy / przyznanie się oraz powiadomieniami dla administracji.","tags":["Java","Paper"],"image":null,"version":"1.0","apiVersion":"1.20","mainClass":"pl.olczku.wOOLCODESPRAWDZANIE.WOOLCODESPRAWDZANIE","author":"Jakub (olczku)","commands":[{"name":"sprawdz","desc":"Komenda do sprawdzania graczy.","usage":"","perm":""},{"name":"czysty","desc":"Szybkie oczyszczanie gracza z zarzutów.","usage":"","perm":""},{"name":"reload","desc":"Przeładowanie config.yml i messages.yml.","usage":"","perm":""},{"name":"ustaw","desc":"Ustawia punkt sprawdzania.","usage":"","perm":""},{"name":"brakwspolpracy","desc":"Ban za brak współpracy.","usage":"","perm":""},{"name":"cheaty","desc":"Ban za cheaty.","usage":"","perm":""}],"permissions":[]},{"id":"WOOLCODE-STATYSTYKI","name":"WOOLCODE-STATYSTYKI","pluginName":"WOOLCODE-STATYSTYKI","type":"Plugin","description":"Moduł zbierania, archiwizacji i prezentacji szczegółowych statystyk graczy (czas gry, zabójstwa, zgony, wykopane surowce, rankingi) z bazą danych MySQL.","tags":["Java","Paper"],"image":null,"version":"1.0-SNAPSHOT","apiVersion":"1.18","mainClass":"pl.olczku.wOOLCODESTATYSTYKI.WOOLCODESTATYSTYKI","author":"Jakub (olczku)","commands":[],"permissions":[]},{"id":"WOOLCODE-SYSTEM-JAVA","name":"WOOLCODE-SYSTEM-JAVA","pluginName":"WOOLCODE-SYSTEM-JAVA","type":"System","description":"Dedykowane rozwiązanie serwerowe zoptymalizowane pod wysokie obciążenie i stabilność.","tags":["Java","MySQL","API"],"image":null,"version":"1.0","apiVersion":"1.20","mainClass":"","author":"Jakub (olczku)","commands":[],"permissions":[]},{"id":"WOOLCODE-TRADE","name":"WOOLCODE-TRADE","pluginName":"WOOLCODETRADE","type":"Plugin","description":"Zaawansowany system bezpiecznej wymiany przedmiotów i waluty pomiędzy graczami z dedykowanym interfejsem graficznym GUI, zabezpieczeniem przed oszustwami i podglądem na żywo.","tags":["Java","Paper"],"image":null,"version":"1.0","apiVersion":"1.16","mainClass":"pl.olczku.wOOLCODETRADE.WOOLCODETRADE","author":"Jakub (olczku)","commands":[{"name":"wymiana","desc":"Otwiera GUI do wymiany przedmiotów z innym graczem.","usage":"/wymiana \u003cgracz>","perm":""}],"permissions":[]}];
+
+// Mobile Menu Navigation
+function toggleMobileMenu() {
+  const links = document.getElementById('navLinks');
+  const ham = document.getElementById('navHamburger');
+  if (!links || !ham) return;
+  links.classList.toggle('open');
+  ham.classList.toggle('active');
+  document.body.style.overflow = links.classList.contains('open') ? 'hidden' : '';
+}
+
+function closeMobileMenu() {
+  const links = document.getElementById('navLinks');
+  const ham = document.getElementById('navHamburger');
+  if (!links) return;
+  links.classList.remove('open');
+  ham?.classList.remove('active');
+  document.body.style.overflow = '';
+}
 
 // Search functionality
 const searchInput = document.querySelector('#search');
 const projectCards = [...document.querySelectorAll('.project-card')];
 const noResults = document.querySelector('#noResults');
 
+let searchDebounceTimer = null;
 searchInput?.addEventListener('input', () => {
   const query = searchInput.value.toLowerCase().trim();
   let matches = 0;
@@ -859,6 +1102,13 @@ searchInput?.addEventListener('input', () => {
   });
   if (noResults) {
     noResults.hidden = matches !== 0 || projectCards.length === 0;
+  }
+
+  clearTimeout(searchDebounceTimer);
+  if (query.length >= 3) {
+    searchDebounceTimer = setTimeout(() => {
+      logActivity('SEARCH', 'Wyszukiwanie: "' + query + '" (wyników: ' + matches + ')');
+    }, 1000);
   }
 });
 
@@ -906,6 +1156,8 @@ function openDetailsModal(index) {
 
   modal.classList.add('active');
   document.body.style.overflow = 'hidden';
+
+  logActivity('MODAL_VIEW', 'Otworzono szczegóły projektu: ' + p.name);
 }
 
 function closeDetailsModal() {
@@ -915,7 +1167,12 @@ function closeDetailsModal() {
 }
 
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeDetailsModal();
+  if (e.key === 'Escape') {
+    closeDetailsModal();
+    closeAdminLogin();
+    closeAdminPanel();
+    closeProjectEditor();
+  }
 });
 
 function escapeHtml(text) {
@@ -955,11 +1212,79 @@ function showToast(msg) {
   }, 3000);
 }
 
-// Niezawodny system powiadomień o odwiedzinach portfolio na Discord (Webhook)
+function trackClick(label, target) {
+  logActivity('CLICK', label + ' -> ' + target);
+}
+
+// ==========================================================
+// ACTIVITY LOGGER & VISITOR NOTIFIER ENGINE
+// ==========================================================
+let currentVisitorGeo = null;
+
+function getActivityLogs() {
+  try {
+    return JSON.parse(localStorage.getItem('portfolio_activity_logs') || '[]');
+  } catch (e) {
+    return [];
+  }
+}
+
+function saveActivityLogs(logs) {
+  try {
+    localStorage.setItem('portfolio_activity_logs', JSON.stringify(logs.slice(0, 500)));
+  } catch (e) {}
+}
+
+function logActivity(type, details) {
+  const logs = getActivityLogs();
+  const timeStr = new Date().toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+  const dateStr = new Date().toLocaleDateString('pl-PL');
+  
+  const entry = {
+    id: Date.now() + '-' + Math.random().toString(36).substr(2, 5),
+    time: timeStr,
+    date: dateStr,
+    type: type,
+    ip: (currentVisitorGeo && currentVisitorGeo.ip) ? currentVisitorGeo.ip : 'Adblock/Lokalny',
+    city: (currentVisitorGeo && currentVisitorGeo.city) ? currentVisitorGeo.city : 'Polska',
+    country: (currentVisitorGeo && currentVisitorGeo.country) ? currentVisitorGeo.country : 'PL',
+    device: getDeviceName(),
+    browser: getBrowserName(),
+    details: details
+  };
+
+  logs.unshift(entry);
+  saveActivityLogs(logs);
+
+  if (document.getElementById('adminPanelModal')?.classList.contains('active')) {
+    renderAdminOverview();
+    renderAdminFullLogs();
+  }
+}
+
+function getDeviceName() {
+  const ua = navigator.userAgent || '';
+  if (/Windows/i.test(ua)) return 'Windows PC';
+  if (/Macintosh|Mac OS/i.test(ua)) return 'macOS';
+  if (/Android/i.test(ua)) return 'Android';
+  if (/iPhone|iPad/i.test(ua)) return 'iOS';
+  if (/Linux/i.test(ua)) return 'Linux';
+  return 'Inne';
+}
+
+function getBrowserName() {
+  const ua = navigator.userAgent || '';
+  if (/Firefox/i.test(ua)) return 'Firefox';
+  if (/Edg/i.test(ua)) return 'Edge';
+  if (/Chrome/i.test(ua)) return 'Chrome';
+  if (/Safari/i.test(ua)) return 'Safari';
+  return 'Przeglądarka';
+}
+
+// Webhook visit tracker
 (function() {
   const nowTs = Date.now();
   const lastPing = parseInt(sessionStorage.getItem('last_discord_ping') || '0', 10);
-  // Cooldown 20 sekund, aby nie spamować przy odświeżaniu, ale łapać każde nowe wejście
   if (nowTs - lastPing < 20000) return;
   sessionStorage.setItem('last_discord_ping', nowTs.toString());
 
@@ -1004,6 +1329,9 @@ function showToast(msg) {
   async function trackVisitor() {
     try {
       const geo = await getVisitorGeo();
+      currentVisitorGeo = geo;
+
+      logActivity('VISIT', 'Wejście na stronę główną portfolio');
 
       const ua = navigator.userAgent || '';
       let os = '🖥️ Komputer (Windows)';
@@ -1059,6 +1387,300 @@ function showToast(msg) {
 
   trackVisitor();
 })();
+
+// ==========================================================
+// ADMIN PANEL AUTHENTICATION & DASHBOARD LOGIC
+// ==========================================================
+
+const DEFAULT_ADMIN_PASS = "olczku2026";
+let currentLogFilter = 'ALL';
+
+function openAdminLogin() {
+  if (sessionStorage.getItem('admin_authenticated') === 'true') {
+    openAdminPanel();
+    return;
+  }
+  const modal = document.getElementById('adminLoginModal');
+  const err = document.getElementById('adminLoginError');
+  if (err) err.style.display = 'none';
+  modal?.classList.add('active');
+  document.getElementById('adminPass')?.focus();
+}
+
+function closeAdminLogin() {
+  document.getElementById('adminLoginModal')?.classList.remove('active');
+}
+
+function handleAdminLogin(e) {
+  e.preventDefault();
+  const input = document.getElementById('adminPass');
+  const err = document.getElementById('adminLoginError');
+  const pass = input ? input.value : '';
+  const storedPass = localStorage.getItem('admin_custom_password') || DEFAULT_ADMIN_PASS;
+
+  if (pass === storedPass) {
+    sessionStorage.setItem('admin_authenticated', 'true');
+    closeAdminLogin();
+    openAdminPanel();
+    showToast('Zalogowano pomyślnie do Panelu Administratora! 🛡️');
+  } else {
+    if (err) {
+      err.textContent = 'Nieprawidłowe hasło administratora!';
+      err.style.display = 'block';
+    }
+  }
+}
+
+function adminLogout() {
+  sessionStorage.removeItem('admin_authenticated');
+  closeAdminPanel();
+  showToast('Wylogowano z panelu administratora.');
+}
+
+function openAdminPanel() {
+  const modal = document.getElementById('adminPanelModal');
+  if (!modal) return;
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+
+  renderAdminOverview();
+  renderAdminFullLogs();
+  renderAdminProjects();
+}
+
+function closeAdminPanel() {
+  document.getElementById('adminPanelModal')?.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function switchAdminTab(tabId) {
+  document.querySelectorAll('.admin-tab-btn').forEach(btn => btn.classList.remove('active'));
+  document.querySelectorAll('.admin-tab-content').forEach(c => c.classList.remove('active'));
+
+  const targetTab = document.getElementById('tab-' + tabId);
+  if (targetTab) targetTab.classList.add('active');
+
+  const activeBtn = Array.from(document.querySelectorAll('.admin-tab-btn')).find(b => b.getAttribute('onclick')?.includes(tabId));
+  if (activeBtn) activeBtn.classList.add('active');
+
+  if (tabId === 'overview') renderAdminOverview();
+  if (tabId === 'logs') renderAdminFullLogs();
+  if (tabId === 'projects') renderAdminProjects();
+}
+
+function renderAdminOverview() {
+  const logs = getActivityLogs();
+  const visits = logs.filter(l => l.type === 'VISIT').length;
+  const clicks = logs.filter(l => l.type === 'CLICK' || l.type === 'MODAL_VIEW' || l.type === 'COPY_DISCORD').length;
+  const searches = logs.filter(l => l.type === 'SEARCH').length;
+
+  const elVisits = document.getElementById('overviewVisits');
+  const elClicks = document.getElementById('overviewClicks');
+  const elSearches = document.getElementById('overviewSearches');
+  const elProj = document.getElementById('overviewProjects');
+  const elCount = document.getElementById('adminLogsCount');
+
+  if (elVisits) elVisits.textContent = visits;
+  if (elClicks) elClicks.textContent = clicks;
+  if (elSearches) elSearches.textContent = searches;
+  if (elProj) elProj.textContent = projectsData.length;
+  if (elCount) elCount.textContent = logs.length;
+
+  const recentTable = document.getElementById('overviewRecentLogsTable');
+  if (recentTable) {
+    if (logs.length === 0) {
+      recentTable.innerHTML = '<tr><td colspan="4" style="text-align:center; padding:20px;">Brak zarejestrowanych zdarzeń.</td></tr>';
+      return;
+    }
+    recentTable.innerHTML = logs.slice(0, 5).map(l => `
+      <tr>
+        <td style="font-family:var(--font-mono); font-size:0.8rem;">${escapeHtml(l.time)}</td>
+        <td><span class="event-badge ${getBadgeClass(l.type)}">${escapeHtml(l.type)}</span></td>
+        <td>${escapeHtml(l.city)}, ${escapeHtml(l.country)} (${escapeHtml(l.ip)})</td>
+        <td><strong>${escapeHtml(l.details)}</strong></td>
+      </tr>
+    `).join('');
+  }
+}
+
+function getBadgeClass(type) {
+  if (type === 'VISIT') return 'event-visit';
+  if (type === 'SEARCH') return 'event-search';
+  if (type === 'MODAL_VIEW' || type === 'CLICK') return 'event-click';
+  if (type === 'COPY_DISCORD') return 'event-copy';
+  return 'event-click';
+}
+
+function renderAdminFullLogs() {
+  const logs = getActivityLogs();
+  const table = document.getElementById('adminFullLogsTable');
+  if (!table) return;
+
+  const filtered = currentLogFilter === 'ALL' ? logs : logs.filter(l => l.type === currentLogFilter);
+
+  if (filtered.length === 0) {
+    table.innerHTML = '<tr><td colspan="5" style="text-align:center; padding:30px; color:var(--text-dim);">Brak zdarzeń w tej kategorii.</td></tr>';
+    return;
+  }
+
+  table.innerHTML = filtered.map(l => `
+    <tr>
+      <td style="font-family:var(--font-mono); font-size:0.8rem;">${escapeHtml(l.date)} ${escapeHtml(l.time)}</td>
+      <td><span class="event-badge ${getBadgeClass(l.type)}">${escapeHtml(l.type)}</span></td>
+      <td>${escapeHtml(l.city)}, ${escapeHtml(l.country)}<br><code style="font-size:0.75rem; color:var(--text-dim);">${escapeHtml(l.ip)}</code></td>
+      <td>${escapeHtml(l.device)} • ${escapeHtml(l.browser)}</td>
+      <td style="color:#fff;">${escapeHtml(l.details)}</td>
+    </tr>
+  `).join('');
+}
+
+function filterAdminLogs(type) {
+  currentLogFilter = type;
+  document.querySelectorAll('.filter-pill').forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('onclick')?.includes(type));
+  });
+  renderAdminFullLogs();
+}
+
+function clearAllLogs() {
+  if (!confirm('Czy na pewno chcesz wyczyścić całą historię aktywności?')) return;
+  localStorage.removeItem('portfolio_activity_logs');
+  renderAdminOverview();
+  renderAdminFullLogs();
+  showToast('Historia logów została wyczyszczona.');
+}
+
+function exportLogsJson() {
+  const logs = getActivityLogs();
+  const blob = new Blob([JSON.stringify(logs, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'portfolio_activity_logs_' + Date.now() + '.json';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+// Projects Management in Admin Panel
+function renderAdminProjects() {
+  const list = document.getElementById('adminProjectsList');
+  const count = document.getElementById('adminProjCount');
+  if (!list) return;
+
+  if (count) count.textContent = projectsData.length;
+
+  list.innerHTML = projectsData.map((p, idx) => `
+    <div class="admin-proj-card">
+      <div class="admin-proj-head">
+        <strong style="font-size:1.05rem;">${escapeHtml(p.name)}</strong>
+        <span class="project-type-pill ${p.type.toLowerCase().includes('bot') ? 'bot-pill' : (p.type.toLowerCase().includes('system') ? 'system-pill' : '')}">
+          ${escapeHtml(p.type)}
+        </span>
+      </div>
+      <p style="font-size:0.84rem; color:var(--text-muted); margin:0; line-height:1.5; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;">
+        ${escapeHtml(p.description)}
+      </p>
+      <div class="admin-proj-btns">
+        <button class="btn btn-secondary" style="padding:6px 12px; font-size:0.78rem; flex:1;" onclick="openEditProjectModal(${idx})">✏️ Edytuj</button>
+        <button class="btn btn-danger" style="padding:6px 10px; font-size:0.78rem;" onclick="deleteProject(${idx})">🗑️</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function openAddProjectModal() {
+  document.getElementById('editorModalTitle').textContent = '➕ Dodaj Nowy Projekt';
+  document.getElementById('editProjIndex').value = '-1';
+  document.getElementById('editProjName').value = '';
+  document.getElementById('editProjType').value = 'Plugin';
+  document.getElementById('editProjDesc').value = '';
+  document.getElementById('editProjTags').value = 'Java, Paper';
+  document.getElementById('projectEditorModal')?.classList.add('active');
+}
+
+function openEditProjectModal(index) {
+  const p = projectsData[index];
+  if (!p) return;
+  document.getElementById('editorModalTitle').textContent = '✏️ Edytuj: ' + p.name;
+  document.getElementById('editProjIndex').value = index;
+  document.getElementById('editProjName').value = p.name;
+  document.getElementById('editProjType').value = p.type || 'Plugin';
+  document.getElementById('editProjDesc').value = p.description || '';
+  document.getElementById('editProjTags').value = (p.tags || []).join(', ');
+  document.getElementById('projectEditorModal')?.classList.add('active');
+}
+
+function closeProjectEditor() {
+  document.getElementById('projectEditorModal')?.classList.remove('active');
+}
+
+function handleSaveProject(e) {
+  e.preventDefault();
+  const idx = parseInt(document.getElementById('editProjIndex').value, 10);
+  const name = document.getElementById('editProjName').value.trim();
+  const type = document.getElementById('editProjType').value;
+  const desc = document.getElementById('editProjDesc').value.trim();
+  const tags = document.getElementById('editProjTags').value.split(',').map(t => t.trim()).filter(Boolean);
+
+  if (idx === -1) {
+    // Add new
+    projectsData.unshift({
+      id: name,
+      name: name,
+      pluginName: name,
+      type: type,
+      description: desc,
+      tags: tags,
+      version: '1.0',
+      apiVersion: '1.20',
+      commands: [],
+      permissions: []
+    });
+    showToast('Dodano nowy projekt: ' + name);
+  } else {
+    // Edit existing
+    projectsData[idx].name = name;
+    projectsData[idx].type = type;
+    projectsData[idx].description = desc;
+    projectsData[idx].tags = tags;
+    showToast('Zaktualizowano projekt: ' + name);
+  }
+
+  closeProjectEditor();
+  renderAdminProjects();
+  renderAdminOverview();
+}
+
+function deleteProject(index) {
+  const p = projectsData[index];
+  if (!p) return;
+  if (!confirm('Czy na pewno chcesz usunąć projekt "' + p.name + '" z listy?')) return;
+  projectsData.splice(index, 1);
+  renderAdminProjects();
+  renderAdminOverview();
+  showToast('Usunięto projekt: ' + p.name);
+}
+
+function changeAdminPassword() {
+  const input = document.getElementById('newAdminPass');
+  const val = input ? input.value.trim() : '';
+  if (!val || val.length < 4) {
+    alert('Hasło musi mieć co najmniej 4 znaki!');
+    return;
+  }
+  localStorage.setItem('admin_custom_password', val);
+  input.value = '';
+  showToast('Hasło administratora zostało zmienione! 🔑');
+}
+
+function saveWebhookSettings() {
+  showToast('Ustawienia Webhooka zostały zapisane! ✓');
+}
+
+// Open admin directly via URL hash
+if (window.location.hash === '#admin') {
+  setTimeout(openAdminLogin, 300);
+}
 </script>
 
 </body>

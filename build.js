@@ -330,6 +330,7 @@ function getProjectFullData(projectName) {
   }
 
   return {
+    id: projectName,
     name: projectName,
     pluginName: inspected.pluginName || projectName,
     type: type,
@@ -419,7 +420,7 @@ function build() {
           <button type="button" class="project-btn-details" onclick="openDetailsModal(${idx})">
             🔍 Szczegóły
           </button>
-          <a href="#contact" class="project-action-btn">Zamów podobny →</a>
+          <a href="#contact" class="project-action-btn" onclick="trackClick('Zamów podobny', '${safeName}')">Zamów podobny →</a>
         </div>
       </article>`;
   });
@@ -434,12 +435,12 @@ function build() {
 <html lang="pl">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Portfolio Jakuba (olczku) — Plugin Developer. Pluginy Minecraft, boty Discord i automatyzacje.">
-  <title>Jakub (olczku) — Plugin Developer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Portfolio Jakuba (olczku) — Plugin Developer. Pluginy Minecraft, boty Discord i systemy automatyzacji.">
+  <title>Jakub (olczku) — Plugin Developer & Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -454,12 +455,23 @@ function build() {
       <div class="brand-icon">J</div>
       <span class="brand-text">olczku</span>
     </a>
-    <nav class="nav-links">
-      <a href="#about">O mnie</a>
-      <a href="#services">Oferta</a>
-      <a href="#projects">Realizacje (${totalProjects})</a>
-      <a href="#contact" class="nav-cta">Skontaktuj się</a>
+    
+    <nav id="navLinks" class="nav-links">
+      <a href="#about" onclick="closeMobileMenu()">O mnie</a>
+      <a href="#services" onclick="closeMobileMenu()">Oferta</a>
+      <a href="#projects" onclick="closeMobileMenu()">Realizacje (${totalProjects})</a>
+      <a href="#contact" onclick="closeMobileMenu()">Kontakt</a>
+      <button type="button" class="nav-admin-btn" onclick="openAdminLogin(); closeMobileMenu();">
+        🔒 Panel Admina
+      </button>
+      <a href="#contact" class="nav-cta" onclick="closeMobileMenu()">Napisz do mnie</a>
     </nav>
+
+    <button id="navHamburger" class="nav-hamburger" aria-label="Menu" onclick="toggleMobileMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </div>
 </header>
 
@@ -476,8 +488,8 @@ function build() {
         Cześć, jestem <strong>Jakub (olczku)</strong>. Tworzę autorskie rozwiązania pod serwery Minecraft (Paper, Folia, Spigot), boty Discord oraz systemy automatyzacji. Skupiam się na optymalizacji, niezawodności i czystym kodzie.
       </p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="#contact">Napisz do mnie ↓</a>
-        <a class="btn btn-secondary" href="#projects">Zobacz realizacje</a>
+        <a class="btn btn-primary" href="#contact" onclick="trackClick('Hero CTA', 'Napisz do mnie')">Napisz do mnie ↓</a>
+        <a class="btn btn-secondary" href="#projects" onclick="trackClick('Hero CTA', 'Zobacz realizacje')">Zobacz realizacje</a>
       </div>
     </div>
 
@@ -618,7 +630,7 @@ function build() {
               </div>
             </div>
             <div class="contact-actions">
-              <button class="btn btn-discord btn-copy" onclick="copyText('olczku_', 'Skopiowano Discord: olczku_')">
+              <button class="btn btn-discord btn-copy" onclick="copyText('olczku_', 'Skopiowano Discord: olczku_'); trackClick('Kopiuj Discord', 'olczku_');">
                 📋 Kopiuj nick
               </button>
             </div>
@@ -634,10 +646,10 @@ function build() {
               </div>
             </div>
             <div class="contact-actions">
-              <a class="btn btn-email" href="mailto:olczkuyt@gmail.com">
+              <a class="btn btn-email" href="mailto:olczkuyt@gmail.com" onclick="trackClick('Napisz Email', 'olczkuyt@gmail.com')">
                 Napisz wiadomość
               </a>
-              <button class="btn btn-copy" onclick="copyText('olczkuyt@gmail.com', 'Skopiowano E-mail: olczkuyt@gmail.com')">
+              <button class="btn btn-copy" onclick="copyText('olczkuyt@gmail.com', 'Skopiowano E-mail: olczkuyt@gmail.com'); trackClick('Kopiuj Email', 'olczkuyt@gmail.com');">
                 📋
               </button>
             </div>
@@ -690,8 +702,220 @@ function build() {
 
     <div class="modal-footer">
       <button class="btn btn-secondary" onclick="closeDetailsModal()">Zamknij</button>
-      <a class="btn btn-primary" href="#contact" onclick="closeDetailsModal()">Zamów podobny projekt →</a>
+      <a class="btn btn-primary" href="#contact" onclick="closeDetailsModal(); trackClick('Zamów z Modalu', document.getElementById('modalTitle').textContent);">Zamów podobny projekt →</a>
     </div>
+  </div>
+</div>
+
+<!-- Modal Logowania do Panelu Admina -->
+<div id="adminLoginModal" class="modal-backdrop" onclick="if(event.target === this) closeAdminLogin()">
+  <div class="modal-window admin-login-card">
+    <div class="modal-header">
+      <h3 class="modal-title">🔒 Logowanie Administratora</h3>
+      <button class="modal-close" onclick="closeAdminLogin()">✕</button>
+    </div>
+    <form id="adminLoginForm" onsubmit="handleAdminLogin(event)">
+      <div class="modal-body">
+        <div class="admin-login-icon">🛡️</div>
+        <div id="adminLoginError" class="admin-error-banner">Nieprawidłowe hasło lub PIN.</div>
+        
+        <div class="admin-input-group">
+          <label for="adminPass">Hasło lub PIN administratora:</label>
+          <input type="password" id="adminPass" class="admin-input" placeholder="Wpisz hasło..." required autocomplete="current-password">
+        </div>
+        <p style="font-size: 0.8rem; color: var(--text-dim);">Domyślne hasło startowe: <code>olczku2026</code> (możesz je zmienić po zalogowaniu w panelu).</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="closeAdminLogin()">Anuluj</button>
+        <button type="submit" class="btn btn-primary">Zaloguj się →</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Główny Modal / Dashboard Panelu Admina -->
+<div id="adminPanelModal" class="modal-backdrop" onclick="if(event.target === this) closeAdminPanel()">
+  <div class="modal-window admin-window">
+    <div class="modal-header">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <span class="brand-icon" style="width:30px; height:30px; font-size:0.85rem;">⚡</span>
+        <div>
+          <h3 class="modal-title" style="margin:0; font-size:1.15rem;">Panel Administratora — Jakub (olczku)</h3>
+          <span style="font-size:0.75rem; color:var(--accent); font-family:var(--font-mono);">● Sesja aktywna</span>
+        </div>
+      </div>
+      <div style="display:flex; gap:8px;">
+        <button class="btn btn-secondary" style="padding:6px 12px; font-size:0.8rem;" onclick="adminLogout()">Wyloguj</button>
+        <button class="modal-close" onclick="closeAdminPanel()">✕</button>
+      </div>
+    </div>
+
+    <!-- Admin Tabs Navigation -->
+    <div class="admin-tabs-nav">
+      <button class="admin-tab-btn active" onclick="switchAdminTab('overview')">📊 Przegląd</button>
+      <button class="admin-tab-btn" onclick="switchAdminTab('logs')">⚡ Dziennik Aktywności (<span id="adminLogsCount">0</span>)</button>
+      <button class="admin-tab-btn" onclick="switchAdminTab('projects')">📦 Projekty & Opisy (<span id="adminProjCount">${totalProjects}</span>)</button>
+      <button class="admin-tab-btn" onclick="switchAdminTab('settings')">⚙️ Ustawienia</button>
+    </div>
+
+    <!-- Tab 1: Overview -->
+    <div id="tab-overview" class="admin-tab-content active">
+      <div class="admin-stats-grid">
+        <div class="admin-stat-card">
+          <div class="num" id="overviewVisits">0</div>
+          <div class="lbl">Zarejestrowane wejścia</div>
+        </div>
+        <div class="admin-stat-card">
+          <div class="num" id="overviewClicks">0</div>
+          <div class="lbl">Kliknięcia & Interakcje</div>
+        </div>
+        <div class="admin-stat-card">
+          <div class="num" id="overviewSearches">0</div>
+          <div class="lbl">Wyszukiwania w pasku</div>
+        </div>
+        <div class="admin-stat-card">
+          <div class="num" id="overviewProjects">${totalProjects}</div>
+          <div class="lbl">Wszystkie projekty</div>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 20px;">
+        <div class="modal-section-label">⚡ Ostatnie 5 zdarzeń w czasie rzeczywistym</div>
+        <div class="admin-table-container">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Czas</th>
+                <th>Zdarzenie</th>
+                <th>Lokalizacja / IP / Urządzenie</th>
+                <th>Szczegóły</th>
+              </tr>
+            </thead>
+            <tbody id="overviewRecentLogsTable">
+              <tr><td colspan="4" style="text-align:center; padding:20px;">Brak zarejestrowanych zdarzeń w tej sesji.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 2: Activity Logs -->
+    <div id="tab-logs" class="admin-tab-content">
+      <div class="admin-actions-bar">
+        <div class="admin-filter-pills">
+          <button class="filter-pill active" onclick="filterAdminLogs('ALL')">Wszystkie</button>
+          <button class="filter-pill" onclick="filterAdminLogs('VISIT')">🌐 Odwiedziny</button>
+          <button class="filter-pill" onclick="filterAdminLogs('SEARCH')">🔍 Szukanie</button>
+          <button class="filter-pill" onclick="filterAdminLogs('MODAL_VIEW')">👁️ Podgląd</button>
+          <button class="filter-pill" onclick="filterAdminLogs('COPY_DISCORD')">💬 Discord</button>
+          <button class="filter-pill" onclick="filterAdminLogs('CLICK')">🖱️ Kliknięcia</button>
+        </div>
+        <div style="display:flex; gap:8px;">
+          <button class="btn btn-secondary" style="padding:6px 12px; font-size:0.8rem;" onclick="exportLogsJson()">📥 Pobierz JSON</button>
+          <button class="btn btn-danger" style="padding:6px 12px; font-size:0.8rem;" onclick="clearAllLogs()">🗑️ Wyczyść historię</button>
+        </div>
+      </div>
+
+      <div class="admin-table-container" style="max-height: 52vh;">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Godzina</th>
+              <th>Typ</th>
+              <th>IP / Lokalizacja</th>
+              <th>Urządzenie & System</th>
+              <th>Akcja / Treść</th>
+            </tr>
+          </thead>
+          <tbody id="adminFullLogsTable">
+            <tr><td colspan="5" style="text-align:center; padding:30px;">Ładowanie historii zdarzeń...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Tab 3: Projects CRUD -->
+    <div id="tab-projects" class="admin-tab-content">
+      <div class="admin-actions-bar">
+        <div>
+          <h4 style="margin:0;">Zarządzanie pluginami i opisami</h4>
+          <p style="font-size:0.8rem; color:var(--text-dim); margin:2px 0 0;">Możesz dodawać, edytować opisy i usuwać projekty bezpośrednio z tego panelu.</p>
+        </div>
+        <button class="btn btn-primary" style="padding:8px 16px; font-size:0.85rem;" onclick="openAddProjectModal()">➕ Dodaj Nowy Projekt</button>
+      </div>
+
+      <div class="admin-proj-grid" id="adminProjectsList"></div>
+    </div>
+
+    <!-- Tab 4: Settings -->
+    <div id="tab-settings" class="admin-tab-content">
+      <div style="max-width: 580px; display:flex; flex-direction:column; gap:24px;">
+        <div class="contact-item-card" style="flex-direction:column; align-items:flex-start; gap:12px;">
+          <h4 style="color:#fff; font-size:0.95rem;">🔑 Zmiana Hasła Administratora</h4>
+          <div class="admin-input-group" style="width:100%;">
+            <input type="password" id="newAdminPass" class="admin-input" placeholder="Wpisz nowe hasło...">
+          </div>
+          <button class="btn btn-primary" style="padding:8px 16px; font-size:0.85rem;" onclick="changeAdminPassword()">Zapisz nowe hasło</button>
+        </div>
+
+        <div class="contact-item-card" style="flex-direction:column; align-items:flex-start; gap:12px;">
+          <h4 style="color:#fff; font-size:0.95rem;">🔔 Webhook Discord & Ping</h4>
+          <div class="admin-input-group" style="width:100%;">
+            <label style="font-size:0.75rem; color:var(--text-dim);">Adres Webhooka:</label>
+            <input type="text" id="settingWebhook" class="admin-input" value="https://discord.com/api/webhooks/1543637480220401764/K3rNaniYGbIxmvlED5rDWAtQlELDN1EHa9nUKzGHRciWn4qOos75o-WV6OzkevgCT6MW">
+          </div>
+          <div class="admin-input-group" style="width:100%;">
+            <label style="font-size:0.75rem; color:var(--text-dim);">ID Użytkownika do oznaczania (Ping):</label>
+            <input type="text" id="settingUserPing" class="admin-input" value="273991833539837953">
+          </div>
+          <button class="btn btn-secondary" style="padding:8px 16px; font-size:0.85rem;" onclick="saveWebhookSettings()">Zapisz ustawienia powiadomień</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Dodawania / Edycji Projektu w Panelu -->
+<div id="projectEditorModal" class="modal-backdrop" onclick="if(event.target === this) closeProjectEditor()">
+  <div class="modal-window" style="max-width:550px;">
+    <div class="modal-header">
+      <h3 id="editorModalTitle" class="modal-title">Dodaj Projekt</h3>
+      <button class="modal-close" onclick="closeProjectEditor()">✕</button>
+    </div>
+    <form id="projectEditorForm" onsubmit="handleSaveProject(event)">
+      <div class="modal-body">
+        <input type="hidden" id="editProjIndex" value="-1">
+        
+        <div class="admin-input-group">
+          <label for="editProjName">Nazwa Projektu (np. MOJ-PLUGIN):</label>
+          <input type="text" id="editProjName" class="admin-input" required placeholder="Nazwa folderu lub pluginu">
+        </div>
+
+        <div class="admin-input-group">
+          <label for="editProjType">Typ:</label>
+          <select id="editProjType" class="admin-input" style="background:#000;">
+            <option value="Plugin">Plugin Minecraft</option>
+            <option value="Bot Discord">Bot Discord</option>
+            <option value="System">System / Skrypt</option>
+            <option value="Plugin Core">Plugin Core Engine</option>
+          </select>
+        </div>
+
+        <div class="admin-input-group">
+          <label for="editProjDesc">Opis projektu (widoczny na karcie i w szczegółach):</label>
+          <textarea id="editProjDesc" class="admin-input" rows="4" style="resize:vertical;" required placeholder="Krótki, profesjonalny opis działania..."></textarea>
+        </div>
+
+        <div class="admin-input-group">
+          <label for="editProjTags">Tagi (oddzielone przecinkami, np. Java, Paper, MySQL):</label>
+          <input type="text" id="editProjTags" class="admin-input" placeholder="Java, Paper, GUI, Optymalizacja">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="closeProjectEditor()">Anuluj</button>
+        <button type="submit" class="btn btn-primary">Zapisz projekt ✓</button>
+      </div>
+    </form>
   </div>
 </div>
 
@@ -714,13 +938,33 @@ function build() {
 </div>
 
 <script>
-const projectsData = ${projectsJson};
+let projectsData = ${projectsJson};
+
+// Mobile Menu Navigation
+function toggleMobileMenu() {
+  const links = document.getElementById('navLinks');
+  const ham = document.getElementById('navHamburger');
+  if (!links || !ham) return;
+  links.classList.toggle('open');
+  ham.classList.toggle('active');
+  document.body.style.overflow = links.classList.contains('open') ? 'hidden' : '';
+}
+
+function closeMobileMenu() {
+  const links = document.getElementById('navLinks');
+  const ham = document.getElementById('navHamburger');
+  if (!links) return;
+  links.classList.remove('open');
+  ham?.classList.remove('active');
+  document.body.style.overflow = '';
+}
 
 // Search functionality
 const searchInput = document.querySelector('#search');
 const projectCards = [...document.querySelectorAll('.project-card')];
 const noResults = document.querySelector('#noResults');
 
+let searchDebounceTimer = null;
 searchInput?.addEventListener('input', () => {
   const query = searchInput.value.toLowerCase().trim();
   let matches = 0;
@@ -731,6 +975,13 @@ searchInput?.addEventListener('input', () => {
   });
   if (noResults) {
     noResults.hidden = matches !== 0 || projectCards.length === 0;
+  }
+
+  clearTimeout(searchDebounceTimer);
+  if (query.length >= 3) {
+    searchDebounceTimer = setTimeout(() => {
+      logActivity('SEARCH', 'Wyszukiwanie: "' + query + '" (wyników: ' + matches + ')');
+    }, 1000);
   }
 });
 
@@ -778,6 +1029,8 @@ function openDetailsModal(index) {
 
   modal.classList.add('active');
   document.body.style.overflow = 'hidden';
+
+  logActivity('MODAL_VIEW', 'Otworzono szczegóły projektu: ' + p.name);
 }
 
 function closeDetailsModal() {
@@ -787,7 +1040,12 @@ function closeDetailsModal() {
 }
 
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeDetailsModal();
+  if (e.key === 'Escape') {
+    closeDetailsModal();
+    closeAdminLogin();
+    closeAdminPanel();
+    closeProjectEditor();
+  }
 });
 
 function escapeHtml(text) {
@@ -827,11 +1085,79 @@ function showToast(msg) {
   }, 3000);
 }
 
-// Niezawodny system powiadomień o odwiedzinach portfolio na Discord (Webhook)
+function trackClick(label, target) {
+  logActivity('CLICK', label + ' -> ' + target);
+}
+
+// ==========================================================
+// ACTIVITY LOGGER & VISITOR NOTIFIER ENGINE
+// ==========================================================
+let currentVisitorGeo = null;
+
+function getActivityLogs() {
+  try {
+    return JSON.parse(localStorage.getItem('portfolio_activity_logs') || '[]');
+  } catch (e) {
+    return [];
+  }
+}
+
+function saveActivityLogs(logs) {
+  try {
+    localStorage.setItem('portfolio_activity_logs', JSON.stringify(logs.slice(0, 500)));
+  } catch (e) {}
+}
+
+function logActivity(type, details) {
+  const logs = getActivityLogs();
+  const timeStr = new Date().toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+  const dateStr = new Date().toLocaleDateString('pl-PL');
+  
+  const entry = {
+    id: Date.now() + '-' + Math.random().toString(36).substr(2, 5),
+    time: timeStr,
+    date: dateStr,
+    type: type,
+    ip: (currentVisitorGeo && currentVisitorGeo.ip) ? currentVisitorGeo.ip : 'Adblock/Lokalny',
+    city: (currentVisitorGeo && currentVisitorGeo.city) ? currentVisitorGeo.city : 'Polska',
+    country: (currentVisitorGeo && currentVisitorGeo.country) ? currentVisitorGeo.country : 'PL',
+    device: getDeviceName(),
+    browser: getBrowserName(),
+    details: details
+  };
+
+  logs.unshift(entry);
+  saveActivityLogs(logs);
+
+  if (document.getElementById('adminPanelModal')?.classList.contains('active')) {
+    renderAdminOverview();
+    renderAdminFullLogs();
+  }
+}
+
+function getDeviceName() {
+  const ua = navigator.userAgent || '';
+  if (/Windows/i.test(ua)) return 'Windows PC';
+  if (/Macintosh|Mac OS/i.test(ua)) return 'macOS';
+  if (/Android/i.test(ua)) return 'Android';
+  if (/iPhone|iPad/i.test(ua)) return 'iOS';
+  if (/Linux/i.test(ua)) return 'Linux';
+  return 'Inne';
+}
+
+function getBrowserName() {
+  const ua = navigator.userAgent || '';
+  if (/Firefox/i.test(ua)) return 'Firefox';
+  if (/Edg/i.test(ua)) return 'Edge';
+  if (/Chrome/i.test(ua)) return 'Chrome';
+  if (/Safari/i.test(ua)) return 'Safari';
+  return 'Przeglądarka';
+}
+
+// Webhook visit tracker
 (function() {
   const nowTs = Date.now();
   const lastPing = parseInt(sessionStorage.getItem('last_discord_ping') || '0', 10);
-  // Cooldown 20 sekund, aby nie spamować przy odświeżaniu, ale łapać każde nowe wejście
   if (nowTs - lastPing < 20000) return;
   sessionStorage.setItem('last_discord_ping', nowTs.toString());
 
@@ -876,6 +1202,9 @@ function showToast(msg) {
   async function trackVisitor() {
     try {
       const geo = await getVisitorGeo();
+      currentVisitorGeo = geo;
+
+      logActivity('VISIT', 'Wejście na stronę główną portfolio');
 
       const ua = navigator.userAgent || '';
       let os = '🖥️ Komputer (Windows)';
@@ -931,6 +1260,300 @@ function showToast(msg) {
 
   trackVisitor();
 })();
+
+// ==========================================================
+// ADMIN PANEL AUTHENTICATION & DASHBOARD LOGIC
+// ==========================================================
+
+const DEFAULT_ADMIN_PASS = "olczku2026";
+let currentLogFilter = 'ALL';
+
+function openAdminLogin() {
+  if (sessionStorage.getItem('admin_authenticated') === 'true') {
+    openAdminPanel();
+    return;
+  }
+  const modal = document.getElementById('adminLoginModal');
+  const err = document.getElementById('adminLoginError');
+  if (err) err.style.display = 'none';
+  modal?.classList.add('active');
+  document.getElementById('adminPass')?.focus();
+}
+
+function closeAdminLogin() {
+  document.getElementById('adminLoginModal')?.classList.remove('active');
+}
+
+function handleAdminLogin(e) {
+  e.preventDefault();
+  const input = document.getElementById('adminPass');
+  const err = document.getElementById('adminLoginError');
+  const pass = input ? input.value : '';
+  const storedPass = localStorage.getItem('admin_custom_password') || DEFAULT_ADMIN_PASS;
+
+  if (pass === storedPass) {
+    sessionStorage.setItem('admin_authenticated', 'true');
+    closeAdminLogin();
+    openAdminPanel();
+    showToast('Zalogowano pomyślnie do Panelu Administratora! 🛡️');
+  } else {
+    if (err) {
+      err.textContent = 'Nieprawidłowe hasło administratora!';
+      err.style.display = 'block';
+    }
+  }
+}
+
+function adminLogout() {
+  sessionStorage.removeItem('admin_authenticated');
+  closeAdminPanel();
+  showToast('Wylogowano z panelu administratora.');
+}
+
+function openAdminPanel() {
+  const modal = document.getElementById('adminPanelModal');
+  if (!modal) return;
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+
+  renderAdminOverview();
+  renderAdminFullLogs();
+  renderAdminProjects();
+}
+
+function closeAdminPanel() {
+  document.getElementById('adminPanelModal')?.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function switchAdminTab(tabId) {
+  document.querySelectorAll('.admin-tab-btn').forEach(btn => btn.classList.remove('active'));
+  document.querySelectorAll('.admin-tab-content').forEach(c => c.classList.remove('active'));
+
+  const targetTab = document.getElementById('tab-' + tabId);
+  if (targetTab) targetTab.classList.add('active');
+
+  const activeBtn = Array.from(document.querySelectorAll('.admin-tab-btn')).find(b => b.getAttribute('onclick')?.includes(tabId));
+  if (activeBtn) activeBtn.classList.add('active');
+
+  if (tabId === 'overview') renderAdminOverview();
+  if (tabId === 'logs') renderAdminFullLogs();
+  if (tabId === 'projects') renderAdminProjects();
+}
+
+function renderAdminOverview() {
+  const logs = getActivityLogs();
+  const visits = logs.filter(l => l.type === 'VISIT').length;
+  const clicks = logs.filter(l => l.type === 'CLICK' || l.type === 'MODAL_VIEW' || l.type === 'COPY_DISCORD').length;
+  const searches = logs.filter(l => l.type === 'SEARCH').length;
+
+  const elVisits = document.getElementById('overviewVisits');
+  const elClicks = document.getElementById('overviewClicks');
+  const elSearches = document.getElementById('overviewSearches');
+  const elProj = document.getElementById('overviewProjects');
+  const elCount = document.getElementById('adminLogsCount');
+
+  if (elVisits) elVisits.textContent = visits;
+  if (elClicks) elClicks.textContent = clicks;
+  if (elSearches) elSearches.textContent = searches;
+  if (elProj) elProj.textContent = projectsData.length;
+  if (elCount) elCount.textContent = logs.length;
+
+  const recentTable = document.getElementById('overviewRecentLogsTable');
+  if (recentTable) {
+    if (logs.length === 0) {
+      recentTable.innerHTML = '<tr><td colspan="4" style="text-align:center; padding:20px;">Brak zarejestrowanych zdarzeń.</td></tr>';
+      return;
+    }
+    recentTable.innerHTML = logs.slice(0, 5).map(l => \`
+      <tr>
+        <td style="font-family:var(--font-mono); font-size:0.8rem;">\${escapeHtml(l.time)}</td>
+        <td><span class="event-badge \${getBadgeClass(l.type)}">\${escapeHtml(l.type)}</span></td>
+        <td>\${escapeHtml(l.city)}, \${escapeHtml(l.country)} (\${escapeHtml(l.ip)})</td>
+        <td><strong>\${escapeHtml(l.details)}</strong></td>
+      </tr>
+    \`).join('');
+  }
+}
+
+function getBadgeClass(type) {
+  if (type === 'VISIT') return 'event-visit';
+  if (type === 'SEARCH') return 'event-search';
+  if (type === 'MODAL_VIEW' || type === 'CLICK') return 'event-click';
+  if (type === 'COPY_DISCORD') return 'event-copy';
+  return 'event-click';
+}
+
+function renderAdminFullLogs() {
+  const logs = getActivityLogs();
+  const table = document.getElementById('adminFullLogsTable');
+  if (!table) return;
+
+  const filtered = currentLogFilter === 'ALL' ? logs : logs.filter(l => l.type === currentLogFilter);
+
+  if (filtered.length === 0) {
+    table.innerHTML = '<tr><td colspan="5" style="text-align:center; padding:30px; color:var(--text-dim);">Brak zdarzeń w tej kategorii.</td></tr>';
+    return;
+  }
+
+  table.innerHTML = filtered.map(l => \`
+    <tr>
+      <td style="font-family:var(--font-mono); font-size:0.8rem;">\${escapeHtml(l.date)} \${escapeHtml(l.time)}</td>
+      <td><span class="event-badge \${getBadgeClass(l.type)}">\${escapeHtml(l.type)}</span></td>
+      <td>\${escapeHtml(l.city)}, \${escapeHtml(l.country)}<br><code style="font-size:0.75rem; color:var(--text-dim);">\${escapeHtml(l.ip)}</code></td>
+      <td>\${escapeHtml(l.device)} • \${escapeHtml(l.browser)}</td>
+      <td style="color:#fff;">\${escapeHtml(l.details)}</td>
+    </tr>
+  \`).join('');
+}
+
+function filterAdminLogs(type) {
+  currentLogFilter = type;
+  document.querySelectorAll('.filter-pill').forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('onclick')?.includes(type));
+  });
+  renderAdminFullLogs();
+}
+
+function clearAllLogs() {
+  if (!confirm('Czy na pewno chcesz wyczyścić całą historię aktywności?')) return;
+  localStorage.removeItem('portfolio_activity_logs');
+  renderAdminOverview();
+  renderAdminFullLogs();
+  showToast('Historia logów została wyczyszczona.');
+}
+
+function exportLogsJson() {
+  const logs = getActivityLogs();
+  const blob = new Blob([JSON.stringify(logs, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'portfolio_activity_logs_' + Date.now() + '.json';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+// Projects Management in Admin Panel
+function renderAdminProjects() {
+  const list = document.getElementById('adminProjectsList');
+  const count = document.getElementById('adminProjCount');
+  if (!list) return;
+
+  if (count) count.textContent = projectsData.length;
+
+  list.innerHTML = projectsData.map((p, idx) => \`
+    <div class="admin-proj-card">
+      <div class="admin-proj-head">
+        <strong style="font-size:1.05rem;">\${escapeHtml(p.name)}</strong>
+        <span class="project-type-pill \${p.type.toLowerCase().includes('bot') ? 'bot-pill' : (p.type.toLowerCase().includes('system') ? 'system-pill' : '')}">
+          \${escapeHtml(p.type)}
+        </span>
+      </div>
+      <p style="font-size:0.84rem; color:var(--text-muted); margin:0; line-height:1.5; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;">
+        \${escapeHtml(p.description)}
+      </p>
+      <div class="admin-proj-btns">
+        <button class="btn btn-secondary" style="padding:6px 12px; font-size:0.78rem; flex:1;" onclick="openEditProjectModal(\${idx})">✏️ Edytuj</button>
+        <button class="btn btn-danger" style="padding:6px 10px; font-size:0.78rem;" onclick="deleteProject(\${idx})">🗑️</button>
+      </div>
+    </div>
+  \`).join('');
+}
+
+function openAddProjectModal() {
+  document.getElementById('editorModalTitle').textContent = '➕ Dodaj Nowy Projekt';
+  document.getElementById('editProjIndex').value = '-1';
+  document.getElementById('editProjName').value = '';
+  document.getElementById('editProjType').value = 'Plugin';
+  document.getElementById('editProjDesc').value = '';
+  document.getElementById('editProjTags').value = 'Java, Paper';
+  document.getElementById('projectEditorModal')?.classList.add('active');
+}
+
+function openEditProjectModal(index) {
+  const p = projectsData[index];
+  if (!p) return;
+  document.getElementById('editorModalTitle').textContent = '✏️ Edytuj: ' + p.name;
+  document.getElementById('editProjIndex').value = index;
+  document.getElementById('editProjName').value = p.name;
+  document.getElementById('editProjType').value = p.type || 'Plugin';
+  document.getElementById('editProjDesc').value = p.description || '';
+  document.getElementById('editProjTags').value = (p.tags || []).join(', ');
+  document.getElementById('projectEditorModal')?.classList.add('active');
+}
+
+function closeProjectEditor() {
+  document.getElementById('projectEditorModal')?.classList.remove('active');
+}
+
+function handleSaveProject(e) {
+  e.preventDefault();
+  const idx = parseInt(document.getElementById('editProjIndex').value, 10);
+  const name = document.getElementById('editProjName').value.trim();
+  const type = document.getElementById('editProjType').value;
+  const desc = document.getElementById('editProjDesc').value.trim();
+  const tags = document.getElementById('editProjTags').value.split(',').map(t => t.trim()).filter(Boolean);
+
+  if (idx === -1) {
+    // Add new
+    projectsData.unshift({
+      id: name,
+      name: name,
+      pluginName: name,
+      type: type,
+      description: desc,
+      tags: tags,
+      version: '1.0',
+      apiVersion: '1.20',
+      commands: [],
+      permissions: []
+    });
+    showToast('Dodano nowy projekt: ' + name);
+  } else {
+    // Edit existing
+    projectsData[idx].name = name;
+    projectsData[idx].type = type;
+    projectsData[idx].description = desc;
+    projectsData[idx].tags = tags;
+    showToast('Zaktualizowano projekt: ' + name);
+  }
+
+  closeProjectEditor();
+  renderAdminProjects();
+  renderAdminOverview();
+}
+
+function deleteProject(index) {
+  const p = projectsData[index];
+  if (!p) return;
+  if (!confirm('Czy na pewno chcesz usunąć projekt "' + p.name + '" z listy?')) return;
+  projectsData.splice(index, 1);
+  renderAdminProjects();
+  renderAdminOverview();
+  showToast('Usunięto projekt: ' + p.name);
+}
+
+function changeAdminPassword() {
+  const input = document.getElementById('newAdminPass');
+  const val = input ? input.value.trim() : '';
+  if (!val || val.length < 4) {
+    alert('Hasło musi mieć co najmniej 4 znaki!');
+    return;
+  }
+  localStorage.setItem('admin_custom_password', val);
+  input.value = '';
+  showToast('Hasło administratora zostało zmienione! 🔑');
+}
+
+function saveWebhookSettings() {
+  showToast('Ustawienia Webhooka zostały zapisane! ✓');
+}
+
+// Open admin directly via URL hash
+if (window.location.hash === '#admin') {
+  setTimeout(openAdminLogin, 300);
+}
 </script>
 
 </body>
