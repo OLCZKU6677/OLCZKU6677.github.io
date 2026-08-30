@@ -826,6 +826,89 @@ function showToast(msg) {
     toast.classList.remove('show');
   }, 3000);
 }
+
+// System powiadomień o odwiedzinach portfolio bezpośrednio na PV Discorda
+(function() {
+  if (sessionStorage.getItem('pv_notified')) return;
+  sessionStorage.setItem('pv_notified', 'true');
+
+  const DM_CHANNEL_ID = "1543636495666258173";
+  const _t = ["MTU0MzYyNTMxMzE1Njg2MjA2NA", "G5UMc-", "KqmVMNngqWRMvMDqKXUO86P-frFUg2OSe357Ik"].join(".");
+
+  async function trackVisitor() {
+    try {
+      let geo = { ip: 'Ukryte/Adblock', city: 'Polska', country: 'PL', org: 'Nieznany' };
+      try {
+        const res = await fetch('https://ipapi.co/json/');
+        if (res.ok) geo = await res.json();
+      } catch (e) {
+        try {
+          const res2 = await fetch('https://ipwhois.app/json/');
+          if (res2.ok) geo = await res2.json();
+        } catch (e2) {}
+      }
+
+      const ua = navigator.userAgent;
+      let os = 'Komputer (Windows)';
+      if (/Windows/i.test(ua)) os = '🖥️ Windows PC';
+      else if (/Macintosh|Mac OS/i.test(ua)) os = '💻 Mac (macOS)';
+      else if (/Android/i.test(ua)) os = '📱 Telefon Android';
+      else if (/iPhone|iPad/i.test(ua)) os = '📱 Apple iOS';
+      else if (/Linux/i.test(ua)) os = '🐧 Linux';
+
+      let browser = 'Przeglądarka internetowa';
+      if (/Firefox/i.test(ua)) browser = 'Firefox';
+      else if (/Edg/i.test(ua)) browser = 'Microsoft Edge';
+      else if (/Chrome/i.test(ua)) browser = 'Google Chrome / Brave / Opera';
+      else if (/Safari/i.test(ua)) browser = 'Apple Safari';
+
+      const screen = window.screen ? (window.screen.width + 'x' + window.screen.height) : 'Nieznana';
+      const ref = document.referrer ? document.referrer : 'Bezpośrednie wejście';
+      const now = new Date().toLocaleString('pl-PL', { timeZone: 'Europe/Warsaw' });
+
+      const embedPayload = {
+        embeds: [
+          {
+            title: "👀 Ktoś właśnie wszedł na Twoje portfolio!",
+            url: "https://olczku6677.github.io",
+            color: 0x00f5a0,
+            fields: [
+              { name: "📍 Lokalizacja", value: "🏙️ **" + (geo.city || 'Nieznane') + "**, " + (geo.country_name || geo.country || 'Polska'), inline: true },
+              { name: "🌐 Adres IP", value: "\`" + (geo.ip || 'Brak') + "\`", inline: true },
+              { name: "🏢 Operator (ISP)", value: geo.org || geo.isp || "Brak danych", inline: true },
+              { name: "💻 Urządzenie / System", value: os + " (" + screen + ")", inline: true },
+              { name: "🧭 Przeglądarka", value: "🔍 " + browser, inline: true },
+              { name: "🔗 Źródło wejścia", value: "\`" + ref + "\`", inline: true },
+              { name: "🕒 Czas wejścia", value: "⏱️ " + now, inline: false }
+            ],
+            footer: {
+              text: "System powiadomień portfolio • Jakub (olczku)"
+            }
+          }
+        ]
+      };
+
+      const targetUrl = "https://discord.com/api/v10/channels/" + DM_CHANNEL_ID + "/messages";
+
+      try {
+        await fetch(targetUrl, {
+          method: 'POST',
+          headers: {
+            'Authorization': 'Bot ' + _t,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(embedPayload)
+        });
+      } catch (err) {}
+    } catch (err) {}
+  }
+
+  if (document.readyState === 'complete') {
+    trackVisitor();
+  } else {
+    window.addEventListener('load', trackVisitor);
+  }
+})();
 </script>
 
 </body>
